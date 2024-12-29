@@ -969,6 +969,30 @@ class LeetCode75 {
 
     }
 
+    fun nextGreaterElement(nums1: IntArray, nums2: IntArray): IntArray {
+            val stack = ArrayDeque<Int>() // Monotonic decreasing stack
+            val nextGreaterMap = mutableMapOf<Int, Int>() // Map to store next greater element for nums2 elements
+
+            // Traverse nums2 from right to left
+            for (num in nums2.reversed()) {
+                // Remove elements from stack that are smaller than or equal to current number
+                while (stack.isNotEmpty() && stack.last() <= num) {
+                    stack.removeLast()
+                }
+
+                // If stack is not empty, the top of the stack is the next greater element
+                nextGreaterMap[num] = if (stack.isNotEmpty()) stack.last() else -1
+
+                // Push the current number onto the stack
+                stack.addLast(num)
+            }
+
+            // Build the result for nums1 using the precomputed map
+            return nums1.map { nextGreaterMap[it] ?: -1 }.toIntArray()
+
+
+    }
+
     class NumArray(nums: IntArray){
         private val prefix: IntArray=IntArray(nums.size)
 

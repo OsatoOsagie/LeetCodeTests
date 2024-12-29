@@ -562,6 +562,20 @@ class LeetCode75Test{
         assertArrayEquals(expectation,result)
     }
 
+    @Test
+    fun nextGreatestElement(){
+//        given
+        val nums1= intArrayOf(4,1,2)
+        val nums2= intArrayOf(1,3,4,2)
+
+//        when
+        val result:IntArray = LeetCode75().nextGreaterElement(nums1, nums2)
+
+//        then
+        val expectation = intArrayOf(-1,3,-1)
+        assertArrayEquals(expectation,result)
+    }
+
 
 
 
