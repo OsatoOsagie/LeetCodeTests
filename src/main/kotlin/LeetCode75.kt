@@ -1038,19 +1038,25 @@ class LeetCode75 {
         private val list= mutableListOf<Int>()
 
 
-        fun next(price: Int): Int {
-            list.add(price)
-            var count =1
 
-            for (i in 0 until list.size){
-                while (stack.isNotEmpty() && stack.last() <= price){
+        fun next(price: Int): Int {
+             val currentIndex= list.size
+            list.add(price)
+
+                while (stack.isNotEmpty() && list[stack.last()] <= price) {
                     stack.removeLast()
-                    count++
                 }
-                stack.addLast(list.get(i))
+
+            val ans = if (stack.isNotEmpty()) {
+                currentIndex - stack.last()
+            } else {
+                currentIndex + 1 // All previous prices are smaller
             }
 
-            return count
+            // Add the current index to the stack
+            stack.addLast(currentIndex)
+
+            return ans
 
         }
 

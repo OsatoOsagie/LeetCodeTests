@@ -540,8 +540,7 @@ class LeetCode75Test{
         stockSpanner.next(60)
         stockSpanner.next(70)
         stockSpanner.next(60)
-        stockSpanner.next(75)
-        val result:Int = LeetCode75.StockSpanner().next(price)
+        val result:Int = stockSpanner.next(75)
 
 //        then
         val expectation= 4
