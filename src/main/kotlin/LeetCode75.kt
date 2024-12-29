@@ -944,6 +944,31 @@ class LeetCode75 {
 
     }
 
+    fun finalPrices(prices: IntArray): IntArray {
+        val ans = IntArray(prices.size)
+        val stack = ArrayDeque<Int>()
+
+        for (num in prices.indices){
+//            println(num)
+
+            while (stack.isNotEmpty() && prices[stack.last()] >= prices[num]){
+                val lastIndex= stack.removeLast()
+                ans[lastIndex]= prices[lastIndex] - prices[num]
+            }
+            stack.addLast(num)
+            println(stack.last())
+        }
+
+        if (stack.isNotEmpty()){
+            for (i in stack){
+                ans[i]=prices[i]
+            }
+        }
+        return ans
+
+
+    }
+
     class NumArray(nums: IntArray){
         private val prefix: IntArray=IntArray(nums.size)
 
@@ -1006,6 +1031,7 @@ class LeetCode75 {
         }
 
     }
+
 
 
 

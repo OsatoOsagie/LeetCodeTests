@@ -548,6 +548,20 @@ class LeetCode75Test{
         assertEquals(expectation, result)
     }
 
+    @Test
+    fun finalPrices(){
+//        given
+        val prices= intArrayOf(10,1,1,6)
+
+//        when
+        val result:IntArray = LeetCode75().finalPrices(prices)
+
+//        then
+        val expectation = intArrayOf(9,0,1,6)
+
+        assertArrayEquals(expectation,result)
+    }
+
 
 
 
