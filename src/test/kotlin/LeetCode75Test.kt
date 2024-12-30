@@ -575,6 +575,46 @@ class LeetCode75Test{
         assertArrayEquals(expectation,result)
     }
 
+    @Test
+    fun deleteMiddleNode(){
+//    given
+        var node1= LeetCode75.ListNode(1)
+        var node2= LeetCode75.ListNode(3)
+        var node3 = LeetCode75.ListNode(4)
+        var node4 = LeetCode75.ListNode(7)
+        var node5 = LeetCode75.ListNode(1)
+        var node6 = LeetCode75.ListNode(2)
+        var node7 = LeetCode75.ListNode(6)
+
+        node1.next=node2
+        node2.next=node3
+        node3.next=node4
+        node4.next=node5
+        node5.next=node6
+        node6.next=node7
+
+//    when
+        val result: LeetCode75.ListNode? = LeetCode75().deleteMiddleNode(node1)
+
+//        then
+         node1= LeetCode75.ListNode(1)
+         node2= LeetCode75.ListNode(3)
+         node3 = LeetCode75.ListNode(4)
+         node4 = LeetCode75.ListNode(7)
+         node5 = LeetCode75.ListNode(1)
+         node6 = LeetCode75.ListNode(2)
+         node7 = LeetCode75.ListNode(6)
+
+        node1.next=node2
+        node2.next=node3
+        node3.next=node5
+        node5.next=node6
+        node6.next=node7
+
+        val expectation= node1
+        assertEquals(expectation.`val`, result?.`val`)
+    }
+
 
 
 

@@ -993,6 +993,27 @@ class LeetCode75 {
 
     }
 
+    fun deleteMiddleNode(head: ListNode?): ListNode? {
+        // Edge case: if the list is empty or has only one node
+        if (head == null || head.next == null) return null
+
+        var slow= head
+        var fast= head
+        var prev: ListNode? = null
+
+
+        while (fast != null && fast.next != null){
+            prev=slow
+            slow= slow?.next
+            fast = fast.next?.next
+        }
+
+        prev?.next=prev?.next?.next
+
+        return head
+
+    }
+
     class NumArray(nums: IntArray){
         private val prefix: IntArray=IntArray(nums.size)
 
@@ -1063,7 +1084,10 @@ class LeetCode75 {
     }
 
 
-
+data class ListNode(
+    var `val`: Int,
+    var next:ListNode? =null
+)
 
 
 //    private fun reverse(s: String): String {
@@ -1082,6 +1106,8 @@ class LeetCode75 {
 //        }
 //        return chars.joinToString("")
 //    }
+    companion object {
+    }
 
 
 }
