@@ -1031,7 +1031,7 @@ class LeetCode75 {
 
     }
 
-    fun reverseList(head: LeetCode75.ListNode): LeetCode75.ListNode? {
+    fun reverseList(head: LeetCode75.ListNode?): LeetCode75.ListNode? {
         var prev:ListNode? = null
         var cur:ListNode?= head
 
@@ -1045,6 +1045,56 @@ class LeetCode75 {
         }
 
         return prev
+
+    }
+
+    fun pairSum(head: LeetCode75.ListNode?): Int {
+        if (head == null || head.next == null) return 0
+
+        // Step 1: Find the middle of the list using fast and slow pointers
+        var slow = head
+        var fast = head
+        while (fast != null && fast.next != null) {
+            slow = slow?.next
+            fast = fast.next?.next
+        }
+
+        // Step 2: Reverse the second half of the list
+        var reversedSecondHalf = reverseList(slow)
+
+        // Step 3: Find maximum pair sum
+        var maxSum = 0
+        var firstHalf = head
+        var secondHalf = reversedSecondHalf
+
+        while (secondHalf != null) {
+            val pairSum = firstHalf?.`val`!! + secondHalf.`val`
+            maxSum = maxOf(maxSum, pairSum)
+            firstHalf = firstHalf.next
+            secondHalf = secondHalf.next
+        }
+
+        return maxSum
+
+    }
+
+    fun oddEvenList(head: LeetCode75.ListNode?): LeetCode75.ListNode? {
+
+        var odd=head
+        var even = head?.next
+        var evenHead=even
+
+        while (even !=null && even.next != null){
+
+            odd?.next=odd?.next?.next
+            even.next=even.next?.next
+
+            odd = odd?.next
+            even=even.next
+        }
+        odd?.next=evenHead
+
+        return head
 
     }
 

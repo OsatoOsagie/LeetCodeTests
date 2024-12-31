@@ -666,6 +666,76 @@ class LeetCode75Test{
         assertEquals(expectation.`val`, result?.`val`)
     }
 
+    @Test
+    fun pairSum(){
+//        given
+        var node1= LeetCode75.ListNode(5)
+        var node2= LeetCode75.ListNode(4)
+        var node3= LeetCode75.ListNode(2)
+        var node4= LeetCode75.ListNode(1)
+
+        node1.next = node2
+        node2.next=node3
+        node3.next=node4
+//        when
+        val result:Int= LeetCode75().pairSum(node1)
+
+//        then
+        val expectation= 6
+        assertEquals(expectation,result)
+
+    }
+
+    @Test
+    fun oddEvenList() {
+        // Given
+        val node1 = LeetCode75.ListNode(1)
+        val node2 = LeetCode75.ListNode(2)
+        val node3 = LeetCode75.ListNode(3)
+        val node4 = LeetCode75.ListNode(4)
+        val node5 = LeetCode75.ListNode(5)
+
+        node1.next = node2
+        node2.next = node3
+        node3.next = node4
+        node4.next = node5
+
+        // When
+        val result: LeetCode75.ListNode? = LeetCode75().oddEvenList(node1)
+
+        // Then - Construct the expected result
+        val expectedNode1 = LeetCode75.ListNode(1)
+        val expectedNode2 = LeetCode75.ListNode(3)
+        val expectedNode3 = LeetCode75.ListNode(5)
+        val expectedNode4 = LeetCode75.ListNode(2)
+        val expectedNode5 = LeetCode75.ListNode(4)
+
+        expectedNode1.next = expectedNode2
+        expectedNode2.next = expectedNode3
+        expectedNode3.next = expectedNode4
+        expectedNode4.next = expectedNode5
+
+        val expectation = expectedNode1
+
+        // Helper function to assert equality of linked lists
+        fun assertListEquals(expected: LeetCode75.ListNode?, actual: LeetCode75.ListNode?) {
+            var exp = expected
+            var act = actual
+
+            while (exp != null && act != null) {
+                assertEquals(exp.`val`, act.`val`)
+                exp = exp.next
+                act = act.next
+            }
+
+            // Ensure both lists have the same length
+            assertNull(exp)
+            assertNull(act)
+        }
+
+        assertListEquals(expectation, result)
+    }
+
 
 
 
