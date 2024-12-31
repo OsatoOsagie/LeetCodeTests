@@ -615,6 +615,57 @@ class LeetCode75Test{
         assertEquals(expectation.`val`, result?.`val`)
     }
 
+    @Test
+    fun deleteDuplicates(){
+//        given
+        var node1= LeetCode75.ListNode(1)
+        var node2= LeetCode75.ListNode(1)
+        var node3= LeetCode75.ListNode(2)
+
+        node1.next=node2
+        node2.next= node3
+
+//        when
+        val result:LeetCode75.ListNode?= LeetCode75().deleteDuplicates(node1)
+
+//        then
+         node1= LeetCode75.ListNode(1)
+         node3= LeetCode75.ListNode(2)
+
+        node1.next=node3
+
+        val expectation = node1
+        assertEquals(expectation.`val`,result?.`val`)
+    }
+
+    @Test
+    fun reverseList(){
+//        given
+        var node1= LeetCode75.ListNode(1)
+        var node2= LeetCode75.ListNode(1)
+        var node3= LeetCode75.ListNode(2)
+        var node4= LeetCode75.ListNode(2)
+        var node5= LeetCode75.ListNode(2)
+
+        node1.next = node2
+        node2.next=node3
+        node3.next=node4
+        node4.next=node5
+
+
+
+//        when
+        val result:LeetCode75.ListNode?= LeetCode75().reverseList(node1)
+
+//        then
+        node5.next = node4
+        node4.next=node3
+        node2.next = node1
+
+        val expectation = node5
+        assertEquals(expectation.`val`, result?.`val`)
+    }
+
 
 
 

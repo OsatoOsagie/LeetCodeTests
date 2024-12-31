@@ -1002,7 +1002,7 @@ class LeetCode75 {
         var prev: ListNode? = null
 
 
-        while (fast != null && fast.next != null){
+        while (fast?.next != null){
             prev=slow
             slow= slow?.next
             fast = fast.next?.next
@@ -1013,6 +1013,41 @@ class LeetCode75 {
         return head
 
     }
+
+    fun deleteDuplicates(head: LeetCode75.ListNode): LeetCode75.ListNode? {
+        var x:LeetCode75.ListNode?=head
+
+        while (x?.next != null){
+            if ( x.`val`==x.next?.`val` ){
+                x.next= x.next?.next
+            }else{
+                x=x.next
+            }
+
+
+        }
+
+        return head
+
+    }
+
+    fun reverseList(head: LeetCode75.ListNode): LeetCode75.ListNode? {
+        var prev:ListNode? = null
+        var cur:ListNode?= head
+
+
+        while (cur != null){
+            val nextNode = cur.next
+            cur.next= prev
+            prev= cur
+            cur=nextNode
+
+        }
+
+        return prev
+
+    }
+
 
     class NumArray(nums: IntArray){
         private val prefix: IntArray=IntArray(nums.size)
