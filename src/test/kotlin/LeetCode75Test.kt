@@ -1,6 +1,5 @@
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
-import kotlin.test.expect
 
 class LeetCode75Test{
 
@@ -763,6 +762,103 @@ class LeetCode75Test{
 
 
 
+    @Test
+    fun addTwoNumbers() {
+        // Given
+        val node1 = LeetCode75.ListNode(2)
+        val node2 = LeetCode75.ListNode(4)
+        val node3 = LeetCode75.ListNode(3)
+
+        node1.next = node2
+        node2.next = node3
+
+        val list1 = LeetCode75.ListNode(5)
+        val list2 = LeetCode75.ListNode(6)
+        val list3 = LeetCode75.ListNode(4)
+
+        list1.next = list2
+        list2.next = list3
+
+        // When
+        val result: LeetCode75.ListNode = LeetCode75().addTwoNumbers(node1, list1)
+
+        // Then
+        val expectedNode1 = LeetCode75.ListNode(7)
+        val expectedNode2 = LeetCode75.ListNode(0)
+        val expectedNode3 = LeetCode75.ListNode(8)
+
+        expectedNode1.next = expectedNode2
+        expectedNode2.next = expectedNode3
+
+        fun assertListEquals(expected: LeetCode75.ListNode?, actual: LeetCode75.ListNode?) {
+            var exp = expected
+            var act = actual
+
+            while (exp != null && act != null) {
+                assertEquals(exp.`val`, act.`val`, "Node values are not equal")
+                exp = exp.next
+                act = act.next
+            }
+
+            assertNull(exp, "Expected list is longer")
+            assertNull(act, "Actual list is longer")
+        }
+
+        assertListEquals(expectedNode1, result)
+    }
+
+    @Test
+    fun mergeTwoLists(){
+//        given
+
+        // Given
+        val node1 = LeetCode75.ListNode(1)
+        val node2 = LeetCode75.ListNode(2)
+        val node3 = LeetCode75.ListNode(4)
+
+        node1.next = node2
+        node2.next = node3
+
+        val list1 = LeetCode75.ListNode(1)
+        val list2 = LeetCode75.ListNode(3)
+        val list3 = LeetCode75.ListNode(4)
+
+        list1.next = list2
+        list2.next = list3
+
+//        when
+        val result:LeetCode75.ListNode? = LeetCode75().mergeTwoLists(node1, list1)
+
+//        then
+
+        val expectedNode1 = LeetCode75.ListNode(1)
+        val expectedNode2 = LeetCode75.ListNode(1)
+        val expectedNode3 = LeetCode75.ListNode(2)
+        val expectedNode4 = LeetCode75.ListNode(3)
+        val expectedNode5 = LeetCode75.ListNode(4)
+        val expectedNode6 = LeetCode75.ListNode(4)
+
+        expectedNode1.next = expectedNode2
+        expectedNode2.next = expectedNode3
+        expectedNode3.next = expectedNode4
+        expectedNode5.next = expectedNode6
+
+        fun assertListEquals(expected: LeetCode75.ListNode?, actual: LeetCode75.ListNode?) {
+            var exp = expected
+            var act = actual
+
+            while (exp != null && act != null) {
+                assertEquals(exp.`val`, act.`val`, "Node values are not equal")
+                exp = exp.next
+                act = act.next
+            }
+
+            assertNull(exp, "Expected list is longer")
+            assertNull(act, "Actual list is longer")
+        }
+
+        assertListEquals(expectedNode1, result)
+    }
 
 
 
