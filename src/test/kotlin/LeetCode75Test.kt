@@ -736,6 +736,29 @@ class LeetCode75Test{
         assertListEquals(expectation, result)
     }
 
+    @Test
+    fun hasCycle(){
+//        given
+        val node1 = LeetCode75.ListNode(3)
+        val node2 = LeetCode75.ListNode(2)
+        val node3 = LeetCode75.ListNode(0)
+        val node4 = LeetCode75.ListNode(-4)
+
+        node1.next = node2
+        node2.next = node3
+        node3.next = node4
+
+//        when
+        val result:Boolean = LeetCode75().hasCycle(node1)
+
+//        then
+
+
+
+        val expectation = true
+            assertEquals(expectation,result)
+    }
+
 
 
 

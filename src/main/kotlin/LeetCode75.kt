@@ -1098,6 +1098,31 @@ class LeetCode75 {
 
     }
 
+    fun hasCycle(head: LeetCode75.ListNode?): Boolean {
+
+        if (head ==null || head.next== null){
+            return false
+        }
+
+        var slow=head
+        var fast= head
+
+        while (fast != null && fast.next !=null){
+            slow=slow?.next
+            fast= fast.next?.next
+
+            if (fast == slow){
+                return true
+            }
+
+
+
+
+        }
+        return false
+
+    }
+
 
     class NumArray(nums: IntArray){
         private val prefix: IntArray=IntArray(nums.size)
