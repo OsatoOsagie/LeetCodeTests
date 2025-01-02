@@ -843,21 +843,27 @@ class LeetCode75Test{
         expectedNode3.next = expectedNode4
         expectedNode5.next = expectedNode6
 
-        fun assertListEquals(expected: LeetCode75.ListNode?, actual: LeetCode75.ListNode?) {
-            var exp = expected
-            var act = actual
+    }
 
-            while (exp != null && act != null) {
-                assertEquals(exp.`val`, act.`val`, "Node values are not equal")
-                exp = exp.next
-                act = act.next
-            }
+    @Test
+    fun minDepth(){
+//        given
+        val root= LeetCode75.TreeNode(3)
+        val node1 = LeetCode75.TreeNode(9)
+        val node2 = LeetCode75.TreeNode(20)
+        val node3 = LeetCode75.TreeNode(15)
+        val node4 = LeetCode75.TreeNode(7)
 
-            assertNull(exp, "Expected list is longer")
-            assertNull(act, "Actual list is longer")
-        }
+        root.left=node1
+        root.right= node2
+        node2.left=node3
+        node2.right=node4
+//        when
+        val result:Int=LeetCode75().minDepth(root)
 
-        assertListEquals(expectedNode1, result)
+//        then
+        val expectation = 2
+        assertEquals(expectation,result)
     }
 
 

@@ -9,7 +9,6 @@ import kotlin.collections.indices
 import kotlin.collections.isNotEmpty
 import kotlin.collections.iterator
 import kotlin.collections.joinToString
-import kotlin.collections.linkedMapOf
 import kotlin.collections.max
 import kotlin.collections.mutableListOf
 import kotlin.collections.mutableMapOf
@@ -1031,6 +1030,23 @@ class LeetCode75 {
 
     }
 
+    fun deleteDuplicatesII(head: LeetCode75.ListNode): LeetCode75.ListNode{
+        var x:LeetCode75.ListNode= head
+        val set= mutableSetOf<Int>()
+
+        while (x.next !=null){
+
+            if (x.`val` == x.next?.`val`){
+                x.next=x.next?.next
+                set.add(x.`val`)
+            }else{
+                x= x.next!!
+            }
+        }
+
+       return head
+    }
+
     fun reverseList(head: LeetCode75.ListNode?): LeetCode75.ListNode? {
         var prev:ListNode? = null
         var cur:ListNode?= head
@@ -1169,6 +1185,23 @@ class LeetCode75 {
 
     }
 
+    fun minDepth(root: TreeNode<Int>?): Int {
+        if (root == null){
+            return 0
+        }
+
+        val left= minDepth(root.left)
+        val right = minDepth(root.right)
+
+        // If one child is null, return the depth of the other child + 1
+        if (root.left == null || root.right == null) {
+            return left + right + 1
+        }
+
+        return min(left,right) +1
+
+    }
+
 
     class NumArray(nums: IntArray){
         private val prefix: IntArray=IntArray(nums.size)
@@ -1210,6 +1243,8 @@ class LeetCode75 {
         }
     }
 
+
+
     class StockSpanner(){
         private val stack=ArrayDeque<Int>()
         private val list= mutableListOf<Int>()
@@ -1246,24 +1281,13 @@ data class ListNode(
 )
 
 
-//    private fun reverse(s: String): String {
-//        val chars = s.toCharArray()
-//        var left = 0
-//        var right = chars.size - 1
-//
-//        while (right > left) {
-//
-//            val temp = chars[left]
-//            chars[left] = chars[right]
-//            chars[right] = temp
-//
-//            left++
-//            right--
-//        }
-//        return chars.joinToString("")
-//    }
-    companion object {
-    }
+    data class TreeNode<T>(
+        val `val`: T,
+        var  left: TreeNode<T>? = null,
+        var  right: TreeNode<T>? =null
+    )
+
+
 
 
 }
