@@ -1202,6 +1202,75 @@ class LeetCode75 {
 
     }
 
+    fun leafSimilar(root1: TreeNode<Int>?, root2: TreeNode<Int>?): Boolean {
+        // Helper function to collect leaf values
+        fun getLeafValues(root: TreeNode<Int>?): List<Int> {
+            val leafValues = mutableListOf<Int>()
+
+            fun dfs(node: TreeNode<Int>?) {
+                if (node == null) return
+
+                // If it's a leaf node, add its value
+                if (node.left == null && node.right == null) {
+                    leafValues.add(node.`val`)
+                    return
+                }
+
+                // Recur for left and right subtrees
+                dfs(node.left)
+                dfs(node.right)
+            }
+
+            dfs(root)
+            return leafValues
+        }
+
+        // Get leaf sequences for both trees
+        val leaves1 = getLeafValues(root1)
+        val leaves2 = getLeafValues(root2)
+
+        // Compare the two sequences
+        return leaves1 == leaves2
+    }
+
+    fun goodNodes(root: LeetCode75.TreeNode<Int>?): Int {
+        fun dfs(node: TreeNode<Int>?, maxSoFar: Int): Int{
+            if (node == null){
+                return 0
+            }
+
+            val left= dfs(node.left, max(maxSoFar,node.`val`))
+            val  right = dfs(node.right, max(maxSoFar,node.`val`))
+            var ans= left + right
+            if (node.`val` >= maxSoFar){
+                ans +=1
+            }
+
+            return ans
+        }
+
+        return dfs(root, Int.MIN_VALUE)
+
+    }
+
+    fun invertTree(root: LeetCode75.TreeNode<Int>?): LeetCode75.TreeNode<Int>? {
+
+
+        if (root == null){
+            return null
+        }
+        val temp=root.left
+        root.left=root.right
+        root.right=temp
+
+        invertTree(root.left)
+        invertTree(root.right)
+        return root
+
+
+
+    }
+
 
     class NumArray(nums: IntArray){
         private val prefix: IntArray=IntArray(nums.size)

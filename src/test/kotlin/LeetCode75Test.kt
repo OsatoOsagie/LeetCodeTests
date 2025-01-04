@@ -866,6 +866,100 @@ class LeetCode75Test{
         assertEquals(expectation,result)
     }
 
+    @Test
+    fun leafSimilar(){
+//        given
+        val root= LeetCode75.TreeNode(1)
+        val node1 = LeetCode75.TreeNode(2)
+        val node2 = LeetCode75.TreeNode(3)
+
+
+        root.left=node1
+        root.right= node2
+
+        val root2= LeetCode75.TreeNode(1)
+        val treeNode1 = LeetCode75.TreeNode(3)
+        val treeNode2 = LeetCode75.TreeNode(2)
+
+
+        root2.left=treeNode1
+        root2.right= treeNode2
+
+//        when
+
+        val result:Boolean = LeetCode75().leafSimilar(root,root2)
+
+
+//        then
+        val expectation=false
+        assertEquals(expectation,result)
+    }
+
+    @Test
+    fun goodNodes(){
+//        given
+        val root= LeetCode75.TreeNode(1)
+
+
+//        when
+        val result:Int = LeetCode75().goodNodes(root)
+
+//        then
+        val expectation = 1
+        assertEquals(expectation,result)
+    }
+
+    @Test
+    fun invertTree(){
+//        given
+        val root= LeetCode75.TreeNode(4)
+        val node1 = LeetCode75.TreeNode(2)
+        val node2 = LeetCode75.TreeNode(7)
+        val node3 = LeetCode75.TreeNode(1)
+        val node4 = LeetCode75.TreeNode(3)
+        val node5 = LeetCode75.TreeNode(6)
+        val node6 = LeetCode75.TreeNode(9)
+
+
+        root.left=node1
+        root.right= node2
+        node1.left= node3
+        node1.right= node4
+        node2.left= node5
+        node2.right= node6
+
+//        when
+        val result:LeetCode75.TreeNode<Int>?= LeetCode75().invertTree(root)
+
+//        then
+        val expectedRoot= LeetCode75.TreeNode(4)
+        val expectedNode1 = LeetCode75.TreeNode(2)
+        val expectedNode2 = LeetCode75.TreeNode(7)
+        val expectedNode3 = LeetCode75.TreeNode(1)
+        val expectedNode4 = LeetCode75.TreeNode(3)
+        val expectedNode5 = LeetCode75.TreeNode(6)
+        val expectedNode6 = LeetCode75.TreeNode(9)
+
+        expectedRoot.left=expectedNode2
+        expectedRoot.right=expectedNode1
+        expectedNode1.left=expectedNode4
+        expectedNode1.right=expectedNode3
+        expectedNode2.left=expectedNode6
+        expectedNode2.right = expectedNode5
+
+        assert(areTreesEqual(result, expectedRoot)) { "The inverted tree does not match the expected tree." }
+    }
+
+    private fun areTreesEqual(tree1: LeetCode75.TreeNode<Int>?, tree2: LeetCode75.TreeNode<Int>?): Boolean {
+        if (tree1 == null && tree2 == null) return true // Both trees are null
+        if (tree1 == null || tree2 == null) return false // One tree is null
+
+        // Check the value of the current nodes and recursively check their children
+        return tree1.`val` == tree2.`val` &&
+                areTreesEqual(tree1.left, tree2.left) &&
+                areTreesEqual(tree1.right, tree2.right)
+    }
+
 
 
 }
