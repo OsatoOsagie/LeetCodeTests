@@ -1271,6 +1271,41 @@ class LeetCode75 {
 
     }
 
+    fun isHappy(n: Int): Boolean {
+        val seen = mutableSetOf<Int>()
+        var num =n
+
+
+
+
+        while ( !seen.contains(num)){
+            seen.add(num)
+            num=squareDigits(num)
+
+            if (num == 1){
+                return true
+            }
+
+
+        }
+
+        return !seen.contains(num)
+
+
+    }
+
+     fun squareDigits(n: Int):Int{
+        var num=n
+        var sum=0
+
+        while (num !=0){
+            val x= num%10
+            num /=10
+            sum += x*x
+        }
+        return sum
+    }
+
 
     class NumArray(nums: IntArray){
         private val prefix: IntArray=IntArray(nums.size)

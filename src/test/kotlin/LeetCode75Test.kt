@@ -950,6 +950,32 @@ class LeetCode75Test{
         assert(areTreesEqual(result, expectedRoot)) { "The inverted tree does not match the expected tree." }
     }
 
+
+    @Test
+    fun isHappy(){
+//        given
+        val n= 2
+
+//        when
+        val result:Boolean = LeetCode75().isHappy(n)
+
+//        then
+        val expectation =false
+        assertEquals(expectation,result)
+    }
+
+    @Test
+    fun square(){
+//        given
+        val num=82
+//        when
+        val result = LeetCode75().squareDigits(num)
+
+//        then
+        val expectation= 68
+        assertEquals(expectation, result)
+    }
+
     private fun areTreesEqual(tree1: LeetCode75.TreeNode<Int>?, tree2: LeetCode75.TreeNode<Int>?): Boolean {
         if (tree1 == null && tree2 == null) return true // Both trees are null
         if (tree1 == null || tree2 == null) return false // One tree is null
