@@ -976,6 +976,35 @@ class LeetCode75Test{
         assertEquals(expectation, result)
     }
 
+    @Test
+    fun summaryRanges(){
+//        given
+        val nums = intArrayOf(0,1,2,4,5,7)
+
+//        when
+        val result:List<String> = LeetCode75().summaryRanges(nums)
+
+//        then
+        val expectation = listOf("0->2","4->5","7")
+
+        assertEquals(expectation,result)
+    }
+
+    @Test
+    fun rotate(){
+//        given
+        val nums= intArrayOf(1,2,3,4,5,6,7)
+        val k=3
+
+//        when
+        val result:Unit = LeetCode75().rotate(nums, k)
+
+//        then
+        val expectation = intArrayOf(5,6,7,1,2,3,4)
+
+        assertArrayEquals(expectation,nums)
+    }
+
     private fun areTreesEqual(tree1: LeetCode75.TreeNode<Int>?, tree2: LeetCode75.TreeNode<Int>?): Boolean {
         if (tree1 == null && tree2 == null) return true // Both trees are null
         if (tree1 == null || tree2 == null) return false // One tree is null

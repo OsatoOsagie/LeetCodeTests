@@ -1306,6 +1306,60 @@ class LeetCode75 {
         return sum
     }
 
+    fun summaryRanges(nums: IntArray): List<String> {
+
+        val result = mutableListOf<String>()
+        if (nums.isEmpty()) return result // Edge case: empty array
+
+        var start = nums[0] // Start of the current range
+
+        for (i in 1 until nums.size) {
+            if (nums[i] != nums[i - 1] + 1) {
+                // If current number is not consecutive, finalize the current range
+                result.add(formatRange(start, nums[i - 1]))
+                start = nums[i] // Start a new range
+            }
+        }
+
+        // Finalize the last range
+        result.add(formatRange(start, nums[nums.size - 1]))
+
+        return result
+    }
+
+    // Helper function to format the range
+    fun formatRange(start: Int, end: Int): String {
+        return if (start == end) "$start" else "$start->$end"
+    }
+
+    fun rotate(nums: IntArray, k: Int) {
+        val n = nums.size
+        val rotations = k % n
+
+        // Step 1: Reverse the entire array
+        reverse(nums, 0, n - 1)
+
+        // Step 2: Reverse the first 'rotations' elements
+        reverse(nums, 0, rotations - 1)
+
+        // Step 3: Reverse the remaining elements
+        reverse(nums, rotations, n - 1)
+    }
+
+    // Helper function to reverse part of an array
+    fun reverse(nums: IntArray, start: Int, end: Int) {
+        var left = start
+        var right = end
+
+        while (left < right) {
+            val temp = nums[left]
+            nums[left] = nums[right]
+            nums[right] = temp
+            left++
+            right--
+        }
+    }
+
 
     class NumArray(nums: IntArray){
         private val prefix: IntArray=IntArray(nums.size)
