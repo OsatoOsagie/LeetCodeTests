@@ -1005,6 +1005,20 @@ class LeetCode75Test{
         assertArrayEquals(expectation,nums)
     }
 
+    @Test
+    fun groupAnagrams(){
+//        given
+        val strs= arrayOf("eat","tea","tan","ate","nat","bat")
+
+//        when
+        val result: List<List<String>> = LeetCode75().groupAnagrams(strs)
+
+//        then
+        val expectation= mutableListOf(listOf("nat","tan"), listOf("bat"), listOf("ate","eat","tea"))
+
+        assertEquals(expectation,result)
+    }
+
     private fun areTreesEqual(tree1: LeetCode75.TreeNode<Int>?, tree2: LeetCode75.TreeNode<Int>?): Boolean {
         if (tree1 == null && tree2 == null) return true // Both trees are null
         if (tree1 == null || tree2 == null) return false // One tree is null

@@ -1360,6 +1360,19 @@ class LeetCode75 {
         }
     }
 
+    fun groupAnagrams(strs: Array<String>): List<List<String>> {
+        if (strs.isEmpty()) return listOf(listOf()) // Handle edge case
+
+        val map = mutableMapOf<String, MutableList<String>>()
+
+        for (word in strs) {
+            val key = word.toCharArray().sorted().joinToString("") // Use sorted key as a String
+            map.getOrPut(key) { mutableListOf() }.add(word) // Add word to the group
+        }
+
+        return map.values.toList() // Convert map values to a list
+    }
+
 
     class NumArray(nums: IntArray){
         private val prefix: IntArray=IntArray(nums.size)
