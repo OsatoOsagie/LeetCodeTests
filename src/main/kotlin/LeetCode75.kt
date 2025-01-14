@@ -1373,6 +1373,24 @@ class LeetCode75 {
         return map.values.toList() // Convert map values to a list
     }
 
+    fun isPalindrome(x: Int): Boolean {
+
+       val y= x.toString().toCharArray()
+        var i=0
+        var j= y.size-1
+
+        while (i<j){
+            if (y[i].code != y[j].code){
+                return false
+            }
+            i++
+            j--
+
+        }
+        return true
+
+    }
+
 
     class NumArray(nums: IntArray){
         private val prefix: IntArray=IntArray(nums.size)

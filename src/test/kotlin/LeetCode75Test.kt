@@ -1019,6 +1019,20 @@ class LeetCode75Test{
         assertEquals(expectation,result)
     }
 
+    @Test
+    fun isPalindrome(){
+//        given
+        val x= 121
+
+//        when
+        val result:Boolean = LeetCode75().isPalindrome(x)
+
+//        then
+        val expectation = true
+
+        assertEquals(expectation,result)
+    }
+
     private fun areTreesEqual(tree1: LeetCode75.TreeNode<Int>?, tree2: LeetCode75.TreeNode<Int>?): Boolean {
         if (tree1 == null && tree2 == null) return true // Both trees are null
         if (tree1 == null || tree2 == null) return false // One tree is null
