@@ -18,6 +18,7 @@ import kotlin.collections.setOf
 import kotlin.collections.sort
 import kotlin.collections.toIntArray
 import kotlin.collections.toList
+import kotlin.math.abs
 import kotlin.math.absoluteValue
 import kotlin.math.max
 import kotlin.math.min
@@ -1306,6 +1307,8 @@ class LeetCode75 {
         return sum
     }
 
+
+
     fun summaryRanges(nums: IntArray): List<String> {
 
         val result = mutableListOf<String>()
@@ -1389,6 +1392,85 @@ class LeetCode75 {
         }
         return true
 
+    }
+
+    fun arraytoDigit(x: IntArray): Int {
+
+        var num=0
+        for (i in x.indices){
+            num += x[i]
+            if (i != x.size-1){
+                num*=10
+            }
+
+
+        }
+        return num
+
+
+    }
+
+    fun plusOne(x: IntArray): IntArray {
+
+        var num= arraytoDigit(x)
+        num +=1
+
+
+        val list= mutableListOf<Int>()
+
+        while (num !=0){
+            val j= num %10
+            num /=10
+
+            println(j)
+            list.add(j)
+        }
+        return list.toIntArray().reversedArray()
+
+
+
+    }
+
+    fun pow(x: Double, n: Int): Double {
+
+        if (n == 0) return 1.0 // Handle x^0 case
+
+        var ans = 1.0
+        val isNegative = n < 0 // Check if the power is negative
+        val exponent = abs(n) // Use the absolute value of the exponent
+
+        for (i in 1..exponent) {
+            ans *= x
+        }
+
+        return if (isNegative) 1 / ans else ans // Handle negative powers
+
+    }
+
+    fun mySqrt(x: Int): Int {
+        if (x == 0 || x == 1) {
+            return x
+        }
+
+        var low = 1
+        var high = x / 2
+        var ans = 0
+
+        while (low <= high) {
+            val mid = low + (high - low) / 2
+            val square = mid.toLong() * mid
+
+            if (square == x.toLong()) {
+                return mid
+            } else if (square < x.toLong()) {
+                ans = mid // Update ans to the current mid
+                low = mid + 1
+            } else {
+                high = mid - 1
+            }
+        }
+
+        return ans
     }
 
 

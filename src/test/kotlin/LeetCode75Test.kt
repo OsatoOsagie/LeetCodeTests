@@ -1033,6 +1033,62 @@ class LeetCode75Test{
         assertEquals(expectation,result)
     }
 
+    @Test
+    fun arrayToDigit(){
+//        given
+        val x= intArrayOf(1,2,3)
+
+//        when
+        val result:Int = LeetCode75().arraytoDigit(x)
+
+//        then
+        val expectation= 123
+        assertEquals(expectation,result)
+    }
+
+    @Test
+    fun plusOne(){
+//        given
+        val x = intArrayOf(1,2,3)
+
+//        when
+        val result:IntArray = LeetCode75().plusOne(x)
+
+//        then
+        val expectation= intArrayOf(1,2,4)
+
+        assertArrayEquals(expectation,result)
+    }
+
+    @Test
+    fun pow(){
+//        give
+        val x= 2.00000
+        val n=10
+
+//        when
+        val result:Double = LeetCode75().pow(x,n)
+
+//        then
+        val expectation= 1024.00000
+
+        assertEquals(expectation,result)
+    }
+
+    @Test
+    fun mySqrt(){
+//        given
+        val x=5
+
+//        when
+        val result:Int= LeetCode75().mySqrt(x)
+
+//        then
+        val expectation= 2
+        assertEquals(expectation,result)
+    }
+
+
     private fun areTreesEqual(tree1: LeetCode75.TreeNode<Int>?, tree2: LeetCode75.TreeNode<Int>?): Boolean {
         if (tree1 == null && tree2 == null) return true // Both trees are null
         if (tree1 == null || tree2 == null) return false // One tree is null
