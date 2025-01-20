@@ -1088,6 +1088,33 @@ class LeetCode75Test{
         assertEquals(expectation,result)
     }
 
+    @Test
+    fun maximumProduct(){
+//        given
+        val nums = intArrayOf(-100,-98,-1,2,3,4)
+
+//        when
+        val result:Int = LeetCode75().maximumProduct(nums)
+//        then
+        val expectation= 39200
+
+        assertEquals(expectation,result)
+    }
+
+    @Test
+    fun findErrorsNums(){
+//        given
+        val nums= intArrayOf(3,2,2)
+
+//        when
+        val result:IntArray = LeetCode75().findErrorsNums(nums)
+
+//        then
+        val expectation = intArrayOf(2,1)
+
+     assertArrayEquals(expectation,result)
+    }
+
 
     private fun areTreesEqual(tree1: LeetCode75.TreeNode<Int>?, tree2: LeetCode75.TreeNode<Int>?): Boolean {
         if (tree1 == null && tree2 == null) return true // Both trees are null

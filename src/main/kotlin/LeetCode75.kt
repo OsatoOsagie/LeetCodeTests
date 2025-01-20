@@ -1473,6 +1473,53 @@ class LeetCode75 {
         return ans
     }
 
+    fun maximumProduct(nums: IntArray): Int {
+
+        var curr= 1
+        val k=3
+
+        for (i in 0 until k){
+            curr *= abs(nums[i])
+        }
+
+        var ans= curr
+
+        for (i in k until nums.size){
+            println("got here")
+            curr = (curr / nums[i - k]) * nums[i]
+            ans = max(ans,curr)
+        }
+
+        return ans
+
+
+    }
+
+    fun findErrorsNums(nums: IntArray): IntArray {
+
+        val map = mutableMapOf<Int, Int>()
+        val ans = IntArray(2)
+
+        // The full range of numbers should be 1..nums.size
+        val range = (1..nums.size).toSet()
+
+        // Populate the map with counts and find the duplicate
+        for (num in nums) {
+            map[num] = map.getOrPut(num) { 0 } + 1
+            if (map[num]!! > 1) {
+                ans[0] = num // Duplicate number
+            }
+        }
+
+        // Find the missing number
+        val missingNumber = range.subtract(map.keys).firstOrNull()
+        if (missingNumber != null) {
+            ans[1] = missingNumber
+        }
+
+        return ans
+    }
+
 
     class NumArray(nums: IntArray){
         private val prefix: IntArray=IntArray(nums.size)
