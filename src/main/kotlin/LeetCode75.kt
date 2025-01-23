@@ -497,6 +497,18 @@ class LeetCode75 {
         throw IllegalArgumentException("No two sum solution")
     }
 
+    fun removeAnagrams(words: Array<String>):List<String>{
+        val result = mutableListOf<String>()
+
+        for (word in words) {
+            if (result.isEmpty() || !isAnagram(result.last(), word)) {
+                result.add(word)
+            }
+        }
+
+        return result
+    }
+
     fun isAnagram(s: String, t: String): Boolean {
 
         val sMap= mutableMapOf<Char,Int>()
@@ -1518,6 +1530,62 @@ class LeetCode75 {
         }
 
         return ans
+    }
+
+    fun equalFrequency(word: String): Boolean {
+        val mutableMap = mutableMapOf<Char, Int>()
+
+        for (w in word){
+            mutableMap[w]= mutableMap.getOrPut(w){0} +1
+
+        }
+
+        val overTwo= mutableMap.filter { it.value >=2 }
+
+
+        if (overTwo.size >1){
+            return false
+        }else{
+            val count = overTwo.values.firstOrNull()
+
+            if (count != null) {
+                if (count > 2){
+                    return false
+                }
+            }
+        }
+
+        return true
+
+
+
+    }
+
+    fun longestConsecutive(nums: IntArray): Int {
+        if (nums.isEmpty()) return 0 // Handle edge case: empty array
+
+        val numSet = nums.toSet() // Use a HashSet for O(1) lookups
+        var longestStreak = 0
+
+        for (num in numSet) {
+            // Start a sequence only if the current number is the beginning of a sequence
+            if (!numSet.contains(num - 1)) {
+                var currentNum = num
+                var currentStreak = 1
+
+                // Expand the sequence as long as the next consecutive number exists
+                while (numSet.contains(currentNum + 1)) {
+                    currentNum += 1
+                    currentStreak += 1
+                }
+
+                // Update the longest streak
+                longestStreak = maxOf(longestStreak, currentStreak)
+            }
+        }
+
+        return longestStreak
+
     }
 
 

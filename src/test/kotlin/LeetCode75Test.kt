@@ -1115,6 +1115,48 @@ class LeetCode75Test{
      assertArrayEquals(expectation,result)
     }
 
+    @Test
+    fun equalFrequency(){
+//        given
+        val word= "bac"
+
+//        when
+        val result:Boolean = LeetCode75().equalFrequency(word)
+
+//        then
+        val expectation = false
+
+        assertEquals(expectation,result)
+    }
+
+    @Test
+    fun removeAnagrams(){
+//        given
+        val words= arrayOf("abba","baba","bbaa","cd","cd")
+
+//        when
+        val result= LeetCode75().removeAnagrams(words)
+
+//        then
+        val expectation = listOf("abba","cd")
+
+        assertEquals(expectation,result)
+    }
+
+    @Test
+    fun longestConsecutive(){
+//        given
+        val nums= intArrayOf(100,4,200,1,3,2)
+
+//        when
+        val result:Int= LeetCode75().longestConsecutive(nums)
+
+//        then
+        val expectation= 4
+
+        assertEquals(expectation,result)
+    }
+
 
     private fun areTreesEqual(tree1: LeetCode75.TreeNode<Int>?, tree2: LeetCode75.TreeNode<Int>?): Boolean {
         if (tree1 == null && tree2 == null) return true // Both trees are null
@@ -1124,6 +1166,38 @@ class LeetCode75Test{
         return tree1.`val` == tree2.`val` &&
                 areTreesEqual(tree1.left, tree2.left) &&
                 areTreesEqual(tree1.right, tree2.right)
+    }
+
+    class RandomizedSet(){
+
+        private val set= mutableSetOf<Int>()
+
+        fun insert(`val`: Int): Boolean {
+
+            if (set.contains(`val`)){
+                return false
+            }else{
+                set.add(`val`)
+                return true
+            }
+
+        }
+
+        fun remove(`val`: Int): Boolean {
+
+            if (set.contains(`val`)){
+                set.remove(`val`)
+                return true
+            }else{
+                return false
+            }
+
+        }
+
+        fun getRandom(): Int {
+            return set.toList().random()
+
+        }
     }
 
 
