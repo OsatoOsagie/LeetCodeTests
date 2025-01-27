@@ -1157,6 +1157,77 @@ class LeetCode75Test{
         assertEquals(expectation,result)
     }
 
+//    @Test
+//    fun getSum(){
+////        given
+//        val a=-1
+//        val b= 1
+//
+////        when
+//        val result:Int = LeetCode75().getSum(a,b)
+//
+////        then
+//        val expectationp = 0
+//
+//        assertEquals(expectationp,result)
+//    }
+
+    @Test
+    fun longestPalindorme(){
+//        given
+        val s="abccccdd"
+//        when
+        val result:Int = LeetCode75().longestPalindrome(s)
+
+//        then
+        val expectation= 7
+
+        assertEquals(expectation,result)
+    }
+
+    @Test
+    fun getSneakyNumbers(){
+//        given
+        val nums= intArrayOf(0,1,1,0)
+
+//        when
+        val result:IntArray = LeetCode75().getSneakyNumbers(nums)
+
+//        then
+        val expectation= intArrayOf(0,1)
+
+        assertArrayEquals(expectation, result)
+    }
+
+    @Test
+    fun numberOfPairs(){
+//        given
+        val nums1= intArrayOf(1,3,4)
+        val nums2= intArrayOf(1,3,4)
+
+//        when
+        val result:Int = LeetCode75().numberOfPairs(nums1,nums2,1)
+//        then
+        val expectation= 5
+        assertEquals(expectation,result)
+    }
+
+    @Test
+    fun findIntersectionValues(){
+//        given
+        val nums1= intArrayOf(2,3,2)
+        val nums2= intArrayOf(1,2)
+
+//        when
+        val result:IntArray = LeetCode75().findIntersectionValues(nums1, nums2)
+
+//        then
+        val expectation = intArrayOf(2,1)
+
+        assertArrayEquals(expectation,result)
+    }
+
+
 
     private fun areTreesEqual(tree1: LeetCode75.TreeNode<Int>?, tree2: LeetCode75.TreeNode<Int>?): Boolean {
         if (tree1 == null && tree2 == null) return true // Both trees are null

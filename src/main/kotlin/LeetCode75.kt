@@ -18,10 +18,7 @@ import kotlin.collections.setOf
 import kotlin.collections.sort
 import kotlin.collections.toIntArray
 import kotlin.collections.toList
-import kotlin.math.abs
-import kotlin.math.absoluteValue
-import kotlin.math.max
-import kotlin.math.min
+import kotlin.math.*
 
 class LeetCode75 {
 
@@ -1585,6 +1582,139 @@ class LeetCode75 {
         }
 
         return longestStreak
+
+    }
+
+//    fun getSum(a: Int, b: Int): Int {
+//        val lst= mutableListOf<Int>()
+//        var x=a
+//        var y=b
+//
+//
+//
+//        sum(x, lst)
+//
+//
+//
+//        if (lst.isEmpty()){
+//            return 0
+//        }
+//
+//        return lst.size
+//
+//    }
+
+//    private fun sum(x: Int, lst: MutableList<Int>):Int {
+//        var x1 = x
+//        if (x1 > 0) {
+//            for (i in 1..x1) {
+//                lst.add(1)
+//                println(lst.size)
+//            }
+//        } else {
+//            println("got  here")
+//            while (x1 != 0) {
+//                lst.removeLastOrNull()
+//                x1 += 1
+//
+//            }
+//        }
+//    }
+
+    fun longestPalindrome(s: String): Int {
+        val map = mutableMapOf<Char,Int>()
+        var length= 0
+        var hasOdd=false
+
+        for (char in s){
+            map[char] = map.getOrPut(char){0}+1
+        }
+
+        map.values.forEach {
+            length += (it/2) *2
+            if (it % 2 == 1) {
+                hasOdd = true // Track if there's an odd frequency
+            }
+        }
+
+        return if (hasOdd) length + 1 else length
+
+    }
+
+    fun getSneakyNumbers(nums: IntArray): IntArray {
+
+        val map= mutableMapOf<Int, Int>()
+        val list = IntArray(2)
+        var count =0
+
+        for (num in nums){
+            map[num]= map.getOrPut(num){0}+1
+
+            if (map[num]!! > 1){
+                list[count]=num
+                count++
+            }
+        }
+
+       return list
+
+
+
+    }
+
+    fun numberOfPairs(nums1: IntArray, nums2: IntArray, k:Int): Int {
+
+        val numsPower=nums2.map { it* k}
+        val map=mutableMapOf<Int,Int>()
+        var count= 0
+
+        for (num in nums1){
+            map[num]= map.getOrPut(num){0}+1
+        }
+
+        for (n in numsPower){
+            println(n)
+            for (key in map.keys){
+                println("$key")
+                if ((n != 0 && (key%n)==0)){
+
+                    count += map[key]!!
+                }
+            }
+        }
+
+        return count
+
+
+    }
+
+    fun findIntersectionValues(nums1: IntArray, nums2: IntArray): IntArray {
+
+        val map1= HashMap<Int,Int>()
+        val map2= HashMap<Int,Int>()
+
+        var ans1=0
+        var ans2=0
+
+        for (num in nums1){
+            map1[num]=map1.getOrDefault(num,0)+1
+        }
+        for (num in nums2){
+            map2[num]=map2.getOrDefault(num,0)+1
+        }
+
+        for (key in map1.keys){
+            println(key)
+            if (map2.containsKey(key)){
+
+                ans1 += map1[key]!!
+                ans2 += map2[key]!!
+            }
+        }
+
+
+
+        return intArrayOf(ans1,ans2)
 
     }
 
