@@ -1227,6 +1227,20 @@ class LeetCode75Test{
         assertArrayEquals(expectation,result)
     }
 
+    @Test
+    fun minimizedStringLength(){
+//        given
+        val s= "aaabc"
+
+//        when
+        val result:Int = LeetCode75().minimizedStringLength(s)
+
+//        then
+        val expectation = 3
+
+        assertEquals(expectation,result)
+    }
+
 
 
     private fun areTreesEqual(tree1: LeetCode75.TreeNode<Int>?, tree2: LeetCode75.TreeNode<Int>?): Boolean {

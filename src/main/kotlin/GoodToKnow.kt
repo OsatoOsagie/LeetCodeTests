@@ -18,4 +18,13 @@ class GoodToKnow {
 
         return true // Step 6: If no negative counts, the strings are anagrams
     }
+
+    fun minimizedStringLength(s: String): Int {
+        val arr = IntArray(26)
+        for (c in s) {
+            arr[c - 'a']++
+        }
+
+        return arr.count { it > 0 }
+    }
 }

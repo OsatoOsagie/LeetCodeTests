@@ -1718,6 +1718,16 @@ class LeetCode75 {
 
     }
 
+    fun minimizedStringLength(s: String): Int {
+
+        val set= HashSet<Char>()
+
+        s.forEach { set.add(it) }
+
+        return  set.size
+
+    }
+
 
     class NumArray(nums: IntArray){
         private val prefix: IntArray=IntArray(nums.size)
