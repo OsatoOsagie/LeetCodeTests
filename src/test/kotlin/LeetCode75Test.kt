@@ -1241,6 +1241,51 @@ class LeetCode75Test{
         assertEquals(expectation,result)
     }
 
+    @Test
+    fun maxFrquencyElements(){
+//        given
+        val nums = intArrayOf(1,2,2,3,1,4)
+
+//        when
+        val result:Int = LeetCode75().maxFrequency(nums)
+
+
+//        then
+        val expectation = 4
+
+        assertEquals(expectation,result)
+    }
+
+    @Test
+    fun uncommonFromSentences(){
+//        given
+        val s1= "this apple is sweet"
+        val s2 = "this apple is sour"
+
+//        when
+        val result:Array<String> = LeetCode75().uncommonFromSentences(s1,s2)
+
+//        then
+        val expectation= arrayOf("sweet", "sour")
+
+        assertArrayEquals(expectation,result)
+    }
+    @Test
+    fun twoOutOfThree(){
+//        given
+        val nums1= intArrayOf(1,1,3,2)
+        val nums2= intArrayOf(2,3)
+        val nums3= intArrayOf(3)
+
+//        when
+        val result:List<Int> = LeetCode75().twoOutOfThree(nums1,nums2,nums3)
+
+//        then
+        val expectation = listOf(3,2)
+
+        assertEquals(expectation,result)
+    }
+
 
 
     private fun areTreesEqual(tree1: LeetCode75.TreeNode<Int>?, tree2: LeetCode75.TreeNode<Int>?): Boolean {

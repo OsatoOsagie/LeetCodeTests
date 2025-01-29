@@ -1728,6 +1728,88 @@ class LeetCode75 {
 
     }
 
+    fun maxFrequency(nums: IntArray): Int {
+        val map = HashMap<Int, Int>()
+
+        nums.forEach { map[it] = map.getOrDefault(it, 0)+1 }
+
+        val max =map.maxByOrNull { it.value }
+
+        return map.filter { it.value == (max?.value ?: 0) }.values.sum()
+
+    }
+
+    fun uncommonFromSentences(s1: String, s2: String): Array<String> {
+
+        val map1= HashMap<String, Int>()
+        val map2= HashMap<String, Int>()
+        val ans= mutableListOf<String>()
+
+        val s3= s1.split(" ")
+        val s4= s2.split(" ")
+
+        s3.forEach { map1[it]= map1.getOrDefault(it, 0)+1 }
+        s4.forEach { map2[it]= map2.getOrDefault(it, 0)+1 }
+
+
+        for ((key,value ) in map1){
+            if (!map2.containsKey(key) && value==1){
+                println(key)
+                ans.add(key)
+            }
+        }
+
+
+        for ((key,value ) in map2){
+            if (!map1.containsKey(key) && value==1){
+                println(key)
+                ans.add(key)
+            }
+        }
+
+
+
+        return ans.toTypedArray()
+
+
+
+
+
+
+
+    }
+
+    fun twoOutOfThree(nums1: IntArray, nums2: IntArray, nums3: IntArray): List<Int> {
+
+        val map= HashMap<Int,Int>()
+        val set= HashSet<Int>()
+        nums1.forEach {
+            map[it]= map.getOrDefault(it,0)+1
+        }
+
+        nums2.toSet().forEach {
+            if (map.containsKey(it)){
+                set.add(it)
+            }else{
+                map[it] = map.getOrDefault(it,0)+1
+            }
+
+
+        }
+
+        nums3.toSet().forEach {
+            if (map.containsKey(it)){
+                set.add(it)
+            }else{
+                map[it] = map.getOrDefault(it,0)+1
+            }
+
+        }
+
+        return set.toList()
+
+    }
+
 
     class NumArray(nums: IntArray){
         private val prefix: IntArray=IntArray(nums.size)
