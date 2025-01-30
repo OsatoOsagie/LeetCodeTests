@@ -1810,6 +1810,67 @@ class LeetCode75 {
 
     }
 
+    fun findMissingAndRepeatedValues(grid: Array<IntArray>): IntArray {
+        val maps = HashMap<Int,Int>()
+        val ans= IntArray(2)
+
+        for (i in 0 until grid.size){
+            for (j in 0 until grid[i].size){
+                maps[grid[i][j]] = maps.getOrDefault(grid[i][j],0)+1
+
+                if (maps[grid[i][j]]==2){
+                    ans[0]= grid[i][j]
+                }
+            }
+        }
+
+        val gridSize= grid.size*grid.size
+
+
+        for (i in gridSize downTo 1){
+            if (!maps.containsKey(i)){
+                ans[1]=i
+            }
+        }
+
+        return ans
+
+
+    }
+
+    fun countBalls(lowLimit: Int, highLimit: Int): Int {
+        val map= HashMap<Int, Int>()
+
+        val range= lowLimit..highLimit
+
+        for(i in  range){
+
+            if (i<10){
+                map[i]= map.getOrDefault(i,0)+1
+            }else{
+                val boxNum= getBoxNum(i)
+                map[boxNum]= map.getOrDefault(boxNum,0)+1
+            }
+        }
+
+
+
+        return map.maxOf { it.value }
+
+    }
+
+    private fun getBoxNum(ballNum:Int):Int{
+        var x=ballNum
+        var sum=0
+
+        while (x >0){
+
+            sum += x%10
+            x /= 10
+        }
+        return sum
+    }
+
 
     class NumArray(nums: IntArray){
         private val prefix: IntArray=IntArray(nums.size)

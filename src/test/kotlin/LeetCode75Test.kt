@@ -1286,6 +1286,35 @@ class LeetCode75Test{
         assertEquals(expectation,result)
     }
 
+    @Test
+    fun findMissingAndRepeatedValues(){
+//        given
+       val grid= arrayOf(intArrayOf(1,3), intArrayOf(2,2))
+
+//        when
+        val result:IntArray = LeetCode75().findMissingAndRepeatedValues(grid)
+
+//        then
+        val expectation= intArrayOf(2,4)
+
+        assertArrayEquals(expectation,result)
+    }
+
+    @Test
+    fun countBalls(){
+//        given
+        val lowLimit=19
+        val highLimit=28
+
+//        when
+        val result:Int = LeetCode75().countBalls(lowLimit,highLimit)
+
+//        then
+        val expectation = 2
+
+        assertEquals(expectation,result)
+    }
+
 
 
     private fun areTreesEqual(tree1: LeetCode75.TreeNode<Int>?, tree2: LeetCode75.TreeNode<Int>?): Boolean {
