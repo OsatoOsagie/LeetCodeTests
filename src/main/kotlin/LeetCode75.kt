@@ -1871,6 +1871,146 @@ class LeetCode75 {
         return sum
     }
 
+    fun duplicateNumbersXOR(nums: IntArray): Int {
+
+
+        val map = HashMap<Int, Int>()
+        val lst= ArrayList<Int>()
+
+       for (num in nums){
+
+           map[num] = map.getOrDefault(num,0)+1
+
+           if (map[num] ==2){
+               lst.add(num)
+           }
+       }
+
+        if (lst.size==0){
+            return 0
+        }else{
+            return lst.reduce{acc,num -> acc xor num}
+        }
+
+
+
+
+
+    }
+
+    fun isArraySpecial(nums: IntArray): Boolean {
+
+        if (nums.size ==1){
+            return true
+        }
+
+        var j: Int =1
+
+        for (i in 0 until nums.size-1){
+            if (isEven(nums[i]) == isEven(nums[j])){
+                return false
+            }
+            j++
+        }
+        return true
+    }
+
+    private fun isEven(num : Int):String{
+
+        if (num %2==0){
+            return "Even"
+        }else{
+            return "Odd"
+        }
+    }
+
+    fun check(nums: IntArray): Boolean {
+        val numsSorted= nums.sorted()
+        var x=0
+
+        for (i in 0 until numsSorted.size){
+            if (nums[i]== numsSorted[(i+x) % nums.size]){
+                return true
+            }
+            x++
+        }
+
+        return false
+
+    }
+
+    fun longestMonotonicSubarray(nums: IntArray): Int {
+        return maxOf(strictlyIncreasing(nums), strictlyDecreasing(nums))
+
+
+    }
+
+    fun strictlyIncreasing(nums: IntArray): Int {
+        if (nums.isEmpty()) return 0
+
+        var left = 0
+        var answer = 1
+
+        for (right in 1 until nums.size) {
+            // Use a while loop to adjust the left pointer if the sequence is not strictly increasing
+            while (left < right && nums[right] <= nums[right - 1]) {
+                left = right
+            }
+            // Update the answer with the maximum length found so far
+            answer = max(answer, right - left + 1)
+        }
+
+        return answer
+    }
+
+    fun strictlyDecreasing(nums: IntArray): Int {
+        if (nums.isEmpty()) return 0
+
+        var left = 0
+        var answer = 1
+
+        for (right in 1 until nums.size) {
+            // Use a while loop to adjust the left pointer if the sequence is not strictly increasing
+            while (left < right && nums[right] >= nums[right - 1]) {
+                left = right
+            }
+            // Update the answer with the maximum length found so far
+            answer = max(answer, right - left + 1)
+        }
+
+        return answer
+    }
+
+    fun maxAcendingSum(nums: IntArray): Int {
+
+        if (nums.isEmpty())return 0
+
+        var left=0
+        var answer = nums[0]  // Initialize with the first element
+        var curr = nums[0]
+
+        for (right in 1 until nums.size) {
+            // If the current element is greater than the previous, it's part of the ascending subarray
+            if (nums[right] > nums[right - 1]) {
+                curr += nums[right]
+            } else {
+                // Use a while loop to reset the current sum and move the left pointer
+                while (left < right && nums[right] <= nums[right - 1]) {
+                    curr -= nums[left]
+                    left++
+                }
+                // Add the current element to the new subarray
+                curr += nums[right]
+            }
+            // Update the maximum sum found so far
+            answer = max(answer, curr)
+        }
+
+        return answer
+
+
+    }
+
 
     class NumArray(nums: IntArray){
         private val prefix: IntArray=IntArray(nums.size)

@@ -1315,6 +1315,76 @@ class LeetCode75Test{
         assertEquals(expectation,result)
     }
 
+    @Test
+    fun duplicateNumbersXOR(){
+//        given
+        val nums = intArrayOf(1,2,2,1)
+
+//        when
+        val result:Int = LeetCode75().duplicateNumbersXOR(nums)
+
+//        then
+        val expectation = 3
+    assertEquals(expectation,result)
+    }
+
+    @Test
+    fun isArraySpecial(){
+//        given
+        val nums= intArrayOf(1)
+
+//        when
+        val result: Boolean = LeetCode75().isArraySpecial(nums)
+
+//        then
+        val expectation = true
+
+        assertEquals(expectation,result)
+    }
+
+    @Test
+    fun check(){
+//        given
+        val nums = intArrayOf(1,2,3)
+
+//        when
+        val result: Boolean = LeetCode75().check(nums)
+
+//        then
+        val expectation = true
+
+        assertEquals(result,expectation)
+    }
+
+    @Test
+    fun longestMonotonicSubarray(){
+//        given
+        val nums= intArrayOf(1,4,3,3,2)
+
+//        when
+        val result:Int = LeetCode75().longestMonotonicSubarray(nums)
+
+//        then
+        val expectation = 2
+
+        assertEquals(expectation,result)
+    }
+
+    @Test
+    fun maxAscendingSum(){
+//        given
+        val nums= intArrayOf(12,17,15,13,10,11,12)
+
+//        when
+        val result:Int =LeetCode75().maxAcendingSum(nums)
+
+//        then
+        val expectation =33
+
+        assertEquals(expectation,result)
+    }
+
+
 
 
     private fun areTreesEqual(tree1: LeetCode75.TreeNode<Int>?, tree2: LeetCode75.TreeNode<Int>?): Boolean {
