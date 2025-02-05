@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import kotlin.test.assertContentEquals
 
 class LeetCode75Test{
 
@@ -1383,6 +1384,63 @@ class LeetCode75Test{
 
         assertEquals(expectation,result)
     }
+
+    @Test
+    fun merge(){
+//        given
+        val intervals= arrayOf(intArrayOf(1,3), intArrayOf(2,6), intArrayOf(8,10), intArrayOf(15,18))
+
+//        when
+        val result: Array<IntArray> = LeetCode75().merge(intervals)
+
+//        then
+        val expectation = arrayOf(intArrayOf(1,6), intArrayOf(8,10), intArrayOf(8,10), intArrayOf(15,18))
+
+        assertContentEquals(expectation,result)
+    }
+
+    @Test
+    fun insert() {
+        // Given
+        val intervals = arrayOf(
+            intArrayOf(1, 2),
+            intArrayOf(3, 5),
+            intArrayOf(6, 7),
+            intArrayOf(8, 10),
+            intArrayOf(12, 16)
+        )
+        val newInterval = intArrayOf(4, 8)
+
+        // When
+        val result: Array<IntArray> = LeetCode75().insert(intervals, newInterval)
+
+        // Then
+        val expectation = arrayOf(
+            intArrayOf(1, 2),
+            intArrayOf(3, 10),
+            intArrayOf(12, 16)
+        )
+
+        // Compare the result with the expectation
+        assertContentEquals(expectation, result)
+    }
+
+    @Test
+    fun areAlmostEqual(){
+//        given
+        val s1= "kelb"
+
+        val s2= "kelb"
+//        when
+        val result:Boolean= LeetCode75().areAlmostEqual(s1,s2)
+
+//        then
+        val expectation = false
+
+        assertEquals(expectation,result)
+    }
+
+
 
 
 

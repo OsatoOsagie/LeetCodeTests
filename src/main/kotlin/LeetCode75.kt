@@ -1,3 +1,4 @@
+import java.util.LinkedList
 import kotlin.collections.ArrayDeque
 import kotlin.collections.List
 import kotlin.collections.component1
@@ -1986,27 +1987,102 @@ class LeetCode75 {
         if (nums.isEmpty())return 0
 
         var left=0
-        var answer = nums[0]  // Initialize with the first element
-        var curr = nums[0]
+        var answer=0
+        var curr=0
 
-        for (right in 1 until nums.size) {
-            // If the current element is greater than the previous, it's part of the ascending subarray
-            if (nums[right] > nums[right - 1]) {
-                curr += nums[right]
-            } else {
-                // Use a while loop to reset the current sum and move the left pointer
-                while (left < right && nums[right] <= nums[right - 1]) {
-                    curr -= nums[left]
-                    left++
-                }
-                // Add the current element to the new subarray
-                curr += nums[right]
+        for (right in 0 until nums.size){
+            curr +=nums[right]
+
+            while (left < right && nums[right] <nums[right-1]){
+                curr -= nums[left]
+                left++
             }
-            // Update the maximum sum found so far
-            answer = max(answer, curr)
+            curr += nums[right]
+            answer= max(answer,curr)
+
+        }
+        return answer
+
+
+    }
+
+    fun merge(intervals: Array<IntArray>): Array<IntArray> {
+
+        intervals.sortWith(compareBy{ it[0]})
+
+        val ans= LinkedList<IntArray>()
+
+        for (interval in intervals){
+            val start= interval[0]
+            val end= interval[1]
+
+            if (ans.isNotEmpty() && start <= ans.last[1]){
+                ans.last[1] = max(ans.last[1],end)
+            }else{
+                ans.add(interval)
+            }
         }
 
-        return answer
+        return ans.toTypedArray()
+
+    }
+
+    fun insert(intervals: Array<IntArray>, newInterval: IntArray): Array<IntArray> {
+
+
+        val newIntervals = Array(intervals.size+1) { i ->
+            if (i < intervals.size) intervals[i].copyOf() else intArrayOf() // Copy existing elements, empty for new one
+        }
+
+        newIntervals.sortWith(compareBy { it[0] })
+
+        val ans= LinkedList<IntArray>()
+
+        for (i in newIntervals){
+            val start= i[0]
+            val end= i[1]
+            if (ans.isNotEmpty() && start <= ans.last[1]){
+                ans.last[1]= max(end,ans.last[1])
+
+            }else{
+                ans.add(i)
+            }
+        }
+
+        return ans.toTypedArray()
+
+    }
+
+    fun areAlmostEqual(s1: String, s2: String): Boolean {
+        var count =0
+        val map1= HashMap<Char,Int>()
+        val map2 = HashMap<Char,Int>()
+
+        s1.forEach { map1[it]= map1.getOrDefault(it,0)+1 }
+        s2.forEach { map2[it]= map2.getOrDefault(it,0)+1 }
+
+        for ((key,value) in map1){
+
+            if (!map2.containsKey(key)){
+                return false
+            }else if(map2.containsKey(key)){
+                if (map2[key] !=value){
+                    return false
+                }
+            }
+        }
+
+        for(i in 0 until  s1.length){
+            if (s1[i] != s2[i]){
+                count++
+            }
+        }
+
+      if (count==0 || count==2){
+          return true
+      }
+
+        return false
 
 
     }
