@@ -2087,6 +2087,68 @@ class LeetCode75 {
 
     }
 
+    fun separateDigits(nums: IntArray): IntArray {
+        val ans= ArrayList<Int>()
+
+        for (i in nums){
+            if (i<10){
+                ans.add(i)
+            }else{
+                var n=i
+                var digits= ArrayDeque<Int>()
+                while (n>0){
+                    digits.addFirst((n%10))
+                    n/=10
+                }
+
+
+                while (digits.isNotEmpty()){
+                    ans.add(digits.removeFirst())
+                }
+
+
+
+
+            }
+        }
+
+//        ans.forEach { println(it) }
+        return ans.toIntArray()
+    }
+
+    fun findRelativeRanks(score: IntArray): Array<String> {
+        val ans = Array<String>(score.size){""}
+
+        val sortedScores= score.sortedArrayDescending()
+
+        val map = mutableMapOf<Int,Int>()
+
+        for (i in 0 until sortedScores.size){
+            map[sortedScores[i]] = map.getOrDefault(sortedScores[i],i)
+        }
+
+        for (i in 0 until score.size){
+
+            if (map[score[i]]==0){
+                ans[i]= "Gold Medal"
+            } else if( map[score[i]]== 1){
+                ans[i]= "Silver Medal"
+            }else if( map[score[i]]== 2){
+                ans[i]= "Bronze Medal"
+            }else{
+                ans[i]= map[score[i]]?.plus(1).toString()
+            }
+
+        }
+
+        return ans
+
+
+
+
+
+    }
+
 
     class NumArray(nums: IntArray){
         private val prefix: IntArray=IntArray(nums.size)

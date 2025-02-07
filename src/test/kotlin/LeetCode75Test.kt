@@ -1394,9 +1394,15 @@ class LeetCode75Test{
         val result: Array<IntArray> = LeetCode75().merge(intervals)
 
 //        then
-        val expectation = arrayOf(intArrayOf(1,6), intArrayOf(8,10), intArrayOf(8,10), intArrayOf(15,18))
+        val expectation = arrayOf(intArrayOf(1,6), intArrayOf(8,10), intArrayOf(15,18))
 
-        assertContentEquals(expectation,result)
+
+    for (i in expectation.indices) {
+        if (!expectation[i].contentEquals(result[i])) {
+            throw AssertionError("Mismatch at index $i. Expected: ${expectation[i].toList()}, Actual: ${result[i].toList()}")
+    }
+    }
+
     }
 
     @Test
@@ -1438,6 +1444,34 @@ class LeetCode75Test{
         val expectation = false
 
         assertEquals(expectation,result)
+    }
+
+    @Test
+    fun separateDigits(){
+//        given
+        val nums= intArrayOf(13,25,83,77)
+
+//        when
+        val result:IntArray= LeetCode75().separateDigits(nums)
+
+//        then
+        val expectation= intArrayOf(1,3,2,5,8,3,7,7)
+
+        assertArrayEquals(expectation,result)
+    }
+
+    @Test
+    fun findRelativeRanks(){
+//        given
+        val score = intArrayOf(5,4,3,2,1)
+
+//        when
+        val result:Array<String> = LeetCode75().findRelativeRanks(score)
+
+//        then
+        val expectation = arrayOf<String>("Gold Medal","Silver Medal","Bronze Medal","4","5")
+
+        assertArrayEquals(expectation,result)
     }
 
 
