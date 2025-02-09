@@ -2,113 +2,113 @@ import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import kotlin.test.assertContentEquals
 
-class LeetCode75Test{
+class LeetCode75Test {
 
     @Test
-    fun mergeAlternatively(){
+    fun mergeAlternatively() {
 //        given
-        val word1= "ab"
-        val word2= "pqrs"
+        val word1 = "ab"
+        val word2 = "pqrs"
 //        when
-        val k: String= LeetCode75().mergeAlternatively(word1, word2)
+        val k: String = LeetCode75().mergeAlternatively(word1, word2)
 
 //        then
         assertEquals("apbqrs", k)
     }
 
     @Test
-    fun kidsWithCandies(){
+    fun kidsWithCandies() {
 //        given
-        val candies= intArrayOf(2,3,5,1,3)
-        val extraCandies= 3
+        val candies = intArrayOf(2, 3, 5, 1, 3)
+        val extraCandies = 3
 
 //        when
-        val k: List<Boolean> = LeetCode75().kidsWithCandies(candies,extraCandies)
+        val k: List<Boolean> = LeetCode75().kidsWithCandies(candies, extraCandies)
 
 //        then
-        assertEquals(listOf(true,true,true,false,true),k)
+        assertEquals(listOf(true, true, true, false, true), k)
     }
 
     @Test
-    fun canPlaceFlowers(){
+    fun canPlaceFlowers() {
 //        given
-        val flowerBed= intArrayOf(1,0,0,0,1)
+        val flowerBed = intArrayOf(1, 0, 0, 0, 1)
         val n = 2
 
 //        when
-        val k: Boolean= LeetCode75().canPlaceFlowers(flowerBed,n)
+        val k: Boolean = LeetCode75().canPlaceFlowers(flowerBed, n)
 
 //        then
-        assertEquals(false,k)
+        assertEquals(false, k)
     }
 
     @Test
-    fun reverseVowels(){
+    fun reverseVowels() {
 //        given
-        val s= "leetcode"
+        val s = "leetcode"
 
 //        when
-        val k: String =LeetCode75().reverseVowels(s)
+        val k: String = LeetCode75().reverseVowels(s)
 
 //        then
-        assertEquals( "leotcede",k)
+        assertEquals("leotcede", k)
     }
 
     @Test
-    fun reverseWords(){
+    fun reverseWords() {
 //        given
-        val s ="a good   example"
+        val s = "a good   example"
 
 //        when
         val result: String = LeetCode75().reverseWords(s)
 //        then
-        val exp= "example good a"
+        val exp = "example good a"
 
-        assertEquals(exp,result)
+        assertEquals(exp, result)
     }
 
     @Test
-    fun increasingTriplets(){
+    fun increasingTriplets() {
 //        given
-        val nums = intArrayOf(2,1,5,0,4,6)
+        val nums = intArrayOf(2, 1, 5, 0, 4, 6)
 
 //        when
         val result: Boolean = LeetCode75().increasingTriplets(nums)
 //        then
-        val expectation= true
-        assertEquals(expectation,result)
+        val expectation = true
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun moveZeros(){
+    fun moveZeros() {
 //        given
-        val nums = intArrayOf(0,1,0,3,12)
+        val nums = intArrayOf(0, 1, 0, 3, 12)
 
 //        when
         LeetCode75().moveZeros(nums)
 //        then
-        val expectation= intArrayOf(1,3,12,0,0)
-        assertArrayEquals(expectation,nums)
+        val expectation = intArrayOf(1, 3, 12, 0, 0)
+        assertArrayEquals(expectation, nums)
     }
 
     @Test
-    fun isSubSequence(){
+    fun isSubSequence() {
 //        given
-        val s= "axc"
-        val t= "ahbgdc"
+        val s = "axc"
+        val t = "ahbgdc"
 
 //        when
-        val result: Boolean = LeetCode75().isSubSequence(s,t)
+        val result: Boolean = LeetCode75().isSubSequence(s, t)
 
 //        then
-        val expectation=true
-        assertEquals(expectation,result)
+        val expectation = true
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun finxMaxAverage(){
+    fun finxMaxAverage() {
 //        given
-        val nums= intArrayOf(1,12,-5,-6,50,3)
+        val nums = intArrayOf(1, 12, -5, -6, 50, 3)
         val k = 4
 
 //        when
@@ -116,550 +116,549 @@ class LeetCode75Test{
         val expectation = 12.75000
 
 //        then
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun findDifference(){
+    fun findDifference() {
 //        given
-        val nums1= intArrayOf(1,2,3,3)
-        val nums2 = intArrayOf(1,1,2,2)
+        val nums1 = intArrayOf(1, 2, 3, 3)
+        val nums2 = intArrayOf(1, 1, 2, 2)
 
 //        when
-        val result:List<List<Int>> = LeetCode75().findDifference(nums1,nums2)
-        val expectation:List<List<Int>> = listOf(listOf(1,3), listOf(4,6))
+        val result: List<List<Int>> = LeetCode75().findDifference(nums1, nums2)
+        val expectation: List<List<Int>> = listOf(listOf(1, 3), listOf(4, 6))
 
 
 //        then
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
 
     @Test
-    fun uniqueOccurrencies(){
+    fun uniqueOccurrencies() {
 //        given
-        val arr = intArrayOf(1,2,2,1,1,3)
+        val arr = intArrayOf(1, 2, 2, 1, 1, 3)
 
 //        when
-        val result:Boolean = LeetCode75().uniqueOccurrencies(arr)
+        val result: Boolean = LeetCode75().uniqueOccurrencies(arr)
 
 //        then
-        val expectation= true
-        assertEquals(expectation,result)
+        val expectation = true
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun maxVowels(){
+    fun maxVowels() {
 //        given
-        val s= "abciiidef"
-        val k= 3
+        val s = "abciiidef"
+        val k = 3
 
 //        when
-        val result: Int = LeetCode75().maxVowels(s,k)
+        val result: Int = LeetCode75().maxVowels(s, k)
 
 //        then
-        val expectation= 3
-        assertEquals(expectation,result)
+        val expectation = 3
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun longestOnes(){
+    fun longestOnes() {
 //        given
-        val nums = intArrayOf(0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1)
-        val k=3
+        val nums = intArrayOf(0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1)
+        val k = 3
 //        when
-        val result:Int = LeetCode75().longestOnes(nums, k)
+        val result: Int = LeetCode75().longestOnes(nums, k)
 
 //        then
-        val expectation= 10
-        assertEquals(expectation,result)
+        val expectation = 10
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun longestSubarray(){
+    fun longestSubarray() {
 //        given
-        val nums = intArrayOf(1,1,1)
+        val nums = intArrayOf(1, 1, 1)
 
 //        when
-        val result:Int = LeetCode75().longestSubarray(nums)
+        val result: Int = LeetCode75().longestSubarray(nums)
 
 //        then
         val expected = 2
-        assertEquals(expected,result)
+        assertEquals(expected, result)
     }
 
     @Test
-    fun equalPairs(){
+    fun equalPairs() {
 //        given
-        val grid = arrayOf(intArrayOf(3,2,1), intArrayOf(1,7,6), intArrayOf(2,7,7))
+        val grid = arrayOf(intArrayOf(3, 2, 1), intArrayOf(1, 7, 6), intArrayOf(2, 7, 7))
 //        when
-        val result:Int = LeetCode75().equalPairs(grid)
+        val result: Int = LeetCode75().equalPairs(grid)
 
 //        then
-        val expectation= 1
-        assertEquals(expectation,result)
+        val expectation = 1
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun removeStars(){
+    fun removeStars() {
 //        given
-        val s= "erase*****"
+        val s = "erase*****"
 
 //        when
-        val result:String= LeetCode75().removeStars(s)
+        val result: String = LeetCode75().removeStars(s)
 
 //        then
-        val expectation=""
-        assertEquals(expectation,result)
+        val expectation = ""
+        assertEquals(expectation, result)
     }
 
 
     @Test
-    fun asteroidCollision(){
+    fun asteroidCollision() {
 //        given
-        val asteroids = intArrayOf(10,2,-5)
+        val asteroids = intArrayOf(10, 2, -5)
 
 //        when
-        val result:IntArray = LeetCode75().asteroidCollision(asteroids)
+        val result: IntArray = LeetCode75().asteroidCollision(asteroids)
 
 //        then
         val expectation = intArrayOf(10)
-        assertArrayEquals(expectation,result)
+        assertArrayEquals(expectation, result)
     }
 
     @Test
-    fun canConstruct(){
+    fun canConstruct() {
 //        given
         val ransomeNote = "aa"
         val magazine = "aab"
 
 //        when
-        val result:Boolean= LeetCode75().canConstruct(ransomeNote,magazine)
+        val result: Boolean = LeetCode75().canConstruct(ransomeNote, magazine)
 
 //        then
         val expectation = true
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun isIsomorphic(){
+    fun isIsomorphic() {
 //        given
-        val s= "badc"
-        val t="baba"
+        val s = "badc"
+        val t = "baba"
 
 //        when
-        val result:Boolean= LeetCode75().isIsomorphic(s,t)
+        val result: Boolean = LeetCode75().isIsomorphic(s, t)
 
 //        then
         val expectation = false
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun twoSums(){
+    fun twoSums() {
 //        given
-        val nums = intArrayOf(2,7,11,15)
-        val target=9
+        val nums = intArrayOf(2, 7, 11, 15)
+        val target = 9
 
 //        when
-        val result:IntArray = LeetCode75().twoSum(nums, target)
+        val result: IntArray = LeetCode75().twoSum(nums, target)
 
 //        then
-        val expectation = intArrayOf(0,1)
-        assertArrayEquals(expectation,result)
+        val expectation = intArrayOf(0, 1)
+        assertArrayEquals(expectation, result)
     }
 
     @Test
-    fun isAnagram(){
+    fun isAnagram() {
 //        given
-        val s= "ab"
+        val s = "ab"
         val t = "a"
 
 //        when
-        val result:Boolean= LeetCode75().isAnagram(s,t)
+        val result: Boolean = LeetCode75().isAnagram(s, t)
 
 //        then
-        val expectation= false
-        assertEquals(expectation,result)
+        val expectation = false
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun containsNearbyDuplicates(){
+    fun containsNearbyDuplicates() {
 //        given
-        val nums= intArrayOf(1,0,1,1)
+        val nums = intArrayOf(1, 0, 1, 1)
         val k = 1
 //        when
-        val result:Boolean = LeetCode75().containsNearbyDuplicates(nums, k)
+        val result: Boolean = LeetCode75().containsNearbyDuplicates(nums, k)
 
 //        then
         val expectation = true
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun wordPattern(){
+    fun wordPattern() {
 //        given
-        val pattern =  "aaaa"
-        val s= "dog cat cat dog"
+        val pattern = "aaaa"
+        val s = "dog cat cat dog"
 
 //        when
-        val result:Boolean= LeetCode75().wordPattern(pattern, s)
+        val result: Boolean = LeetCode75().wordPattern(pattern, s)
 //        then
-        val expectation= false
-        assertEquals(expectation,result)
+        val expectation = false
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun minSubArrayLen(){
+    fun minSubArrayLen() {
 //        given
-        val nums = intArrayOf(2,3,1,2,4,3)
-        val target= 7
+        val nums = intArrayOf(2, 3, 1, 2, 4, 3)
+        val target = 7
 
 //        when
-        val result:Int= LeetCode75().minSubArray(nums, target)
+        val result: Int = LeetCode75().minSubArray(nums, target)
 //        then
-        val expectation= 2
-        assertEquals(expectation,result)
+        val expectation = 2
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun lengthOfLongestSubstring(){
+    fun lengthOfLongestSubstring() {
 //        given
-        val s= "pwwkew"
+        val s = "pwwkew"
 
 //        when
-        val result:Int = LeetCode75().lengthOfLongestSubstring(s)
+        val result: Int = LeetCode75().lengthOfLongestSubstring(s)
 
 //        then
-        val expectation=3
-        assertEquals(expectation,result)
+        val expectation = 3
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun successfulPairs(){
+    fun successfulPairs() {
 //        given
-        val spells= intArrayOf(5,1,3)
-        val potions = intArrayOf(1,2,3,4,5)
-        val success= 7
+        val spells = intArrayOf(5, 1, 3)
+        val potions = intArrayOf(1, 2, 3, 4, 5)
+        val success = 7
 
 //        when
-        val result:IntArray= LeetCode75().successfulPairs(spells,potions,success)
+        val result: IntArray = LeetCode75().successfulPairs(spells, potions, success)
 
 //        then
-        val expectation= intArrayOf(4,0,3)
-        assertArrayEquals(expectation,result)
+        val expectation = intArrayOf(4, 0, 3)
+        assertArrayEquals(expectation, result)
     }
 
     @Test
-    fun searchInsert(){
+    fun searchInsert() {
 //        given
-        val nums = intArrayOf(1,3,5,6)
+        val nums = intArrayOf(1, 3, 5, 6)
         val target = 5
 
 //        when
-        val result:Int = LeetCode75().searchInsert(nums, target)
-
-//        then
-        val expectation=2
-        assertEquals(expectation,result)
-
-    }
-
-    @Test
-    fun searchMatrix(){//        given
-
-        val matrix = arrayOf(intArrayOf(1,3,5,7), intArrayOf(10,11,16,20), intArrayOf(23,30,34,60))
-        val target = 3
-
-//        when
-        val result:Boolean = LeetCode75().searchMatrix(matrix,target)
-
-//        then
-        val expectation = true
-
-        assertEquals(expectation,result)
-    }
-
-    @Test
-    fun findPeakElement(){
-//        given
-        val nums = intArrayOf(1,2,3,1)
-
-//        when
-        val result:Int = LeetCode75().findPeakElement(nums)
+        val result: Int = LeetCode75().searchInsert(nums, target)
 
 //        then
         val expectation = 2
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
+
     }
 
     @Test
-    fun twoSum(){
-//        given
-        val numbers= intArrayOf(2,7,11,15)
-        val target= 9
+    fun searchMatrix() {//        given
+
+        val matrix = arrayOf(intArrayOf(1, 3, 5, 7), intArrayOf(10, 11, 16, 20), intArrayOf(23, 30, 34, 60))
+        val target = 3
 
 //        when
-        val result:IntArray = LeetCode75().twoSumOneIndex(numbers,target)
-
-//        then
-        val expectation= intArrayOf(1,2)
-        assertArrayEquals(expectation,result)
-    }
-
-    @Test
-    fun isValid(){
-//        given
-        val s= "()"
-
-//        when
-        val result:Boolean = LeetCode75().isValid(s)
+        val result: Boolean = LeetCode75().searchMatrix(matrix, target)
 
 //        then
         val expectation = true
-        assertEquals(expectation,result)
+
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun simplypath (){
+    fun findPeakElement() {
+//        given
+        val nums = intArrayOf(1, 2, 3, 1)
+
+//        when
+        val result: Int = LeetCode75().findPeakElement(nums)
+
+//        then
+        val expectation = 2
+        assertEquals(expectation, result)
+    }
+
+    @Test
+    fun twoSum() {
+//        given
+        val numbers = intArrayOf(2, 7, 11, 15)
+        val target = 9
+
+//        when
+        val result: IntArray = LeetCode75().twoSumOneIndex(numbers, target)
+
+//        then
+        val expectation = intArrayOf(1, 2)
+        assertArrayEquals(expectation, result)
+    }
+
+    @Test
+    fun isValid() {
+//        given
+        val s = "()"
+
+//        when
+        val result: Boolean = LeetCode75().isValid(s)
+
+//        then
+        val expectation = true
+        assertEquals(expectation, result)
+    }
+
+    @Test
+    fun simplypath() {
 //        given
         val path = "/.../a/../b/c/../d/./"
 //        when
-        val result:String = LeetCode75().simplifyPath(path)
+        val result: String = LeetCode75().simplifyPath(path)
 
 //        then
-        val expectation ="/.../b/d"
-        assertEquals(expectation,result)
+        val expectation = "/.../b/d"
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun evalRPN(){
+    fun evalRPN() {
 //        given
-        val tokens= arrayOf("10","6","9","3","+","-11","*","/","*","17","+","5","+")
+        val tokens = arrayOf("10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+")
 
 //        when
-        val result:Int= LeetCode75().evalRPN(tokens)
+        val result: Int = LeetCode75().evalRPN(tokens)
 
 //        then
         val expectation = 22
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun compress(){
+    fun compress() {
 //        given
-        val chars = charArrayOf('a','a','b', 'b','c','c','c')
+        val chars = charArrayOf('a', 'a', 'b', 'b', 'c', 'c', 'c')
 
 //        when
-        val result:Int= LeetCode75().compress(chars)
+        val result: Int = LeetCode75().compress(chars)
 
 //        then
-        val expectation= 6
-        assertEquals(expectation,result)
+        val expectation = 6
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun maxOperations(){
+    fun maxOperations() {
 //        given
-        val nums = intArrayOf(3,1,3,4,3)
+        val nums = intArrayOf(3, 1, 3, 4, 3)
         val k = 6
 
 //        when
-        val result:Int = LeetCode75().maxOperations(nums, k)
-
-//        then
-        val expectation =1
-        assertEquals(expectation,result)
-    }
-
-    @Test
-    fun maxArea(){
-//        given
-        val height= intArrayOf(1,8,6,2,5,4,8,3,7)
-
-//        when
-        val result:Int = LeetCode75().maxArea(height)
-
-//        then
-        val expectation =49
-        assertEquals(expectation,result)
-    }
-
-    @Test
-    fun largestAltitude(){
-//        given
-        val gain = intArrayOf(-4,-3,-2,-1,4,3,2)
-
-//        when
-        val result:Int= LeetCode75().largestAltitude(gain)
-
-//        then
-        val expectation= 0
-        assertEquals(expectation,result)
-    }
-
-    @Test
-    fun sumRange(){
-//        given
-        val left= 0
-        val right= 2
-        val nums= intArrayOf(-2, 0, 3, -5, 2, -1)
-
-//        when
-        val result:Int = LeetCode75.NumArray(nums).sumRange(left,right)
+        val result: Int = LeetCode75().maxOperations(nums, k)
 
 //        then
         val expectation = 1
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun dailyTemperatures(){
+    fun maxArea() {
 //        given
-        val temperatures= intArrayOf(73,74,75,71,69,72,76,73)
+        val height = intArrayOf(1, 8, 6, 2, 5, 4, 8, 3, 7)
 
 //        when
-        val result:IntArray= LeetCode75().dailyTemperatures(temperatures)
+        val result: Int = LeetCode75().maxArea(height)
 
 //        then
-        val expectation= intArrayOf(1,1,4,2,1,1,0,0)
+        val expectation = 49
+        assertEquals(expectation, result)
+    }
 
-        assertArrayEquals(expectation,result)
+    @Test
+    fun largestAltitude() {
+//        given
+        val gain = intArrayOf(-4, -3, -2, -1, 4, 3, 2)
+
+//        when
+        val result: Int = LeetCode75().largestAltitude(gain)
+
+//        then
+        val expectation = 0
+        assertEquals(expectation, result)
+    }
+
+    @Test
+    fun sumRange() {
+//        given
+        val left = 0
+        val right = 2
+        val nums = intArrayOf(-2, 0, 3, -5, 2, -1)
+
+//        when
+        val result: Int = LeetCode75.NumArray(nums).sumRange(left, right)
+
+//        then
+        val expectation = 1
+        assertEquals(expectation, result)
+    }
+
+    @Test
+    fun dailyTemperatures() {
+//        given
+        val temperatures = intArrayOf(73, 74, 75, 71, 69, 72, 76, 73)
+
+//        when
+        val result: IntArray = LeetCode75().dailyTemperatures(temperatures)
+
+//        then
+        val expectation = intArrayOf(1, 1, 4, 2, 1, 1, 0, 0)
+
+        assertArrayEquals(expectation, result)
 
     }
 
     @Test
-    fun next(){
+    fun next() {
 //        given
-        val price= 100
+        val price = 100
 
 //        when
-        val stockSpanner=LeetCode75.StockSpanner()
+        val stockSpanner = LeetCode75.StockSpanner()
         stockSpanner.next(100)
         stockSpanner.next(80)
         stockSpanner.next(60)
         stockSpanner.next(70)
         stockSpanner.next(60)
-        val result:Int = stockSpanner.next(75)
+        val result: Int = stockSpanner.next(75)
 
 //        then
-        val expectation= 4
+        val expectation = 4
         assertEquals(expectation, result)
     }
 
     @Test
-    fun finalPrices(){
+    fun finalPrices() {
 //        given
-        val prices= intArrayOf(10,1,1,6)
+        val prices = intArrayOf(10, 1, 1, 6)
 
 //        when
-        val result:IntArray = LeetCode75().finalPrices(prices)
+        val result: IntArray = LeetCode75().finalPrices(prices)
 
 //        then
-        val expectation = intArrayOf(9,0,1,6)
+        val expectation = intArrayOf(9, 0, 1, 6)
 
-        assertArrayEquals(expectation,result)
+        assertArrayEquals(expectation, result)
     }
 
     @Test
-    fun nextGreatestElement(){
+    fun nextGreatestElement() {
 //        given
-        val nums1= intArrayOf(4,1,2)
-        val nums2= intArrayOf(1,3,4,2)
+        val nums1 = intArrayOf(4, 1, 2)
+        val nums2 = intArrayOf(1, 3, 4, 2)
 
 //        when
-        val result:IntArray = LeetCode75().nextGreaterElement(nums1, nums2)
+        val result: IntArray = LeetCode75().nextGreaterElement(nums1, nums2)
 
 //        then
-        val expectation = intArrayOf(-1,3,-1)
-        assertArrayEquals(expectation,result)
+        val expectation = intArrayOf(-1, 3, -1)
+        assertArrayEquals(expectation, result)
     }
 
     @Test
-    fun deleteMiddleNode(){
+    fun deleteMiddleNode() {
 //    given
-        var node1= LeetCode75.ListNode(1)
-        var node2= LeetCode75.ListNode(3)
+        var node1 = LeetCode75.ListNode(1)
+        var node2 = LeetCode75.ListNode(3)
         var node3 = LeetCode75.ListNode(4)
         var node4 = LeetCode75.ListNode(7)
         var node5 = LeetCode75.ListNode(1)
         var node6 = LeetCode75.ListNode(2)
         var node7 = LeetCode75.ListNode(6)
 
-        node1.next=node2
-        node2.next=node3
-        node3.next=node4
-        node4.next=node5
-        node5.next=node6
-        node6.next=node7
+        node1.next = node2
+        node2.next = node3
+        node3.next = node4
+        node4.next = node5
+        node5.next = node6
+        node6.next = node7
 
 //    when
         val result: LeetCode75.ListNode? = LeetCode75().deleteMiddleNode(node1)
 
 //        then
-         node1= LeetCode75.ListNode(1)
-         node2= LeetCode75.ListNode(3)
-         node3 = LeetCode75.ListNode(4)
-         node4 = LeetCode75.ListNode(7)
-         node5 = LeetCode75.ListNode(1)
-         node6 = LeetCode75.ListNode(2)
-         node7 = LeetCode75.ListNode(6)
+        node1 = LeetCode75.ListNode(1)
+        node2 = LeetCode75.ListNode(3)
+        node3 = LeetCode75.ListNode(4)
+        node4 = LeetCode75.ListNode(7)
+        node5 = LeetCode75.ListNode(1)
+        node6 = LeetCode75.ListNode(2)
+        node7 = LeetCode75.ListNode(6)
 
-        node1.next=node2
-        node2.next=node3
-        node3.next=node5
-        node5.next=node6
-        node6.next=node7
+        node1.next = node2
+        node2.next = node3
+        node3.next = node5
+        node5.next = node6
+        node6.next = node7
 
-        val expectation= node1
+        val expectation = node1
         assertEquals(expectation.`val`, result?.`val`)
     }
 
     @Test
-    fun deleteDuplicates(){
+    fun deleteDuplicates() {
 //        given
-        var node1= LeetCode75.ListNode(1)
-        var node2= LeetCode75.ListNode(1)
-        var node3= LeetCode75.ListNode(2)
+        var node1 = LeetCode75.ListNode(1)
+        var node2 = LeetCode75.ListNode(1)
+        var node3 = LeetCode75.ListNode(2)
 
-        node1.next=node2
-        node2.next= node3
+        node1.next = node2
+        node2.next = node3
 
 //        when
-        val result:LeetCode75.ListNode?= LeetCode75().deleteDuplicates(node1)
+        val result: LeetCode75.ListNode? = LeetCode75().deleteDuplicates(node1)
 
 //        then
-         node1= LeetCode75.ListNode(1)
-         node3= LeetCode75.ListNode(2)
+        node1 = LeetCode75.ListNode(1)
+        node3 = LeetCode75.ListNode(2)
 
-        node1.next=node3
+        node1.next = node3
 
         val expectation = node1
-        assertEquals(expectation.`val`,result?.`val`)
+        assertEquals(expectation.`val`, result?.`val`)
     }
 
     @Test
-    fun reverseList(){
+    fun reverseList() {
 //        given
-        var node1= LeetCode75.ListNode(1)
-        var node2= LeetCode75.ListNode(1)
-        var node3= LeetCode75.ListNode(2)
-        var node4= LeetCode75.ListNode(2)
-        var node5= LeetCode75.ListNode(2)
+        var node1 = LeetCode75.ListNode(1)
+        var node2 = LeetCode75.ListNode(1)
+        var node3 = LeetCode75.ListNode(2)
+        var node4 = LeetCode75.ListNode(2)
+        var node5 = LeetCode75.ListNode(2)
 
         node1.next = node2
-        node2.next=node3
-        node3.next=node4
-        node4.next=node5
-
+        node2.next = node3
+        node3.next = node4
+        node4.next = node5
 
 
 //        when
-        val result:LeetCode75.ListNode?= LeetCode75().reverseList(node1)
+        val result: LeetCode75.ListNode? = LeetCode75().reverseList(node1)
 
 //        then
         node5.next = node4
-        node4.next=node3
+        node4.next = node3
         node2.next = node1
 
         val expectation = node5
@@ -667,22 +666,22 @@ class LeetCode75Test{
     }
 
     @Test
-    fun pairSum(){
+    fun pairSum() {
 //        given
-        var node1= LeetCode75.ListNode(5)
-        var node2= LeetCode75.ListNode(4)
-        var node3= LeetCode75.ListNode(2)
-        var node4= LeetCode75.ListNode(1)
+        var node1 = LeetCode75.ListNode(5)
+        var node2 = LeetCode75.ListNode(4)
+        var node3 = LeetCode75.ListNode(2)
+        var node4 = LeetCode75.ListNode(1)
 
         node1.next = node2
-        node2.next=node3
-        node3.next=node4
+        node2.next = node3
+        node3.next = node4
 //        when
-        val result:Int= LeetCode75().pairSum(node1)
+        val result: Int = LeetCode75().pairSum(node1)
 
 //        then
-        val expectation= 6
-        assertEquals(expectation,result)
+        val expectation = 6
+        assertEquals(expectation, result)
 
     }
 
@@ -737,7 +736,7 @@ class LeetCode75Test{
     }
 
     @Test
-    fun hasCycle(){
+    fun hasCycle() {
 //        given
         val node1 = LeetCode75.ListNode(3)
         val node2 = LeetCode75.ListNode(2)
@@ -749,18 +748,14 @@ class LeetCode75Test{
         node3.next = node4
 
 //        when
-        val result:Boolean = LeetCode75().hasCycle(node1)
+        val result: Boolean = LeetCode75().hasCycle(node1)
 
 //        then
 
 
-
         val expectation = true
-            assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
-
-
-
 
 
     @Test
@@ -809,7 +804,7 @@ class LeetCode75Test{
     }
 
     @Test
-    fun mergeTwoLists(){
+    fun mergeTwoLists() {
 //        given
 
         // Given
@@ -828,7 +823,7 @@ class LeetCode75Test{
         list2.next = list3
 
 //        when
-        val result:LeetCode75.ListNode? = LeetCode75().mergeTwoLists(node1, list1)
+        val result: LeetCode75.ListNode? = LeetCode75().mergeTwoLists(node1, list1)
 
 //        then
 
@@ -847,73 +842,73 @@ class LeetCode75Test{
     }
 
     @Test
-    fun minDepth(){
+    fun minDepth() {
 //        given
-        val root= LeetCode75.TreeNode(3)
+        val root = LeetCode75.TreeNode(3)
         val node1 = LeetCode75.TreeNode(9)
         val node2 = LeetCode75.TreeNode(20)
         val node3 = LeetCode75.TreeNode(15)
         val node4 = LeetCode75.TreeNode(7)
 
-        root.left=node1
-        root.right= node2
-        node2.left=node3
-        node2.right=node4
+        root.left = node1
+        root.right = node2
+        node2.left = node3
+        node2.right = node4
 //        when
-        val result:Int=LeetCode75().minDepth(root)
+        val result: Int = LeetCode75().minDepth(root)
 
 //        then
         val expectation = 2
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun leafSimilar(){
+    fun leafSimilar() {
 //        given
-        val root= LeetCode75.TreeNode(1)
+        val root = LeetCode75.TreeNode(1)
         val node1 = LeetCode75.TreeNode(2)
         val node2 = LeetCode75.TreeNode(3)
 
 
-        root.left=node1
-        root.right= node2
+        root.left = node1
+        root.right = node2
 
-        val root2= LeetCode75.TreeNode(1)
+        val root2 = LeetCode75.TreeNode(1)
         val treeNode1 = LeetCode75.TreeNode(3)
         val treeNode2 = LeetCode75.TreeNode(2)
 
 
-        root2.left=treeNode1
-        root2.right= treeNode2
+        root2.left = treeNode1
+        root2.right = treeNode2
 
 //        when
 
-        val result:Boolean = LeetCode75().leafSimilar(root,root2)
+        val result: Boolean = LeetCode75().leafSimilar(root, root2)
 
 
 //        then
-        val expectation=false
-        assertEquals(expectation,result)
+        val expectation = false
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun goodNodes(){
+    fun goodNodes() {
 //        given
-        val root= LeetCode75.TreeNode(1)
+        val root = LeetCode75.TreeNode(1)
 
 
 //        when
-        val result:Int = LeetCode75().goodNodes(root)
+        val result: Int = LeetCode75().goodNodes(root)
 
 //        then
         val expectation = 1
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun invertTree(){
+    fun invertTree() {
 //        given
-        val root= LeetCode75.TreeNode(4)
+        val root = LeetCode75.TreeNode(4)
         val node1 = LeetCode75.TreeNode(2)
         val node2 = LeetCode75.TreeNode(7)
         val node3 = LeetCode75.TreeNode(1)
@@ -922,18 +917,18 @@ class LeetCode75Test{
         val node6 = LeetCode75.TreeNode(9)
 
 
-        root.left=node1
-        root.right= node2
-        node1.left= node3
-        node1.right= node4
-        node2.left= node5
-        node2.right= node6
+        root.left = node1
+        root.right = node2
+        node1.left = node3
+        node1.right = node4
+        node2.left = node5
+        node2.right = node6
 
 //        when
-        val result:LeetCode75.TreeNode<Int>?= LeetCode75().invertTree(root)
+        val result: LeetCode75.TreeNode<Int>? = LeetCode75().invertTree(root)
 
 //        then
-        val expectedRoot= LeetCode75.TreeNode(4)
+        val expectedRoot = LeetCode75.TreeNode(4)
         val expectedNode1 = LeetCode75.TreeNode(2)
         val expectedNode2 = LeetCode75.TreeNode(7)
         val expectedNode3 = LeetCode75.TreeNode(1)
@@ -941,11 +936,11 @@ class LeetCode75Test{
         val expectedNode5 = LeetCode75.TreeNode(6)
         val expectedNode6 = LeetCode75.TreeNode(9)
 
-        expectedRoot.left=expectedNode2
-        expectedRoot.right=expectedNode1
-        expectedNode1.left=expectedNode4
-        expectedNode1.right=expectedNode3
-        expectedNode2.left=expectedNode6
+        expectedRoot.left = expectedNode2
+        expectedRoot.right = expectedNode1
+        expectedNode1.left = expectedNode4
+        expectedNode1.right = expectedNode3
+        expectedNode2.left = expectedNode6
         expectedNode2.right = expectedNode5
 
         assert(areTreesEqual(result, expectedRoot)) { "The inverted tree does not match the expected tree." }
@@ -953,209 +948,209 @@ class LeetCode75Test{
 
 
     @Test
-    fun isHappy(){
+    fun isHappy() {
 //        given
-        val n= 2
+        val n = 2
 
 //        when
-        val result:Boolean = LeetCode75().isHappy(n)
+        val result: Boolean = LeetCode75().isHappy(n)
 
 //        then
-        val expectation =false
-        assertEquals(expectation,result)
-    }
-
-    @Test
-    fun square(){
-//        given
-        val num=82
-//        when
-        val result = LeetCode75().squareDigits(num)
-
-//        then
-        val expectation= 68
+        val expectation = false
         assertEquals(expectation, result)
     }
 
     @Test
-    fun summaryRanges(){
+    fun square() {
 //        given
-        val nums = intArrayOf(0,1,2,4,5,7)
-
+        val num = 82
 //        when
-        val result:List<String> = LeetCode75().summaryRanges(nums)
+        val result = LeetCode75().squareDigits(num)
 
 //        then
-        val expectation = listOf("0->2","4->5","7")
-
-        assertEquals(expectation,result)
+        val expectation = 68
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun rotate(){
+    fun summaryRanges() {
 //        given
-        val nums= intArrayOf(1,2,3,4,5,6,7)
-        val k=3
+        val nums = intArrayOf(0, 1, 2, 4, 5, 7)
 
 //        when
-        val result:Unit = LeetCode75().rotate(nums, k)
+        val result: List<String> = LeetCode75().summaryRanges(nums)
 
 //        then
-        val expectation = intArrayOf(5,6,7,1,2,3,4)
+        val expectation = listOf("0->2", "4->5", "7")
 
-        assertArrayEquals(expectation,nums)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun groupAnagrams(){
+    fun rotate() {
 //        given
-        val strs= arrayOf("eat","tea","tan","ate","nat","bat")
+        val nums = intArrayOf(1, 2, 3, 4, 5, 6, 7)
+        val k = 3
+
+//        when
+        val result: Unit = LeetCode75().rotate(nums, k)
+
+//        then
+        val expectation = intArrayOf(5, 6, 7, 1, 2, 3, 4)
+
+        assertArrayEquals(expectation, nums)
+    }
+
+    @Test
+    fun groupAnagrams() {
+//        given
+        val strs = arrayOf("eat", "tea", "tan", "ate", "nat", "bat")
 
 //        when
         val result: List<List<String>> = LeetCode75().groupAnagrams(strs)
 
 //        then
-        val expectation= mutableListOf(listOf("nat","tan"), listOf("bat"), listOf("ate","eat","tea"))
+        val expectation = mutableListOf(listOf("nat", "tan"), listOf("bat"), listOf("ate", "eat", "tea"))
 
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun isPalindrome(){
+    fun isPalindrome() {
 //        given
-        val x= 121
+        val x = 121
 
 //        when
-        val result:Boolean = LeetCode75().isPalindrome(x)
+        val result: Boolean = LeetCode75().isPalindrome(x)
 
 //        then
         val expectation = true
 
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun arrayToDigit(){
+    fun arrayToDigit() {
 //        given
-        val x= intArrayOf(1,2,3)
+        val x = intArrayOf(1, 2, 3)
 
 //        when
-        val result:Int = LeetCode75().arraytoDigit(x)
+        val result: Int = LeetCode75().arraytoDigit(x)
 
 //        then
-        val expectation= 123
-        assertEquals(expectation,result)
+        val expectation = 123
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun plusOne(){
+    fun plusOne() {
 //        given
-        val x = intArrayOf(1,2,3)
+        val x = intArrayOf(1, 2, 3)
 
 //        when
-        val result:IntArray = LeetCode75().plusOne(x)
+        val result: IntArray = LeetCode75().plusOne(x)
 
 //        then
-        val expectation= intArrayOf(1,2,4)
+        val expectation = intArrayOf(1, 2, 4)
 
-        assertArrayEquals(expectation,result)
+        assertArrayEquals(expectation, result)
     }
 
     @Test
-    fun pow(){
+    fun pow() {
 //        give
-        val x= 2.00000
-        val n=10
+        val x = 2.00000
+        val n = 10
 
 //        when
-        val result:Double = LeetCode75().pow(x,n)
+        val result: Double = LeetCode75().pow(x, n)
 
 //        then
-        val expectation= 1024.00000
+        val expectation = 1024.00000
 
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun mySqrt(){
+    fun mySqrt() {
 //        given
-        val x=5
+        val x = 5
 
 //        when
-        val result:Int= LeetCode75().mySqrt(x)
+        val result: Int = LeetCode75().mySqrt(x)
 
 //        then
-        val expectation= 2
-        assertEquals(expectation,result)
+        val expectation = 2
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun maximumProduct(){
+    fun maximumProduct() {
 //        given
-        val nums = intArrayOf(-100,-98,-1,2,3,4)
+        val nums = intArrayOf(-100, -98, -1, 2, 3, 4)
 
 //        when
-        val result:Int = LeetCode75().maximumProduct(nums)
+        val result: Int = LeetCode75().maximumProduct(nums)
 //        then
-        val expectation= 39200
+        val expectation = 39200
 
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun findErrorsNums(){
+    fun findErrorsNums() {
 //        given
-        val nums= intArrayOf(3,2,2)
+        val nums = intArrayOf(3, 2, 2)
 
 //        when
-        val result:IntArray = LeetCode75().findErrorsNums(nums)
+        val result: IntArray = LeetCode75().findErrorsNums(nums)
 
 //        then
-        val expectation = intArrayOf(2,1)
+        val expectation = intArrayOf(2, 1)
 
-     assertArrayEquals(expectation,result)
+        assertArrayEquals(expectation, result)
     }
 
     @Test
-    fun equalFrequency(){
+    fun equalFrequency() {
 //        given
-        val word= "bac"
+        val word = "bac"
 
 //        when
-        val result:Boolean = LeetCode75().equalFrequency(word)
+        val result: Boolean = LeetCode75().equalFrequency(word)
 
 //        then
         val expectation = false
 
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun removeAnagrams(){
+    fun removeAnagrams() {
 //        given
-        val words= arrayOf("abba","baba","bbaa","cd","cd")
+        val words = arrayOf("abba", "baba", "bbaa", "cd", "cd")
 
 //        when
-        val result= LeetCode75().removeAnagrams(words)
+        val result = LeetCode75().removeAnagrams(words)
 
 //        then
-        val expectation = listOf("abba","cd")
+        val expectation = listOf("abba", "cd")
 
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun longestConsecutive(){
+    fun longestConsecutive() {
 //        given
-        val nums= intArrayOf(100,4,200,1,3,2)
+        val nums = intArrayOf(100, 4, 200, 1, 3, 2)
 
 //        when
-        val result:Int= LeetCode75().longestConsecutive(nums)
+        val result: Int = LeetCode75().longestConsecutive(nums)
 
 //        then
-        val expectation= 4
+        val expectation = 4
 
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
 //    @Test
@@ -1174,165 +1169,166 @@ class LeetCode75Test{
 //    }
 
     @Test
-    fun longestPalindorme(){
+    fun longestPalindorme() {
 //        given
-        val s="abccccdd"
+        val s = "abccccdd"
 //        when
-        val result:Int = LeetCode75().longestPalindrome(s)
+        val result: Int = LeetCode75().longestPalindrome(s)
 
 //        then
-        val expectation= 7
+        val expectation = 7
 
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun getSneakyNumbers(){
+    fun getSneakyNumbers() {
 //        given
-        val nums= intArrayOf(0,1,1,0)
+        val nums = intArrayOf(0, 1, 1, 0)
 
 //        when
-        val result:IntArray = LeetCode75().getSneakyNumbers(nums)
+        val result: IntArray = LeetCode75().getSneakyNumbers(nums)
 
 //        then
-        val expectation= intArrayOf(0,1)
+        val expectation = intArrayOf(0, 1)
 
         assertArrayEquals(expectation, result)
     }
 
     @Test
-    fun numberOfPairs(){
+    fun numberOfPairs() {
 //        given
-        val nums1= intArrayOf(1,3,4)
-        val nums2= intArrayOf(1,3,4)
+        val nums1 = intArrayOf(1, 3, 4)
+        val nums2 = intArrayOf(1, 3, 4)
 
 //        when
-        val result:Int = LeetCode75().numberOfPairs(nums1,nums2,1)
+        val result: Int = LeetCode75().numberOfPairs(nums1, nums2, 1)
 //        then
-        val expectation= 5
-        assertEquals(expectation,result)
+        val expectation = 5
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun findIntersectionValues(){
+    fun findIntersectionValues() {
 //        given
-        val nums1= intArrayOf(2,3,2)
-        val nums2= intArrayOf(1,2)
+        val nums1 = intArrayOf(2, 3, 2)
+        val nums2 = intArrayOf(1, 2)
 
 //        when
-        val result:IntArray = LeetCode75().findIntersectionValues(nums1, nums2)
+        val result: IntArray = LeetCode75().findIntersectionValues(nums1, nums2)
 
 //        then
-        val expectation = intArrayOf(2,1)
+        val expectation = intArrayOf(2, 1)
 
-        assertArrayEquals(expectation,result)
+        assertArrayEquals(expectation, result)
     }
 
     @Test
-    fun minimizedStringLength(){
+    fun minimizedStringLength() {
 //        given
-        val s= "aaabc"
+        val s = "aaabc"
 
 //        when
-        val result:Int = LeetCode75().minimizedStringLength(s)
+        val result: Int = LeetCode75().minimizedStringLength(s)
 
 //        then
         val expectation = 3
 
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun maxFrquencyElements(){
+    fun maxFrquencyElements() {
 //        given
-        val nums = intArrayOf(1,2,2,3,1,4)
+        val nums = intArrayOf(1, 2, 2, 3, 1, 4)
 
 //        when
-        val result:Int = LeetCode75().maxFrequency(nums)
+        val result: Int = LeetCode75().maxFrequency(nums)
 
 
 //        then
         val expectation = 4
 
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun uncommonFromSentences(){
+    fun uncommonFromSentences() {
 //        given
-        val s1= "this apple is sweet"
+        val s1 = "this apple is sweet"
         val s2 = "this apple is sour"
 
 //        when
-        val result:Array<String> = LeetCode75().uncommonFromSentences(s1,s2)
+        val result: Array<String> = LeetCode75().uncommonFromSentences(s1, s2)
 
 //        then
-        val expectation= arrayOf("sweet", "sour")
+        val expectation = arrayOf("sweet", "sour")
 
-        assertArrayEquals(expectation,result)
-    }
-    @Test
-    fun twoOutOfThree(){
-//        given
-        val nums1= intArrayOf(1,1,3,2)
-        val nums2= intArrayOf(2,3)
-        val nums3= intArrayOf(3)
-
-//        when
-        val result:List<Int> = LeetCode75().twoOutOfThree(nums1,nums2,nums3)
-
-//        then
-        val expectation = listOf(3,2)
-
-        assertEquals(expectation,result)
+        assertArrayEquals(expectation, result)
     }
 
     @Test
-    fun findMissingAndRepeatedValues(){
+    fun twoOutOfThree() {
 //        given
-       val grid= arrayOf(intArrayOf(1,3), intArrayOf(2,2))
+        val nums1 = intArrayOf(1, 1, 3, 2)
+        val nums2 = intArrayOf(2, 3)
+        val nums3 = intArrayOf(3)
 
 //        when
-        val result:IntArray = LeetCode75().findMissingAndRepeatedValues(grid)
+        val result: List<Int> = LeetCode75().twoOutOfThree(nums1, nums2, nums3)
 
 //        then
-        val expectation= intArrayOf(2,4)
+        val expectation = listOf(3, 2)
 
-        assertArrayEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun countBalls(){
+    fun findMissingAndRepeatedValues() {
 //        given
-        val lowLimit=19
-        val highLimit=28
+        val grid = arrayOf(intArrayOf(1, 3), intArrayOf(2, 2))
 
 //        when
-        val result:Int = LeetCode75().countBalls(lowLimit,highLimit)
+        val result: IntArray = LeetCode75().findMissingAndRepeatedValues(grid)
+
+//        then
+        val expectation = intArrayOf(2, 4)
+
+        assertArrayEquals(expectation, result)
+    }
+
+    @Test
+    fun countBalls() {
+//        given
+        val lowLimit = 19
+        val highLimit = 28
+
+//        when
+        val result: Int = LeetCode75().countBalls(lowLimit, highLimit)
 
 //        then
         val expectation = 2
 
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun duplicateNumbersXOR(){
+    fun duplicateNumbersXOR() {
 //        given
-        val nums = intArrayOf(1,2,2,1)
+        val nums = intArrayOf(1, 2, 2, 1)
 
 //        when
-        val result:Int = LeetCode75().duplicateNumbersXOR(nums)
+        val result: Int = LeetCode75().duplicateNumbersXOR(nums)
 
 //        then
         val expectation = 3
-    assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun isArraySpecial(){
+    fun isArraySpecial() {
 //        given
-        val nums= intArrayOf(1)
+        val nums = intArrayOf(1)
 
 //        when
         val result: Boolean = LeetCode75().isArraySpecial(nums)
@@ -1340,13 +1336,13 @@ class LeetCode75Test{
 //        then
         val expectation = true
 
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun check(){
+    fun check() {
 //        given
-        val nums = intArrayOf(1,2,3)
+        val nums = intArrayOf(1, 2, 3)
 
 //        when
         val result: Boolean = LeetCode75().check(nums)
@@ -1354,54 +1350,54 @@ class LeetCode75Test{
 //        then
         val expectation = true
 
-        assertEquals(result,expectation)
+        assertEquals(result, expectation)
     }
 
     @Test
-    fun longestMonotonicSubarray(){
+    fun longestMonotonicSubarray() {
 //        given
-        val nums= intArrayOf(1,4,3,3,2)
+        val nums = intArrayOf(1, 4, 3, 3, 2)
 
 //        when
-        val result:Int = LeetCode75().longestMonotonicSubarray(nums)
+        val result: Int = LeetCode75().longestMonotonicSubarray(nums)
 
 //        then
         val expectation = 2
 
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun maxAscendingSum(){
+    fun maxAscendingSum() {
 //        given
-        val nums= intArrayOf(12,17,15,13,10,11,12)
+        val nums = intArrayOf(12, 17, 15, 13, 10, 11, 12)
 
 //        when
-        val result:Int =LeetCode75().maxAcendingSum(nums)
+        val result: Int = LeetCode75().maxAcendingSum(nums)
 
 //        then
-        val expectation =33
+        val expectation = 33
 
-        assertEquals(expectation,result)
+        assertEquals(expectation, result)
     }
 
     @Test
-    fun merge(){
+    fun merge() {
 //        given
-        val intervals= arrayOf(intArrayOf(1,3), intArrayOf(2,6), intArrayOf(8,10), intArrayOf(15,18))
+        val intervals = arrayOf(intArrayOf(1, 3), intArrayOf(2, 6), intArrayOf(8, 10), intArrayOf(15, 18))
 
 //        when
         val result: Array<IntArray> = LeetCode75().merge(intervals)
 
 //        then
-        val expectation = arrayOf(intArrayOf(1,6), intArrayOf(8,10), intArrayOf(15,18))
+        val expectation = arrayOf(intArrayOf(1, 6), intArrayOf(8, 10), intArrayOf(15, 18))
 
 
-    for (i in expectation.indices) {
-        if (!expectation[i].contentEquals(result[i])) {
-            throw AssertionError("Mismatch at index $i. Expected: ${expectation[i].toList()}, Actual: ${result[i].toList()}")
-    }
-    }
+        for (i in expectation.indices) {
+            if (!expectation[i].contentEquals(result[i])) {
+                throw AssertionError("Mismatch at index $i. Expected: ${expectation[i].toList()}, Actual: ${result[i].toList()}")
+            }
+        }
 
     }
 
@@ -1432,51 +1428,107 @@ class LeetCode75Test{
     }
 
     @Test
-    fun areAlmostEqual(){
+    fun areAlmostEqual() {
 //        given
-        val s1= "kelb"
+        val s1 = "kelb"
 
-        val s2= "kelb"
+        val s2 = "kelb"
 //        when
-        val result:Boolean= LeetCode75().areAlmostEqual(s1,s2)
+        val result: Boolean = LeetCode75().areAlmostEqual(s1, s2)
 
 //        then
         val expectation = false
+
+        assertEquals(expectation, result)
+    }
+
+    @Test
+    fun separateDigits() {
+//        given
+        val nums = intArrayOf(13, 25, 83, 77)
+
+//        when
+        val result: IntArray = LeetCode75().separateDigits(nums)
+
+//        then
+        val expectation = intArrayOf(1, 3, 2, 5, 8, 3, 7, 7)
+
+        assertArrayEquals(expectation, result)
+    }
+
+    @Test
+    fun findRelativeRanks() {
+//        given
+        val score = intArrayOf(5, 4, 3, 2, 1)
+
+//        when
+        val result: Array<String> = LeetCode75().findRelativeRanks(score)
+
+//        then
+        val expectation = arrayOf<String>("Gold Medal", "Silver Medal", "Bronze Medal", "4", "5")
+
+        assertArrayEquals(expectation, result)
+    }
+
+    @Test
+    fun NumberContainers() {
+//        given
+        val numberContainers = LeetCode75.NumberContainers()
+
+//        when
+        numberContainers.change(1, 10)
+        assertEquals(1, numberContainers.find(10))
+        numberContainers.change(1, 20)
+        assertEquals(-1, numberContainers.find(10))
+        assertEquals(1, numberContainers.find(20))
+        assertEquals(-1, numberContainers.find(30))
+
+    }
+
+    @Test
+    fun countBadPairs() {
+//        given
+        val nums = intArrayOf(4, 1, 3, 3)
+
+//        when
+        val result: Long = LeetCode75().countBadPairs(nums)
+
+//        then
+        val expectation = 5L
+
+        assertEquals(expectation, result)
+    }
+
+    @Test
+    fun sumIndicesWithKSetBits(){
+//        given
+        val nums= listOf<Int>(4,3,2,1)
+        val k=2
+
+//        when
+        val result:Int = LeetCode75().sumIndicesWithKSetBits(nums,k)
+
+//        then
+        val expectation=1
 
         assertEquals(expectation,result)
     }
 
     @Test
-    fun separateDigits(){
+    fun stringSequence(){
+
 //        given
-        val nums= intArrayOf(13,25,83,77)
+        val target= "abc"
 
 //        when
-        val result:IntArray= LeetCode75().separateDigits(nums)
+        val result:List<String> = LeetCode75().stringSequence(target)
 
 //        then
-        val expectation= intArrayOf(1,3,2,5,8,3,7,7)
+        val expectation = mutableListOf("a","aa","ab","aba","abb","abc")
 
-        assertArrayEquals(expectation,result)
+        assertEquals(expectation,result)
+
     }
-
-    @Test
-    fun findRelativeRanks(){
-//        given
-        val score = intArrayOf(5,4,3,2,1)
-
-//        when
-        val result:Array<String> = LeetCode75().findRelativeRanks(score)
-
-//        then
-        val expectation = arrayOf<String>("Gold Medal","Silver Medal","Bronze Medal","4","5")
-
-        assertArrayEquals(expectation,result)
-    }
-
-
-
-
 
 
     private fun areTreesEqual(tree1: LeetCode75.TreeNode<Int>?, tree2: LeetCode75.TreeNode<Int>?): Boolean {
@@ -1489,15 +1541,15 @@ class LeetCode75Test{
                 areTreesEqual(tree1.right, tree2.right)
     }
 
-    class RandomizedSet(){
+    class RandomizedSet() {
 
-        private val set= mutableSetOf<Int>()
+        private val set = mutableSetOf<Int>()
 
         fun insert(`val`: Int): Boolean {
 
-            if (set.contains(`val`)){
+            if (set.contains(`val`)) {
                 return false
-            }else{
+            } else {
                 set.add(`val`)
                 return true
             }
@@ -1506,10 +1558,10 @@ class LeetCode75Test{
 
         fun remove(`val`: Int): Boolean {
 
-            if (set.contains(`val`)){
+            if (set.contains(`val`)) {
                 set.remove(`val`)
                 return true
-            }else{
+            } else {
                 return false
             }
 
@@ -1520,7 +1572,6 @@ class LeetCode75Test{
 
         }
     }
-
 
 
 }

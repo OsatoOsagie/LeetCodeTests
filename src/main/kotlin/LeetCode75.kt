@@ -2143,11 +2143,78 @@ class LeetCode75 {
 
         return ans
 
+    }
+
+    fun countBadPairs(nums: IntArray): Long {
+       val mutableMap = mutableMapOf<Int,Int>()
+        var count =0
+
+        for (i in 0 until nums.size){
+
+            mutableMap[i]= mutableMap.getOrDefault(i,nums[i]-i)
+        }
+
+        for (j in 0 until nums.size){
+          val sub= mutableMap.filter { it.key < j }.filter { it.value != nums[j]-j }
+            println("keys ${sub.keys}")
+            println("values ${sub.values}")
+            println("j $j")
+            count +=sub.size
 
 
+        }
+        return count.toLong()
+
+    }
+
+    fun sumIndicesWithKSetBits(nums: List<Int>, k: Int): Int {
+
+        var count=0
+        for (i in 0 until nums.size){
+            var setBits = i.countOneBits()
+            if (setBits==k){
+
+                count+=nums[i]
+            }
+
+        }
+
+        return count
 
 
     }
+
+    fun stringSequence(target: String): List<String> {
+        return listOf()
+    }
+
+    class NumberContainers() {
+
+        private val container = mutableMapOf<Int,Int>()
+
+        fun change(index: Int, number: Int) {
+            println(number)
+            container[index] = number
+
+            container.forEach { (key, value) ->
+                println("key:$key: $value") // ✅ Correct (same as println(value))
+            }
+
+        }
+
+
+        fun find(number: Int): Int {
+            val firstKey = container.filter { it.value == number }.keys.firstOrNull()
+
+            if (firstKey==null){
+                return -1
+            }else{
+                return firstKey
+            }
+        }
+
+    }
+
 
 
     class NumArray(nums: IntArray){
