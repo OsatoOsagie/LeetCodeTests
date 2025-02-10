@@ -1530,6 +1530,20 @@ class LeetCode75Test {
 
     }
 
+    @Test
+    fun clearDigits(){
+//        given
+ val s = "abc"
+
+//        when
+        val result:String= LeetCode75().clearDigits(s)
+
+//        then
+        val expectation= "abc"
+
+        assertEquals(expectation,result)
+    }
+
 
     private fun areTreesEqual(tree1: LeetCode75.TreeNode<Int>?, tree2: LeetCode75.TreeNode<Int>?): Boolean {
         if (tree1 == null && tree2 == null) return true // Both trees are null

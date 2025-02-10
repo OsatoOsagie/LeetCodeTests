@@ -1,25 +1,12 @@
-import java.util.LinkedList
+import java.util.*
 import kotlin.collections.ArrayDeque
-import kotlin.collections.List
 import kotlin.collections.component1
 import kotlin.collections.component2
-import kotlin.collections.distinct
-import kotlin.collections.filter
-import kotlin.collections.getOrPut
-import kotlin.collections.indices
-import kotlin.collections.isNotEmpty
-import kotlin.collections.iterator
-import kotlin.collections.joinToString
-import kotlin.collections.max
-import kotlin.collections.mutableListOf
-import kotlin.collections.mutableMapOf
-import kotlin.collections.mutableSetOf
 import kotlin.collections.set
-import kotlin.collections.setOf
-import kotlin.collections.sort
-import kotlin.collections.toIntArray
-import kotlin.collections.toList
-import kotlin.math.*
+import kotlin.math.abs
+import kotlin.math.absoluteValue
+import kotlin.math.max
+import kotlin.math.min
 
 class LeetCode75 {
 
@@ -2215,6 +2202,50 @@ class LeetCode75 {
 
     }
 
+
+    val memo = mutableMapOf<Int,Int>()
+
+    fun minCostClimbingStairs(cost: IntArray): Int {
+        return dp(cost.size, cost);
+
+    }
+
+    fun dp(i: Int, cost: IntArray): Int {
+        if (i <= 1) {
+            // 3. Base cases
+            return 0
+        }
+
+        if (memo.containsKey(i)) {
+            return memo[i]!!
+        }
+
+
+        // 2. Recurrence relation
+        memo[i] = min((dp(i - 1, cost) + cost[i - 1]).toDouble(), (dp(i - 2, cost) + cost[i - 2]).toDouble()).toInt()
+        return memo[i]!!
+    }
+
+    fun clearDigits(s: String): String {
+        val stack = ArrayDeque<Char>()
+
+        for (i in s){
+            if (stack.isNotEmpty()){
+                if (i.isDigit() && !stack.last().isDigit()){
+                    stack.removeLast()
+                }else{
+                    stack.addLast(i)
+                }
+            }else{
+                stack.addLast(i)
+            }
+        }
+
+
+
+        return  if (stack.isEmpty()) "" else stack.joinToString("")
+
+    }
 
 
     class NumArray(nums: IntArray){
