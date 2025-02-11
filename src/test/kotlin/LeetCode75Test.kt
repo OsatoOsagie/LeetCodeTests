@@ -1518,13 +1518,13 @@ class LeetCode75Test {
     fun stringSequence(){
 
 //        given
-        val target= "abc"
+        val target= "he"
 
 //        when
         val result:List<String> = LeetCode75().stringSequence(target)
 
 //        then
-        val expectation = mutableListOf("a","aa","ab","aba","abb","abc")
+        val expectation = mutableListOf("a","b","c","d","e","f","g","h","ha","hb","hc","hd","he")
 
         assertEquals(expectation,result)
 
@@ -1540,6 +1540,36 @@ class LeetCode75Test {
 
 //        then
         val expectation= "abc"
+
+        assertEquals(expectation,result)
+    }
+
+    @Test
+    fun removeOccurrences(){
+//        given
+        val s= "daabcbaabcbc"
+        val part=  "abc"
+
+//        when
+        val result:String= LeetCode75().removeOccurrences(s,part)
+
+//        then
+        val expectation= "dab"
+
+        assertEquals(expectation,result)
+    }
+
+    @Test
+    fun coinChange(){
+//        given
+        val coins= intArrayOf(1,2,5)
+        val amount= 11
+
+//        when
+        val result:Int = LeetCode75.CoinSolution().coinChange(coins,amount)
+
+//        then
+        val expectation = 3
 
         assertEquals(expectation,result)
     }

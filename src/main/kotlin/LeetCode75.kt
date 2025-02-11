@@ -2172,7 +2172,27 @@ class LeetCode75 {
     }
 
     fun stringSequence(target: String): List<String> {
-        return listOf()
+        val stack = ArrayDeque<Char>()
+        val ans = mutableListOf<String>()
+
+        for (i in target){
+
+            stack.addLast('a')
+//            println(i)
+
+            while (stack.last()!=i){
+                println("current $i")
+                ans.add(stack.joinToString (""))
+                val char =stack.removeLast() +1
+//                println("New char $char")
+                stack.addLast(char)
+
+            }
+            ans.add(stack.joinToString (""))
+
+
+        }
+        return ans
     }
 
     class NumberContainers() {
@@ -2246,6 +2266,66 @@ class LeetCode75 {
         return  if (stack.isEmpty()) "" else stack.joinToString("")
 
     }
+
+    fun removeOccurrences(s: String, part: String): String {
+        val partSize= part.length
+        val result = StringBuilder()
+
+        for(i in s){
+            result.append(i)
+
+            if (result.length >= part.length &&
+                result.substring(result.length - part.length) == part) {
+                result.setLength(result.length - part.length)
+            }
+        }
+        return result.toString()
+
+
+
+    }
+
+    class  CoinSolution{
+        fun coinChange(coins: IntArray, amount: Int): Int {
+
+
+        }
+
+        fun dpCoin(amount: Int, coins: IntArray): Int {
+            val memo= mutableMapOf<Int,Int>()
+
+            if (amount==0){
+                return 0
+
+            }
+
+            if (coins.isEmpty()){
+                return -1
+            }
+            val minCoin = coins.minOrNull() ?: Int.MAX_VALUE
+
+            if (amount < minCoin){
+                return -1
+            }
+
+            if (coins.size==1){
+                if (amount%coins[0]==0){
+                    return amount/coins[0]
+                }else{
+                    return -1
+                }
+            }
+
+            if (memo.containsKey(amount)) {
+                return memo[amount]!!;
+            }
+
+            memo.put()
+
+
+        }
+    }
+
 
 
     class NumArray(nums: IntArray){
