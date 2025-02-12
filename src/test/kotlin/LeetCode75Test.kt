@@ -1560,16 +1560,31 @@ class LeetCode75Test {
     }
 
     @Test
-    fun coinChange(){
+    fun carFleet(){
 //        given
-        val coins= intArrayOf(1,2,5)
-        val amount= 11
+        val target =10
+        val position = intArrayOf(6,8)
+        val speed = intArrayOf(3,2)
 
 //        when
-        val result:Int = LeetCode75.CoinSolution().coinChange(coins,amount)
+        val result:Int= LeetCode75().carFleet(target,position,speed)
 
 //        then
-        val expectation = 3
+        val expectation = 2
+
+        assertEquals(expectation,result)
+    }
+
+    @Test
+    fun maximumSum(){
+//        given
+        val nums= intArrayOf(4,6,10,6)
+
+//        when
+        val result:Int = LeetCode75().maximumSum(nums)
+
+//        then
+        val expectation =12
 
         assertEquals(expectation,result)
     }
