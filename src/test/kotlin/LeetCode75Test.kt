@@ -1589,6 +1589,35 @@ class LeetCode75Test {
         assertEquals(expectation,result)
     }
 
+    @Test
+    fun minOperations(){
+//        given
+        val nums = intArrayOf(999999999,999999999,999999999)
+
+        val k= 1000000000
+
+//        when
+        val result:Int = LeetCode75().minOperations(nums, k)
+
+//        then
+        val expectation = 2
+
+        assertEquals(expectation,result)
+    }
+
+    @Test
+    fun twoSmallestNums(){
+//        given
+        val nums= listOf(1L,4L,5,6,2)
+
+//        when
+        val result:Pair<Long,Long> = LeetCode75().twoSmallestNums(nums)
+//        then
+        val expectation = Pair(1,2)
+
+        assertEquals(expectation,result)
+    }
+
 
     private fun areTreesEqual(tree1: LeetCode75.TreeNode<Int>?, tree2: LeetCode75.TreeNode<Int>?): Boolean {
         if (tree1 == null && tree2 == null) return true // Both trees are null

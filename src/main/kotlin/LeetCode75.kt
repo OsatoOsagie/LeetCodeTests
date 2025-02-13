@@ -1,4 +1,5 @@
 import java.util.*
+import java.util.stream.Collectors
 import kotlin.collections.ArrayDeque
 import kotlin.collections.component1
 import kotlin.collections.component2
@@ -7,6 +8,7 @@ import kotlin.math.abs
 import kotlin.math.absoluteValue
 import kotlin.math.max
 import kotlin.math.min
+
 
 class LeetCode75 {
 
@@ -2340,6 +2342,44 @@ class LeetCode75 {
         return sum
 
     }
+
+    fun minOperations(nums: IntArray, k: Int): Int {
+        val pq= PriorityQueue<Long>(nums.map{it.toLong()})
+        var count=0
+
+
+
+        while (pq.isNotEmpty() && pq.peek() <k){
+            val x= pq.poll()
+            val y= pq.poll()
+
+            val newValue = (x * 2) + y // Avoid recomputation of x*2
+            pq.add(newValue)
+            count++
+        }
+
+        return count
+
+    }
+    fun twoSmallestNums(list: List<Long>): Pair<Long,Long>{
+        var max1 = Long.MAX_VALUE
+        var max2 = Long.MAX_VALUE
+        if (list.size > 1) {
+            for (num in list) {
+                if (num <= max1) {
+                    max2 = max1
+                    max1 = num.toLong()
+                } else if (num < max2) {
+                    max2 = num.toLong()
+                }
+            }
+
+        }
+        return Pair(max1,max2)
+    }
+
+
+
 
 
     class NumArray(nums: IntArray) {

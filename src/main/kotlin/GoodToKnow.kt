@@ -28,7 +28,7 @@ class GoodToKnow {
         return arr.count { it > 0 }
     }
 
-    private fun sortIt(set:List<Int>): Pair<Int,Int>{
+    private fun twoLargestNums(set:List<Int>): Pair<Int,Int>{
         var max1 = Int.MIN_VALUE
         var max2 = Int.MIN_VALUE
         if (set.size > 1) {
