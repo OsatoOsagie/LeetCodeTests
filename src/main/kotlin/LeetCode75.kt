@@ -1,5 +1,4 @@
 import java.util.*
-import java.util.stream.Collectors
 import kotlin.collections.ArrayDeque
 import kotlin.collections.component1
 import kotlin.collections.component2
@@ -2296,12 +2295,12 @@ class LeetCode75 {
 
         for (i in nums) {
             val sum = sumDigits(i)
-            mutableMap.getOrPut(sum){ mutableListOf() }.add(i)
+            mutableMap.getOrPut(sum) { mutableListOf() }.add(i)
         }
 
         mutableMap.values.forEach {
             if (it.size > 1) {
-                val pair=sortIt(it)
+                val pair = sortIt(it)
                 val a = pair.first
                 val b = pair.second
                 maxSum = maxOf((a + b), maxSum)
@@ -2312,7 +2311,7 @@ class LeetCode75 {
 
     }
 
-    private fun sortIt(set:List<Int>): Pair<Int,Int>{
+    private fun sortIt(set: List<Int>): Pair<Int, Int> {
         var max1 = Int.MIN_VALUE
         var max2 = Int.MIN_VALUE
         if (set.size > 1) {
@@ -2326,7 +2325,7 @@ class LeetCode75 {
             }
 
         }
-        return Pair(max1,max2)
+        return Pair(max1, max2)
     }
 
     private fun sumDigits(digit: Int): Int {
@@ -2344,14 +2343,14 @@ class LeetCode75 {
     }
 
     fun minOperations(nums: IntArray, k: Int): Int {
-        val pq= PriorityQueue<Long>(nums.map{it.toLong()})
-        var count=0
+        val pq = PriorityQueue<Long>(nums.map { it.toLong() })
+        var count = 0
 
 
 
-        while (pq.isNotEmpty() && pq.peek() <k){
-            val x= pq.poll()
-            val y= pq.poll()
+        while (pq.isNotEmpty() && pq.peek() < k) {
+            val x = pq.poll()
+            val y = pq.poll()
 
             val newValue = (x * 2) + y // Avoid recomputation of x*2
             pq.add(newValue)
@@ -2361,7 +2360,8 @@ class LeetCode75 {
         return count
 
     }
-    fun twoSmallestNums(list: List<Long>): Pair<Long,Long>{
+
+    fun twoSmallestNums(list: List<Long>): Pair<Long, Long> {
         var max1 = Long.MAX_VALUE
         var max2 = Long.MAX_VALUE
         if (list.size > 1) {
@@ -2375,11 +2375,33 @@ class LeetCode75 {
             }
 
         }
-        return Pair(max1,max2)
+        return Pair(max1, max2)
     }
 
 
+    class ProductOfNumbers() {
+        private val stack = mutableListOf<Int>()
 
+        fun add(num: Int) {
+            stack.addLast(num)
+
+        }
+
+        fun getProduct(k: Int): Int {
+            var product = 1
+            val size = stack.size
+
+            if (k > size) return 1  // If `k` is greater than stack size, return 1
+
+            for (i in size - k until size) {  // Correctly access last `k` elements
+                product *= stack.elementAt(i)
+            }
+
+            return product
+        }
+
+
+    }
 
 
     class NumArray(nums: IntArray) {
