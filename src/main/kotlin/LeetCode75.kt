@@ -2379,29 +2379,29 @@ class LeetCode75 {
     }
 
 
-    class ProductOfNumbers() {
-        private val stack = mutableListOf<Int>()
-
-        fun add(num: Int) {
-            stack.addLast(num)
-
-        }
-
-        fun getProduct(k: Int): Int {
-            var product = 1
-            val size = stack.size
-
-            if (k > size) return 1  // If `k` is greater than stack size, return 1
-
-            for (i in size - k until size) {  // Correctly access last `k` elements
-                product *= stack.elementAt(i)
-            }
-
-            return product
-        }
-
-
-    }
+//    class ProductOfNumbers() {
+//        private val stack = mutableListOf<Int>()
+//
+//        fun add(num: Int) {
+//            stack.addLast(num)
+//
+//        }
+//
+//        fun getProduct(k: Int): Int {
+//            var product = 1
+//            val size = stack.size
+//
+//            if (k > size) return 1  // If `k` is greater than stack size, return 1
+//
+//            for (i in size - k until size) {  // Correctly access last `k` elements
+//                product *= stack.elementAt(i)
+//            }
+//
+//            return product
+//        }
+//
+//
+//    }
 
 
     class NumArray(nums: IntArray) {
