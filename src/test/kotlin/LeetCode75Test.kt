@@ -1618,6 +1618,20 @@ class LeetCode75Test {
         assertEquals(expectation,result)
     }
 
+    @Test
+    fun punishmentNumber(){
+//        given
+        val n=10
+
+//        when
+        val result:Int = LeetCode75().punishmentNumber(n)
+
+//        then
+        val expectation = 182
+
+        assertEquals(expectation,result)
+    }
+
 
 
 

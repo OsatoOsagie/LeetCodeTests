@@ -2378,6 +2378,54 @@ class LeetCode75 {
         return Pair(max1, max2)
     }
 
+    fun punishmentNumber(n: Int): Int {
+        var sumOverall = 0
+
+        for (i in 1..n) {
+            val square = i * i
+
+                val ans = mutableListOf<List<Int>>()
+               backtrack(mutableListOf(), 0, 0, ans, square.toString(), i)
+                if (ans.isNotEmpty()) {
+
+                    sumOverall += square
+                }
+
+
+        }
+
+        return sumOverall
+
+    }
+
+    fun backtrack(
+        path: MutableList<Int>,
+        start: Int,
+        curr: Int,
+        ans: MutableList<List<Int>>,
+        number: String,
+        target: Int
+    ) {
+        // Check if we've processed all digits
+        if (start == number.length) {
+            // Only add the partition if the current sum equals the target
+            if (curr == target) {
+                ans.add(ArrayList(path))
+            }
+            return
+        }
+
+        for (i in start until number.length) {
+            val num = number.substring(start, i + 1).toInt() // Extract substring as integer
+
+            if (curr + num <= target) {
+                path.add(num) // Choose number
+                backtrack(path, i + 1, curr + num, ans, number, target) // Recur
+                path.removeAt(path.size - 1) // Undo choice
+            }
+        }
+    }
+
 
 //    class ProductOfNumbers() {
 //        private val stack = mutableListOf<Int>()
