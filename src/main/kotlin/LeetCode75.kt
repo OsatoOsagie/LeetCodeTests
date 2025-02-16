@@ -2384,12 +2384,12 @@ class LeetCode75 {
         for (i in 1..n) {
             val square = i * i
 
-                val ans = mutableListOf<List<Int>>()
-               backtrack(mutableListOf(), 0, 0, ans, square.toString(), i)
-                if (ans.isNotEmpty()) {
+            val ans = mutableListOf<List<Int>>()
+            backtrack(mutableListOf(), 0, 0, ans, square.toString(), i)
+            if (ans.isNotEmpty()) {
 
-                    sumOverall += square
-                }
+                sumOverall += square
+            }
 
 
         }
@@ -2424,6 +2424,34 @@ class LeetCode75 {
                 path.removeAt(path.size - 1) // Undo choice
             }
         }
+    }
+
+    fun combine(n: Int, k: Int): List<List<Int>> {
+        val ans = mutableListOf<List<Int>>()
+        backtrackCombine(mutableListOf<Int>(),1,ans, n, k)
+        return ans
+
+    }
+
+    fun backtrackCombine(
+        path: MutableList<Int>,
+        curr: Int,
+        ans: MutableList<List<Int>>,
+        n: Int,
+        k: Int
+    ) {
+        if (path.size == k){
+            ans.add(ArrayList(path));
+            return
+        }
+
+        for (num in curr..n){
+            path.add(num)
+            backtrackCombine(path,num+1,ans, n, k)
+            path.removeLast()
+        }
+
+
     }
 
 

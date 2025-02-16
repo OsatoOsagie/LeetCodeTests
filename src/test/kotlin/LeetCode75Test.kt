@@ -1632,6 +1632,21 @@ class LeetCode75Test {
         assertEquals(expectation,result)
     }
 
+    @Test
+    fun combine(){
+//        given
+        val n=4
+        val k=2
+
+//        when
+        val result:List<List<Int>> = LeetCode75().combine(n,k)
+
+//        then
+        val expectation = listOf(listOf(1,2), listOf(1,3), listOf(1,4), listOf(2,3), listOf(2,4), listOf(3,4))
+
+        assertEquals(expectation,result)
+    }
+
 
 
 
