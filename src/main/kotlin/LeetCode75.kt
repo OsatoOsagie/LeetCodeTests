@@ -2454,6 +2454,33 @@ class LeetCode75 {
 
     }
 
+    fun permute(nums: IntArray): List<List<Int>> {
+
+        val ans= mutableListOf<List<Int>>()
+        backtractPermute(mutableListOf(),ans, nums)
+        return ans
+
+
+    }
+
+    fun backtractPermute(path: MutableList<Int>, ans: MutableList<List<Int>>,nums: IntArray ){
+
+        if (path.size == nums.size){
+            ans.add(ArrayList(path))
+            return
+        }
+
+        for (num in nums){
+            if (!path.contains(num)){
+                path.add(num)
+                backtractPermute(path,ans, nums)
+                path.removeLast()
+            }
+
+        }
+
+    }
+
 
 //    class ProductOfNumbers() {
 //        private val stack = mutableListOf<Int>()
