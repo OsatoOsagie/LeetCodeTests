@@ -1,21 +1,23 @@
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Test
 
-class LeetCodeSolvedTest{
+class LeetCodeSolvedTest {
 
-   @Test
-   fun distributeCandies(){
+    @Test
+    fun findOcurrences() {
 //       given
-       val candies=10
-       val num_people= 3
+        val text= "alice is a good girl she is a good student"
+        val first = "a"
+        val second = "good"
 
-//       when
-       val result:IntArray = LeetCodeSolved().distributeCandies(candies,num_people)
+        //       when
+        val result:Array<String> = LeetCodeSolved().findOcurrences(text,first,second)
 
 //       then
-       val expectation= intArrayOf(5,2,3)
+        val expectation = arrayOf("girl","student")
 
-       assertArrayEquals(expectation,result)
+        assertArrayEquals(expectation,result)
 
-   }
+
+    }
 }
