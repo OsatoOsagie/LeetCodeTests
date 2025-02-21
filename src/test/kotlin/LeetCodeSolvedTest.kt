@@ -1,23 +1,19 @@
 import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
 
 class LeetCodeSolvedTest {
 
     @Test
-    fun findOcurrences() {
-//       given
-        val text= "alice is a good girl she is a good student"
-        val first = "a"
-        val second = "good"
+    fun findPeaks(){
+//        given
+        val mountain= intArrayOf(1,4,3,8,5)
+//        when
+        val result:List<Int> = LeetCodeSolved().findPeaks(mountain)
 
-        //       when
-        val result:Array<String> = LeetCodeSolved().findOcurrences(text,first,second)
+//        then
+        val expectation= listOf(1,3)
 
-//       then
-        val expectation = arrayOf("girl","student")
-
-        assertArrayEquals(expectation,result)
-
-
+        assertEquals(expectation,result)
     }
 }
