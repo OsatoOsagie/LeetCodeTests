@@ -4,16 +4,17 @@ import kotlin.test.assertEquals
 
 class LeetCodeSolvedTest {
 
-    @Test
-    fun findPeaks(){
-//        given
-        val mountain= intArrayOf(1,4,3,8,5)
-//        when
-        val result:List<Int> = LeetCodeSolved().findPeaks(mountain)
+   @Test
+   fun halveArray(){
+//       given
+       val nums= intArrayOf(32,98,23,14,67,40,26,9,96,96,91,76,4,40,42,2,31,13,16,37,62,2,27,25,100,94,14,3,48,56,64,59,33,10,74,47,73,72,89,69,15,79,22,18,53,62,20,9,76,64)
 
-//        then
-        val expectation= listOf(1,3)
+//       when
+       val result:Int = LeetCodeSolved().halveArray(nums)
 
-        assertEquals(expectation,result)
-    }
+//       then
+       val expectation= 36
+
+       assertEquals(expectation,result)
+   }
 }

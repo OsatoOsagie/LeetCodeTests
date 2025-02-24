@@ -1,16 +1,26 @@
+import java.util.*
+
+
 class LeetCodeSolved {
-    fun findPeaks(mountain: IntArray): List<Int> {
+    fun halveArray(nums: IntArray): Int {
+        var target = 0.0
+        val heap = PriorityQueue(Comparator.reverseOrder<Double>())
 
-        val ans= mutableListOf<Int>()
+        for (num in nums) {
+            target += num
+            heap.add(num.toDouble())
+        }
 
-        for (i in 1 until mountain.size-1){
-            if (mountain[i] > mountain[i-1] && mountain[i] > mountain[i+1]){
-                ans.add(i)
-            }
+        target /= 2.0
+        var ans = 0
+        while (target > 0) {
+            ans++
+            val x = heap.poll()
+            target -= (x / 2)
+            heap.add(x / 2)
         }
 
         return ans
-
     }
 
 
