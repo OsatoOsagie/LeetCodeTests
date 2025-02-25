@@ -4,18 +4,18 @@ import kotlin.test.assertEquals
 
 class LeetCodeSolvedTest {
 
-   @Test
-   fun minStoneSum(){
+    @Test
+    fun connectSticks() {
 //       given
+        val sticks= intArrayOf(2,4,3)
 
-       val piles= intArrayOf(5,4,9)
-       val k=2
-//       when
-       val result:Int = LeetCodeSolved().minStoneSum(piles,k)
+//        when
+        val result:Int = LeetCodeSolved().connectSticks(sticks)
 
-//       then
-       val expectation = 12
+//        then
+        val expectation =14
 
-       assertEquals(expectation,result)
-   }
+        assertEquals(expectation,result)
+
+    }
 }

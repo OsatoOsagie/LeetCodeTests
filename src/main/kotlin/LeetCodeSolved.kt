@@ -1,23 +1,32 @@
 import java.util.*
-import kotlin.math.floor
 
 
 class LeetCodeSolved {
-    fun minStoneSum(piles: IntArray, k: Int): Int {
 
-        val maxHeap= PriorityQueue<Int>(Comparator.reverseOrder())
+    fun connectSticks(sticks: IntArray): Int {
+        var sum = 0
 
-        piles.forEach { maxHeap.add(it) }
+        val minHeap = PriorityQueue<Int>()
 
-        repeat(k){
-            val max= maxHeap.poll()
-//            val remove= max-floor(max/2.0)
-            maxHeap.add((max-floor(max/2.0)).toInt())
+        sticks.forEach { minHeap.add(it) }
+
+        if (minHeap.size == 0) {
+            return sum
         }
 
-        return maxHeap.sum()
+        while (minHeap.size > 1) {
+            println(minHeap.size)
+
+            val x = minHeap.poll()
+            val y = minHeap.poll()
+            val i = x + y
+            minHeap.add(i)
+            sum += i
 
 
+        }
+
+        return sum
 
     }
 
