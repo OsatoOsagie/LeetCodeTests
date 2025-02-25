@@ -1,26 +1,24 @@
 import java.util.*
+import kotlin.math.floor
 
 
 class LeetCodeSolved {
-    fun halveArray(nums: IntArray): Int {
-        var target = 0.0
-        val heap = PriorityQueue(Comparator.reverseOrder<Double>())
+    fun minStoneSum(piles: IntArray, k: Int): Int {
 
-        for (num in nums) {
-            target += num
-            heap.add(num.toDouble())
+        val maxHeap= PriorityQueue<Int>(Comparator.reverseOrder())
+
+        piles.forEach { maxHeap.add(it) }
+
+        repeat(k){
+            val max= maxHeap.poll()
+//            val remove= max-floor(max/2.0)
+            maxHeap.add((max-floor(max/2.0)).toInt())
         }
 
-        target /= 2.0
-        var ans = 0
-        while (target > 0) {
-            ans++
-            val x = heap.poll()
-            target -= (x / 2)
-            heap.add(x / 2)
-        }
+        return maxHeap.sum()
 
-        return ans
+
+
     }
 
 
