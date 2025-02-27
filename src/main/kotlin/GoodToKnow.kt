@@ -1,3 +1,7 @@
+import java.util.*
+import kotlin.collections.HashMap
+import kotlin.math.abs
+
 class GoodToKnow {
 
     fun isAnagram(s: String, t: String): Boolean {
@@ -57,5 +61,26 @@ class GoodToKnow {
         list.sortByDescending { it.second }
 
         return list.take(k).map { it.first }.toIntArray()
+    }
+
+    fun findClosestElements(arr: IntArray, k: Int, x: Int): List<Int> {
+        val heap = PriorityQueue<Int> { n1, n2 ->
+            if (abs(n1 - x) == abs(n2 - x)) {
+                n2 - n1
+            } else {
+                abs(n2 - x) - abs(n1 - x)
+            }
+        }
+
+        for (num in arr) {
+            heap.add(num)
+            if (heap.size > k) {
+                heap.remove()
+            }
+        }
+
+
+
+        return heap.sorted()
     }
 }
