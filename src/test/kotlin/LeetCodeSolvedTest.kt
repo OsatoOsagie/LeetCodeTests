@@ -5,17 +5,17 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
     @Test
-    fun connectSticks() {
-//       given
-        val sticks= intArrayOf(2,4,3)
-
+    fun topKFrequent(){
+//        given
+        val nums = intArrayOf(4,1,-1,2,-1,2,3)
+        val k = 2
 //        when
-        val result:Int = LeetCodeSolved().connectSticks(sticks)
+
+        val result:IntArray = LeetCodeSolved().topFrquentK(nums, k)
 
 //        then
-        val expectation =14
+        val expectation = intArrayOf(2,-1)
 
-        assertEquals(expectation,result)
-
+        assertArrayEquals(expectation,result)
     }
 }

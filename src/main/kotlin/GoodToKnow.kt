@@ -44,4 +44,18 @@ class GoodToKnow {
         }
         return Pair(max1,max2)
     }
+
+    fun topKFrequent(nums: IntArray, k: Int): IntArray {
+
+        val map = HashMap<Int, Int>()
+
+        nums.forEach {
+            map.put(it, map.getOrDefault(it, 0) +1)
+        }
+
+        val list = map.entries.map { Pair(it.key, it.value) }.toMutableList()
+        list.sortByDescending { it.second }
+
+        return list.take(k).map { it.first }.toIntArray()
+    }
 }
