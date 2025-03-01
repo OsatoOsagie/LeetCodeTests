@@ -5,20 +5,27 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
     @Test
-    fun findClosestElements(){
-//        given
-        val arr= intArrayOf(1,2,3,4,5)
-        val k=4
-        val x=3
+   fun KthLargest(){
+//       given
 
-//        when
-        val result:List<Int> = LeetCodeSolved().findClosestElements(arr,k,x)
+       val k=3
+        val nums= intArrayOf(4, 5, 8, 2)
+       var obj= LeetCodeSolved.KthLargest(k,nums)
 
 
-//        then
-        val expectation = listOf<Int>(1,2,3,4)
 
-        assertEquals(expectation,result)
 
-    }
+//       when
+         obj.add(3)
+         obj.add(5)
+         obj.add(10)
+         obj.add(9)
+        val result:Int= obj.add(4)
+
+   //       then
+       val expectation = 8
+
+       assertEquals(expectation,result)
+
+   }
 }
