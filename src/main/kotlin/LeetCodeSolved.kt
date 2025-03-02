@@ -3,46 +3,41 @@ import kotlin.math.abs
 
 
 class LeetCodeSolved {
-    class KthLargest(k: Int, nums: IntArray) {
-
-        val pq = PriorityQueue<Int>()
-        val k = k;
-
-        init {
-
-            // Add all initial numbers using the add method.
-            nums.forEach { add(it) }
+    fun topKFrequent(words: Array<String>, k: Int): List<String> {
+        val map = mutableMapOf<String, Int>()
+        // Count the frequencies of each word.
+        words.forEach { word ->
+            map[word] = map.getOrDefault(word, 0) + 1
         }
 
-
-        fun add(i: Int):Int {
-            if (pq.size < k || pq.peek() < i) {
-                pq.offer(i)
-                if (pq.size > k){
-                    pq.poll()
-                }
+        // Create a min-heap with a comparator that:
+        // - First orders by frequency (ascending).
+        // - For equal frequencies, orders by lexicographical order descending.
+        val priorityQueue = PriorityQueue<String> { a, b ->
+            if (map[a]!! == map[b]!!) {
+                b.compareTo(a)
+            } else {
+                map[a]!! - map[b]!!
             }
-
-            return pq.peek()
         }
 
-    }
-
-
-    fun findKthLargest(nums: IntArray, k: Int): Int {
-        val pq= PriorityQueue<Int>(Comparator.reverseOrder())
-
-        nums.forEach { pq.offer(it) }
-
-        var ans=0
-
-        repeat(k){
-            ans=pq.poll()
+        // Add each word into the heap, maintaining the heap size at most k.
+        for (word in map.keys) {
+            priorityQueue.offer(word)
+            if (priorityQueue.size > k) {
+                priorityQueue.poll()
+            }
         }
 
-        return ans
-
+        // Extract the words from the heap.
+        val ans = mutableListOf<String>()
+        repeat(k) {
+            ans.add(priorityQueue.poll())
+        }
+        // The extracted list is in ascending order of frequency, so reverse it.
+        return ans.reversed()
     }
+
 
 
 }

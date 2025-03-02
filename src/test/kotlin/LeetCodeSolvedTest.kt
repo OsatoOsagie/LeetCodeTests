@@ -5,27 +5,17 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
     @Test
-   fun KthLargest(){
-//       given
+    fun topKFrequent(){
+//        given
+        val words= arrayOf("i","love","leetcode","i","love","coding")
+        val k= 3
 
-       val k=3
-        val nums= intArrayOf(4, 5, 8, 2)
-       var obj= LeetCodeSolved.KthLargest(k,nums)
+//        when
+        val result:List<String> =LeetCodeSolved().topKFrequent(words,k)
 
+//        then
+        val expectation = listOf("i","love","coding")
 
-
-
-//       when
-         obj.add(3)
-         obj.add(5)
-         obj.add(10)
-         obj.add(9)
-        val result:Int= obj.add(4)
-
-   //       then
-       val expectation = 8
-
-       assertEquals(expectation,result)
-
-   }
+        assertEquals(expectation,result)
+    }
 }
