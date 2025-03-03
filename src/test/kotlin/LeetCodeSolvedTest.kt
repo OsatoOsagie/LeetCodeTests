@@ -4,22 +4,20 @@ import kotlin.test.assertEquals
 
 class LeetCodeSolvedTest {
 
-   @Test
-   fun SmallestInfiniteSet(){
-//       given
-       var obj=LeetCodeSolved.SmallestInfiniteSet()
+  @Test
+  fun partitionArray(){
+//      given
+      val nums= intArrayOf(3,6,1,2,5)
+      val k= 2
 
-//       when
-       obj.addback(2)
-       assertEquals(1,obj.popSmallest())
-       assertEquals(2,obj.popSmallest())
-       assertEquals(3,obj.popSmallest())
 
-       obj.addback(1)
-       assertEquals(1,obj.popSmallest())
-       assertEquals(4,obj.popSmallest())
-       assertEquals(5,obj.popSmallest())
+//      when
+      val result:Int= LeetCodeSolved().partitionArray(nums,k)
 
-//       then
-   }
+//      then
+      val expectation= 2
+
+      assertEquals(expectation,result)
+  }
+
 }

@@ -3,29 +3,23 @@ import kotlin.math.abs
 
 
 class LeetCodeSolved {
-    class SmallestInfiniteSet {
+    fun partitionArray(nums: IntArray, k: Int): Int {
 
-        val pq= PriorityQueue<Int>()
+        nums.sort()
+        var ans=1
+        var x=nums[0]
 
-        var range= 1..1000
-
-        init {
-            pq.addAll( range )
-        }
-
-        fun addback(i: Int) {
-
-
-            if (!pq.contains(i) ){
-                pq.offer(i)
+        for (i in 1 until nums.size){
+            if (nums[i] - x >k){
+                x=nums[i]
+                ans++
             }
-
         }
 
-        fun popSmallest(): Int {
-            return pq.poll()
+        return ans
 
-        }
+
+
 
     }
 
