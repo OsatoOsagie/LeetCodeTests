@@ -4,30 +4,22 @@ import kotlin.test.assertEquals
 
 class LeetCodeSolvedTest {
 
-    @Test
-    fun SeatManager(){
-//        given
-        val n= 5
-        var obj = LeetCodeSolved.SeatManager(n)
+   @Test
+   fun SmallestInfiniteSet(){
+//       given
+       var obj=LeetCodeSolved.SmallestInfiniteSet()
 
-//        when
-        val reserveOne:Int= obj.reserve()
-        val reserveTwo:Int= obj.reserve()
+//       when
+       obj.addback(2)
+       assertEquals(1,obj.popSmallest())
+       assertEquals(2,obj.popSmallest())
+       assertEquals(3,obj.popSmallest())
 
+       obj.addback(1)
+       assertEquals(1,obj.popSmallest())
+       assertEquals(4,obj.popSmallest())
+       assertEquals(5,obj.popSmallest())
 
-
-        assertEquals(1,reserveOne)
-        assertEquals(2,reserveTwo)
-        obj.unReserve(2)
-        assertEquals(2,obj.reserve())
-        assertEquals(3,obj.reserve())
-        assertEquals(4,obj.reserve())
-        assertEquals(5,obj.reserve())
-        obj.unReserve(5)
-
-
-
-
-//        then
-    }
+//       then
+   }
 }

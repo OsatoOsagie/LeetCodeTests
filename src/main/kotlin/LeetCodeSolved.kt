@@ -3,24 +3,27 @@ import kotlin.math.abs
 
 
 class LeetCodeSolved {
-    class SeatManager(n: Int) {
+    class SmallestInfiniteSet {
 
-        val minStack= PriorityQueue<Int>()
-        val size=n
+        val pq= PriorityQueue<Int>()
+
+        var range= 1..1000
 
         init {
-            for (i in 1..size){
-                minStack.offer(i)
+            pq.addAll( range )
+        }
+
+        fun addback(i: Int) {
+
+
+            if (!pq.contains(i) ){
+                pq.offer(i)
             }
-        }
-        
-        fun reserve(): Int {
-            return minStack.poll()
 
         }
 
-        fun unReserve(seatNumber: Int) {
-            minStack.offer(seatNumber)
+        fun popSmallest(): Int {
+            return pq.poll()
 
         }
 
