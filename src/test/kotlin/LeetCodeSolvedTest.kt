@@ -5,17 +5,29 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
     @Test
-    fun topKFrequent(){
+    fun SeatManager(){
 //        given
-        val words= arrayOf("i","love","leetcode","i","love","coding")
-        val k= 3
+        val n= 5
+        var obj = LeetCodeSolved.SeatManager(n)
 
 //        when
-        val result:List<String> =LeetCodeSolved().topKFrequent(words,k)
+        val reserveOne:Int= obj.reserve()
+        val reserveTwo:Int= obj.reserve()
+
+
+
+        assertEquals(1,reserveOne)
+        assertEquals(2,reserveTwo)
+        obj.unReserve(2)
+        assertEquals(2,obj.reserve())
+        assertEquals(3,obj.reserve())
+        assertEquals(4,obj.reserve())
+        assertEquals(5,obj.reserve())
+        obj.unReserve(5)
+
+
+
 
 //        then
-        val expectation = listOf("i","love","coding")
-
-        assertEquals(expectation,result)
     }
 }
