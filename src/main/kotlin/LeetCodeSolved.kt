@@ -3,24 +3,53 @@ import kotlin.math.abs
 
 
 class LeetCodeSolved {
-    fun numRescueBoats(people: IntArray, limit: Int): Int {
-        var ans= 0;
-        var i=0
-        var j= people.size-1
+    fun maximum69Number(num: Int): Int {
 
-        people.sort()
+        val numList= convertToArray(num).toMutableList()
+        var max=num
+        println( converToNum(numList))
 
-        while (i <=j){
-            if (people[i] + people[j] <= limit){
-                i++
+        for (i in 0 until numList.size){
+            when(numList[i]){
+                6->{
+                    numList[i]=9
+                    max= maxOf(max,converToNum(numList))
+                    numList[i]=6
+                }
             }
+        }
+        return max
 
-            j--
-            ans++
+    }
+
+    fun convertToArray(num:Int) : List<Int>{
+
+        var n=num
+        val list= mutableListOf<Int>()
+
+        while (n>0){
+            list.add(n%10)
+            n /=10
         }
 
-        return ans
+        println(list)
 
+        return list.reversed()
+
+    }
+
+    fun converToNum(list: MutableList<Int>): Int{
+        var n=0
+
+        for (i in 0 until list.size){
+            n+=list[i]
+            if (i != list.size-1){
+                n *=10
+            }
+
+
+        }
+        return n
 
     }
 
