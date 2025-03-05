@@ -3,22 +3,23 @@ import kotlin.math.abs
 
 
 class LeetCodeSolved {
-    fun partitionArray(nums: IntArray, k: Int): Int {
+    fun numRescueBoats(people: IntArray, limit: Int): Int {
+        var ans= 0;
+        var i=0
+        var j= people.size-1
 
-        nums.sort()
-        var ans=1
-        var x=nums[0]
+        people.sort()
 
-        for (i in 1 until nums.size){
-            if (nums[i] - x >k){
-                x=nums[i]
-                ans++
+        while (i <=j){
+            if (people[i] + people[j] <= limit){
+                i++
             }
+
+            j--
+            ans++
         }
 
         return ans
-
-
 
 
     }

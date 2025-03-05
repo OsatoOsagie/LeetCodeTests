@@ -5,19 +5,20 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
   @Test
-  fun partitionArray(){
+  fun numRescueBoats(){
 //      given
-      val nums= intArrayOf(3,6,1,2,5)
-      val k= 2
-
+      val people = intArrayOf(3,2,1,2)
+      val limit = 6
 
 //      when
-      val result:Int= LeetCodeSolved().partitionArray(nums,k)
+      val result:Int = LeetCodeSolved().numRescueBoats(people,limit)
 
 //      then
-      val expectation= 2
+      val expectation = 2
+
 
       assertEquals(expectation,result)
   }
+
 
 }
