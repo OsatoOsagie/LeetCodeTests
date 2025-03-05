@@ -5,18 +5,19 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
   @Test
-  fun maximum69Number(){
-
+  fun maxArea(){
 //      given
-      val num= 669
+      val height = intArrayOf(1,8,6,2,5,4,8,3,7)
 
 //      when
-      val result:Int = LeetCodeSolved().maximum69Number(num)
+      val result:Int= LeetCodeSolved().maxArea(height)
 
 //      then
-      val expectation = 969
+      val expectation = 49
 
       assertEquals(expectation,result)
+
+
 
   }
 
