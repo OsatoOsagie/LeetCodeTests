@@ -5,27 +5,37 @@ import kotlin.math.min
 
 
 class LeetCodeSolved {
-    fun maxArea(height: IntArray): Int {
-        var i=0
-        var j= height.size-1
-        var maxWater=0
+    fun minSetSize(arr: IntArray): Int {
 
-        while (i<j){
-            val distance= j-i
-            val length= min(height[i],height[j])
+        if (arr.toSet().size==1){
+            return 1
+        }
 
-            maxWater = max(distance*length, maxWater)
+        val map= mutableMapOf<Int,Int>().apply {
+            arr.forEach { element -> this[element]= this.getOrPut(element){0}+1  }
 
-            if (height[i] < height[j]){
-                i++
-            }else{
-                j--
+        }
+        val size= arr.size/2
+
+        val list = map.entries.map { Pair(it.key, it.value) }.toMutableList()
+        list.sortByDescending { it.second }
+
+        val set= mutableSetOf<Int>()
+        var listSum= list.sumOf { it.second }
+
+        for (i in list){
+            set.add(i.first)
+            listSum -=i.second
+            println(listSum)
+
+            if (listSum <= size){
+                break
             }
 
 
-        }
-        return maxWater
 
+        }
+        return set.size
     }
 
 

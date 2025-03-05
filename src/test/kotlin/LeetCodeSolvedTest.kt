@@ -5,20 +5,19 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
   @Test
-  fun maxArea(){
+  fun minSetSize(){
+
 //      given
-      val height = intArrayOf(1,8,6,2,5,4,8,3,7)
+      val arr = intArrayOf(1,9)
 
 //      when
-      val result:Int= LeetCodeSolved().maxArea(height)
+      val result:Int = LeetCodeSolved().minSetSize(arr)
 
-//      then
-      val expectation = 49
+
+  //      then
+      val expectation = 1
 
       assertEquals(expectation,result)
-
-
-
   }
 
 
