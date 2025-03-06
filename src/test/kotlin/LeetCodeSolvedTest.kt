@@ -5,20 +5,18 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
   @Test
-  fun minSetSize(){
-
+  fun maxNumberOfApples(){
 //      given
-      val arr = intArrayOf(1,9)
+      val weight= intArrayOf(900,950,800,1000,700,800)
 
 //      when
-      val result:Int = LeetCodeSolved().minSetSize(arr)
+      val result:Int = LeetCodeSolved().maxNumberOfApples(weight)
 
 
-  //      then
-      val expectation = 1
+//      then
+      val expectation=5
 
       assertEquals(expectation,result)
   }
-
 
 }

@@ -1,41 +1,27 @@
-import java.util.*
-import kotlin.math.abs
-import kotlin.math.max
-import kotlin.math.min
+
 
 
 class LeetCodeSolved {
-    fun minSetSize(arr: IntArray): Int {
+    fun maxNumberOfApples(weight: IntArray): Int {
 
-        if (arr.toSet().size==1){
-            return 1
-        }
+        weight.sort()
+       val MAX_SUM=5000
 
-        val map= mutableMapOf<Int,Int>().apply {
-            arr.forEach { element -> this[element]= this.getOrPut(element){0}+1  }
+        var ans=0
+        var count=0
+        for (w in weight){
 
-        }
-        val size= arr.size/2
-
-        val list = map.entries.map { Pair(it.key, it.value) }.toMutableList()
-        list.sortByDescending { it.second }
-
-        val set= mutableSetOf<Int>()
-        var listSum= list.sumOf { it.second }
-
-        for (i in list){
-            set.add(i.first)
-            listSum -=i.second
-            println(listSum)
-
-            if (listSum <= size){
+            ans +=w
+            if (ans <= MAX_SUM){
+                count++
+            }else{
                 break
             }
 
-
-
         }
-        return set.size
+
+        return count
+
     }
 
 
