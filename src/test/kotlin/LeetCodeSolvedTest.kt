@@ -5,18 +5,19 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
   @Test
-  fun maxNumberOfApples(){
+  fun closestPrimes(){
 //      given
-      val weight= intArrayOf(900,950,800,1000,700,800)
+      val left=4
+      val right= 6
+
 
 //      when
-      val result:Int = LeetCodeSolved().maxNumberOfApples(weight)
-
+      val result:IntArray = LeetCodeSolved().closestPrimes(left, right)
 
 //      then
-      val expectation=5
+      val expectation = intArrayOf(-1,-1)
 
-      assertEquals(expectation,result)
+      assertArrayEquals(expectation,result)
   }
 
 }
