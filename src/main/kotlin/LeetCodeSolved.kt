@@ -2,52 +2,37 @@ import kotlin.math.min
 import kotlin.math.sqrt
 
 class LeetCodeSolved {
-    fun closestPrimes(left: Int, right: Int): IntArray {
+    fun maximumUnits(boxTypes: Array<IntArray>, truckSize: Int): Int {
 
-        val range = (left..right).toList().filter {
-            isPrime(it)
-        }
+        val sortedList= boxTypes.sortedWith(
+            compareByDescending<IntArray> { it[1] }
+                .thenBy { it[0] }
+        )
 
 
-        var min= Int.MAX_VALUE
-        var ans= mutableListOf<Int>(-1,-1)
+        var ans= 0
+        var sum=0
 
-        for (i in 1 until range.size) {
-            val diff = range[i] - range[i - 1]
 
-            if ( diff<min){
 
-                min =diff
-                ans[0]=range[i - 1]
-                ans[1]=range[i]
+            for (i in sortedList){
+                if (i[0] +ans < truckSize){
+                    ans+=i[0]
+                    sum += i[0]*i[1]
+
+                    println(sum)
+                }else{
+                    val v= truckSize-ans
+                    sum += v * i[1]
+                    ans +=v
+                    break
+                }
             }
 
-        }
 
-
-//        if (map.isEmpty()) {
-//            return intArrayOf(-1, -1)
-//        }
-
-
-
-
-        return ans.toIntArray()
-
+        return sum
 
     }
-
-    private fun isPrime(num: Int): Boolean {
-        if (num < 2) return false
-        if (num == 2) return true
-        if (num % 2 == 0) return false
-        val limit = kotlin.math.sqrt(num.toDouble()).toInt()
-        for (i in 3..limit step 2) {
-            if (num % i == 0) return false
-        }
-        return true
-    }
-
 
 
 }
