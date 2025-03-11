@@ -4,30 +4,21 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
     @Test
-    fun maximumUnits() {
-//      given
-        val boxTypes = arrayOf(
-            intArrayOf(1, 3),
-            intArrayOf(5, 5),
-            intArrayOf(2, 5),
-            intArrayOf(4, 2),
-            intArrayOf(4, 1),
-            intArrayOf(3, 1),
-            intArrayOf(2,2),
-            intArrayOf(1,3),
-            intArrayOf(2,5),
-            intArrayOf(3,2),
-        )
+    fun search() {
+//        given
+        val nums = intArrayOf(-1, 0, 3, 5, 9, 12)
+        val target = 9
 
-        val truckSize = 35
 
-//      when
-        val result: Int = LeetCodeSolved().maximumUnits(boxTypes, truckSize)
+    //        when
+        val result:Int = LeetCodeSolved().search(nums, target)
 
-//      then
-        val expectation = 76
 
-        assertEquals(expectation, result)
+//        then
+        val expectation = 4
+
+        assertEquals(expectation,result)
     }
+
 
 }
