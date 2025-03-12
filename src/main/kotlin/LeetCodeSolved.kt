@@ -1,23 +1,29 @@
 import kotlin.math.max
-import kotlin.math.min
-import kotlin.math.sqrt
+import kotlin.math.sign
 
 class LeetCodeSolved {
+    fun maximumCount(nums: IntArray): Int {
+        var negCount = 0
+        var posCount =0
 
-    data class TreeNode(var `val` : Int , var left: TreeNode? = null,
-                        var right: TreeNode? = null)
-
-    companion object {
-        fun maxDepth(root: TreeNode?): Int {
-            if (root == null) return 0
-
-            val leftDepth = maxDepth(root.left)
-            val rightDepth = maxDepth(root.right)
-
-
-            return 1 + max(leftDepth, rightDepth)
+        for (num in nums) {
+            if (num < 0){
+                negCount++
+            }else if(num==0){
+                continue
+            }else{
+                posCount++
+            }
         }
+
+        return max(posCount,negCount)
+
     }
+
+    data class TreeNode(
+        var `val`: Int, var left: TreeNode? = null,
+        var right: TreeNode? = null
+    )
 
 
 }

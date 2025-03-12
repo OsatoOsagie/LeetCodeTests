@@ -5,24 +5,18 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
 
-    @Test
-    fun maxDepth() {
+@Test
+fun maximumCount(){
+//    given
+    val nums = intArrayOf(-2,-1,-1,1,2,3)
 
-//        given
-                val node1= LeetCodeSolved.TreeNode(9)
-        val node2= LeetCodeSolved.TreeNode(15)
-        val node3= LeetCodeSolved.TreeNode(7)
-        val node4= LeetCodeSolved.TreeNode(20,node2,node3)
-        val root= LeetCodeSolved.TreeNode(3,node1,node4)
+//    when
+    val result:Int = LeetCodeSolved().maximumCount(nums)
+//    then
+    val expectation=3
 
-//        when
-        val result:Int = LeetCodeSolved.maxDepth(root)
-
-//        then
-        val expectation =3
-        assertEquals(expectation,result)
-
-    }
-
+    assertEquals(expectation,result)
+}
 
 }
+
