@@ -1,29 +1,22 @@
+import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.sqrt
 
 class LeetCodeSolved {
 
-    fun search(nums: IntArray, target: Int): Int {
-        var left =0
-        var right= nums.size -1
+    data class TreeNode(var `val` : Int , var left: TreeNode? = null,
+                        var right: TreeNode? = null)
 
-        while (left < right){
-            val mid= left+(right-left)/2
-            println(mid)
+    companion object {
+        fun maxDepth(root: TreeNode?): Int {
+            if (root == null) return 0
 
-            if (nums[mid]== target){
-                return mid
-            }
+            val leftDepth = maxDepth(root.left)
+            val rightDepth = maxDepth(root.right)
 
-            if (nums[mid] > target){
-                right = mid-1
-            }else{
-                left=mid+1
-            }
+
+            return 1 + max(leftDepth, rightDepth)
         }
-
-        return -1
-
     }
 
 

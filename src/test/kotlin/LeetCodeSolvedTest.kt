@@ -1,23 +1,27 @@
+import com.sun.source.tree.Tree
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
 class LeetCodeSolvedTest {
 
+
     @Test
-    fun search() {
+    fun maxDepth() {
+
 //        given
-        val nums = intArrayOf(-1, 0, 3, 5, 9, 12)
-        val target = 9
+                val node1= LeetCodeSolved.TreeNode(9)
+        val node2= LeetCodeSolved.TreeNode(15)
+        val node3= LeetCodeSolved.TreeNode(7)
+        val node4= LeetCodeSolved.TreeNode(20,node2,node3)
+        val root= LeetCodeSolved.TreeNode(3,node1,node4)
 
-
-    //        when
-        val result:Int = LeetCodeSolved().search(nums, target)
-
+//        when
+        val result:Int = LeetCodeSolved.maxDepth(root)
 
 //        then
-        val expectation = 4
-
+        val expectation =3
         assertEquals(expectation,result)
+
     }
 
 
