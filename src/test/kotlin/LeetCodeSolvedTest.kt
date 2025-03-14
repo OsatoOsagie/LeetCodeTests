@@ -6,14 +6,21 @@ class LeetCodeSolvedTest {
 
 
 @Test
-fun maximumCount(){
+fun next(){
 //    given
-    val nums = intArrayOf(-2,-1,-1,1,2,3)
-
+    val size=3
+    var obj= LeetCodeSolved.MovingAverage(size)
 //    when
-    val result:Int = LeetCodeSolved().maximumCount(nums)
+
+    obj.next(1)
+    obj.next(10)
+    obj.next(3)
+
+
+    val result:Double = obj.next(5)
+
 //    then
-    val expectation=3
+    val expectation = 6.0
 
     assertEquals(expectation,result)
 }
