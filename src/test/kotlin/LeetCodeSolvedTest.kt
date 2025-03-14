@@ -1,4 +1,3 @@
-import com.sun.source.tree.Tree
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
@@ -6,24 +5,17 @@ class LeetCodeSolvedTest {
 
 
 @Test
-fun next(){
+fun groupAnagrams(){
 //    given
-    val size=3
-    var obj= LeetCodeSolved.MovingAverage(size)
+    val strs = arrayOf("a")
+
 //    when
-
-    obj.next(1)
-    obj.next(10)
-    obj.next(3)
-
-
-    val result:Double = obj.next(5)
+    val result:List<List<String>> = LeetCodeSolved().groupAnagrams(strs)
 
 //    then
-    val expectation = 6.0
+    val expectation= listOf(listOf("a"))
 
     assertEquals(expectation,result)
 }
-
 }
 

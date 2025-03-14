@@ -2,36 +2,33 @@ import kotlin.math.max
 import kotlin.math.sign
 
 class LeetCodeSolved {
+    fun groupAnagrams(strs: Array<String>): List<List<String>> {
+
+        val map= mutableMapOf<String, MutableList<String>>().apply {
+
+
+        }
+
+        strs.forEach {
+            val sorted=it.toCharArray().sorted().joinToString("")
+
+            //check if its already in the map
+
+            map.getOrPut(sorted){ mutableListOf() }.add(it)
+
+        }
+
+
+
+        val v= map.values.toList().sortedBy { it.size }
+        return v
+    }
 
     data class TreeNode(
         var `val`: Int, var left: TreeNode? = null,
         var right: TreeNode? = null
     )
 
-    class MovingAverage(size: Int) {
-
-        var s= size
-
-        private val arr= mutableListOf<Double>()
-
-
-        fun next(`val`:Int) : Double{
-            var ans=0.0
-            if (arr.size < s){
-                arr.add(`val`.toDouble())
-                ans = arr.sum()/arr.size
-
-            }else{
-                arr.removeFirst()
-                arr.add(`val`.toDouble())
-                ans = arr.sum()/arr.size.toDouble()
-            }
-
-
-            return ans
-
-        }
-    }
 
 
 }
