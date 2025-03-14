@@ -1,33 +1,41 @@
-import kotlin.math.max
-import kotlin.math.sign
-
 class LeetCodeSolved {
-    fun groupAnagrams(strs: Array<String>): List<List<String>> {
 
-        val map= mutableMapOf<String, MutableList<String>>().apply {
+    fun mergeAlternatively(word1: String, word2: String): String {
+        var left=0
+        var right=0
+        val ans= StringBuilder()
 
+        while (left < word1.length && right < word2.length){
+            ans.append(word1[left])
+            ans.append(word2[right])
 
+            right++
+            left++
         }
 
-        strs.forEach {
-            val sorted=it.toCharArray().sorted().joinToString("")
+        if (left < word1.length){
 
-            //check if its already in the map
+            for (i in left until word1.length){
+                ans.append(word1[i])
+            }
+        }
+        if (right < word2.length){
 
-            map.getOrPut(sorted){ mutableListOf() }.add(it)
-
+            for (i in right until word2.length){
+                ans.append(word2[i])
+            }
         }
 
+        return ans.toString()
 
-
-        val v= map.values.toList().sortedBy { it.size }
-        return v
     }
 
     data class TreeNode(
         var `val`: Int, var left: TreeNode? = null,
         var right: TreeNode? = null
     )
+
+
 
 
 
