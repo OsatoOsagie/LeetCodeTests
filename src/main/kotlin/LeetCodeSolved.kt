@@ -39,6 +39,19 @@ class LeetCodeSolved {
         }
     }
 
+    fun percentageLetter(s: String, letter: String): Int {
+
+        var count= 0
+
+        s.toCharArray().forEach {
+            if (it==letter[0]){
+                count++
+            }
+        }
+
+
+        return ((count.toDouble()/s.length.toDouble()) * 100).toInt()
+    }
 
 
     data class TreeNode(

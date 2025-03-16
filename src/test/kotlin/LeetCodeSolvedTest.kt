@@ -4,17 +4,19 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
   @Test
-  fun letterCombinations(){
+  fun percentageLetter(){
 //      given
-      val digits= "23"
+      val s = "jjjj"
+      val letter = "k"
 
 //      when
-      val result:List<String> = LeetCodeSolved().letterCombinations(digits)
+     val result:Int = LeetCodeSolved().percentageLetter(s,letter)
 
 //      then
-      val expectation= listOf("ad","ae","af","bd","be","bf","cd","ce","cf")
+      val expectation = 0
 
       assertEquals(expectation,result)
+
   }
 }
 
