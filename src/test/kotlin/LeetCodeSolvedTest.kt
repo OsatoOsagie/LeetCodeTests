@@ -3,20 +3,18 @@ import kotlin.test.assertEquals
 
 class LeetCodeSolvedTest {
 
-    @Test
-    fun mergeAlternatively(){
-//        given
-        val word1= "abcd"
-        val word2= "pq"
+  @Test
+  fun letterCombinations(){
+//      given
+      val digits= "23"
 
-//        when
+//      when
+      val result:List<String> = LeetCodeSolved().letterCombinations(digits)
 
-        val result:String = LeetCodeSolved().mergeAlternatively(word1,word2)
+//      then
+      val expectation= listOf("ad","ae","af","bd","be","bf","cd","ce","cf")
 
-//        then
-        val expectation = "apbqcd"
-
-        assertEquals(expectation,result)
-    }
+      assertEquals(expectation,result)
+  }
 }
 

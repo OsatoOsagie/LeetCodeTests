@@ -1,34 +1,45 @@
+import java.util.*
+import kotlin.math.max
+
 class LeetCodeSolved {
+    fun letterCombinations(digits: String): List<String> {
+        if (digits.isEmpty()) return emptyList() // Edge case
 
-    fun mergeAlternatively(word1: String, word2: String): String {
-        var left=0
-        var right=0
-        val ans= StringBuilder()
+        val keypadMap = mapOf(
+            '2' to listOf('a', 'b', 'c'),
+            '3' to listOf('d', 'e', 'f'),
+            '4' to listOf('g', 'h', 'i'),
+            '5' to listOf('j', 'k', 'l'),
+            '6' to listOf('m', 'n', 'o'),
+            '7' to listOf('p', 'q', 'r', 's'),
+            '8' to listOf('t', 'u', 'v'),
+            '9' to listOf('w', 'x', 'y', 'z')
+        )
 
-        while (left < word1.length && right < word2.length){
-            ans.append(word1[left])
-            ans.append(word2[right])
+        // Convert each digit into its corresponding list of characters
+        val keyList = digits.mapNotNull { keypadMap[it] } // List of Lists (e.g. [['a','b','c'], ['d','e','f']])
 
-            right++
-            left++
-        }
+        val ans = mutableListOf<String>()
+        backtrack(mutableListOf(), 0, keyList, ans)
 
-        if (left < word1.length){
-
-            for (i in left until word1.length){
-                ans.append(word1[i])
-            }
-        }
-        if (right < word2.length){
-
-            for (i in right until word2.length){
-                ans.append(word2[i])
-            }
-        }
-
-        return ans.toString()
-
+        return ans
     }
+
+    // Backtracking function
+    private fun backtrack(curr: MutableList<Char>, index: Int, keyList: List<List<Char>>, ans: MutableList<String>) {
+        if (index == keyList.size) {
+            ans.add(curr.joinToString(""))
+            return
+        }
+
+        for (char in keyList[index]) { // Iterate over available characters for the current digit
+            curr.add(char)
+            backtrack(curr, index + 1, keyList, ans)
+            curr.removeAt(curr.size - 1) // Remove last character after recursion
+        }
+    }
+
+
 
     data class TreeNode(
         var `val`: Int, var left: TreeNode? = null,
