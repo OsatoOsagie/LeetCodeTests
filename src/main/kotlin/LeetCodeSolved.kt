@@ -39,18 +39,24 @@ class LeetCodeSolved {
         }
     }
 
-    fun percentageLetter(s: String, letter: String): Int {
+    fun divideArray(nums: IntArray): Boolean {
 
-        var count= 0
+        val map= mutableMapOf<Int,Int>().apply {
+            nums.forEach { this[it]= this.getOrPut(it){0}+1 }
+        }
 
-        s.toCharArray().forEach {
-            if (it==letter[0]){
-                count++
+        val values=map.values.toList()
+        var count =0
+
+        for(v in values){
+            if (v %2 != 0){
+                return false
+            }else{
+                count += v/2
             }
         }
 
-
-        return ((count.toDouble()/s.length.toDouble()) * 100).toInt()
+        return count == nums.size/2
     }
 
 

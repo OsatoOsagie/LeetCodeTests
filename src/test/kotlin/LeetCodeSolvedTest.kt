@@ -4,16 +4,16 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
   @Test
-  fun percentageLetter(){
+  fun divideArray(){
 //      given
-      val s = "jjjj"
-      val letter = "k"
+      val nums= intArrayOf(1,2,3,4)
 
 //      when
-     val result:Int = LeetCodeSolved().percentageLetter(s,letter)
+   val result:Boolean = LeetCodeSolved().divideArray(nums)
+
 
 //      then
-      val expectation = 0
+   val expectation = false
 
       assertEquals(expectation,result)
 
