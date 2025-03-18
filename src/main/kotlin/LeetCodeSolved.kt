@@ -2,24 +2,28 @@ import java.util.*
 import kotlin.math.max
 
 class LeetCodeSolved {
+    fun combinationSum3(k: Int, n: Int): List<List<Int>> {
 
+        val candidates= (1..9).toList()
 
+        val ans= mutableListOf<List<Int>>()
 
-        fun combinationSum2(candidates: IntArray, target: Int): List<List<Int>> {
-            candidates.sort()  // Sorting helps in skipping duplicates
-            val ans = mutableListOf<List<Int>>()
-            backtrack(mutableListOf(), 0, ans, candidates, target)
-            return ans
-        }
+        backtrack(mutableListOf(),0,ans,candidates,n,k)
+        println(ans)
+
+        return ans
+
+    }
 
         private fun backtrack(
             curr: MutableList<Int>,
             index: Int,
             ans: MutableList<List<Int>>,
-            candidates: IntArray,
-            target: Int
+            candidates: List<Int>,
+            target: Int,
+            k:Int
         ) {
-            if (target == 0) {  // Base case: when remaining sum is zero
+            if (target == 0 && curr.size==k) {  // Base case: when remaining sum is zero
                 ans.add(ArrayList(curr))
                 return
             }
@@ -31,11 +35,10 @@ class LeetCodeSolved {
                 if (candidates[i] > target) break // Stop early (pruning)
 
                 curr.add(candidates[i])
-                backtrack(curr, i + 1, ans, candidates, target - candidates[i]) // Move to next index
+                backtrack(curr, i + 1, ans, candidates, target - candidates[i],k) // Move to next index
                 curr.removeAt(curr.size - 1)  // Backtrack step
             }
         }
-
 
 
     data class TreeNode(
