@@ -4,19 +4,19 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
   @Test
-  fun combinationSum3(){
+  fun combinationSum(){
 //      given
 
-      val k= 3
-      val n=9
+      val candidates= intArrayOf(2,3,6,7)
+      val target= 7
 
 //      when
 
-      val result:List<List<Int>> = LeetCodeSolved().combinationSum3(k,n)
+      val result:List<List<Int>> = LeetCodeSolved().combinationSum(candidates,target)
 
 
 //      then
-      val expectation = listOf(listOf(1,2,6), listOf(1,3,5), listOf(2,3,4))
+      val expectation = listOf(listOf(2,2,3), listOf(7))
 
       assertEquals(expectation,result)
 
