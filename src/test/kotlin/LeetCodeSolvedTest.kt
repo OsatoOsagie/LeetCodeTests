@@ -3,23 +3,21 @@ import kotlin.test.assertEquals
 
 class LeetCodeSolvedTest {
 
-  @Test
-  fun combinationSum(){
-//      given
 
-      val candidates= intArrayOf(2,3,6,7)
-      val target= 7
+    @Test
+    fun removeTrailingZeros(){
+//        given
+        val num = "123"
 
-//      when
+//        when
+        val result:String = LeetCodeSolved().removeTrailingZeros(num)
 
-      val result:List<List<Int>> = LeetCodeSolved().combinationSum(candidates,target)
+//        then
+        val expectation = "123"
 
+        assertEquals(expectation,result)
 
-//      then
-      val expectation = listOf(listOf(2,2,3), listOf(7))
+    }
 
-      assertEquals(expectation,result)
-
-  }
 }
 
