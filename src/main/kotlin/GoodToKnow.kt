@@ -83,4 +83,8 @@ class GoodToKnow {
 
         return heap.sorted()
     }
+
+
+//    char to int
+//    ( s[left] -'0') + (s[right] -'0') %10
 }

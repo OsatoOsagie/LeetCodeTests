@@ -3,21 +3,23 @@ import kotlin.test.assertEquals
 
 class LeetCodeSolvedTest {
 
-
     @Test
-    fun removeTrailingZeros(){
+    fun hasSameDigits(){
 //        given
-        val num = "123"
+       val s= "139"
 
 //        when
-        val result:String = LeetCodeSolved().removeTrailingZeros(num)
+        val result:Boolean = LeetCodeSolved().hasSameDigits(s)
 
-//        then
-        val expectation = "123"
+
+    //        then
+        val expectation = false
 
         assertEquals(expectation,result)
 
+//
     }
+
 
 }
 
