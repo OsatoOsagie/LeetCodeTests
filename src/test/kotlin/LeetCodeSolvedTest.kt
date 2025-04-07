@@ -1,23 +1,25 @@
+import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Test
-import kotlin.test.assertEquals
 
 class LeetCodeSolvedTest {
 
     @Test
-    fun hasSameDigits(){
+    fun rearrangeArray() {
 //        given
-       val s= "139"
+
+        val nums = intArrayOf(3, 1, -2, -5, 2, -4)
 
 //        when
-        val result:Boolean = LeetCodeSolved().hasSameDigits(s)
+        val result: IntArray = LeetCodeSolved().rearrangeArray(nums)
 
 
     //        then
-        val expectation = false
+        val expectation = intArrayOf(3,-2,1,-5,2,-4)
 
-        assertEquals(expectation,result)
 
-//
+        assertArrayEquals(expectation,result)
+
+
     }
 
 

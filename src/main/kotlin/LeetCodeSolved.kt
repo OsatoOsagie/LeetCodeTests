@@ -1,32 +1,32 @@
+import kotlin.math.sign
+
 class LeetCodeSolved {
+    fun rearrangeArray(nums: IntArray): IntArray {
+
+        val positive = nums.filter { it.sign == 1 }
+        val negative = nums.filter { it.sign == -1 }
+
+        var left =0
+        var right =0
+        var i=0
 
 
-    fun hasSameDigits(s: String): Boolean {
+        while (left < positive.size && right < negative.size){
 
-        var current=s
+            nums[i]= positive[left]
+            left++
+            i++
+            nums[i] = negative[right]
+            i++
+            right++
 
-        while (current.length >2){
-            current=getStringValues(current)
         }
 
-        return current[0] == current[1]
+
+
+
+        return nums
     }
-
-    private fun getStringValues(s:String) : String{
-
-        val sb=StringBuilder()
-
-
-        for (i in 0 until s.length - 1) {
-            val sum = (s[i] - '0') + (s[i + 1] - '0')
-            sb.append(sum % 10)
-        }
-
-        return sb.toString()
-
-    }
-
-
 
 
 }
