@@ -1,27 +1,25 @@
 import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
 
 class LeetCodeSolvedTest {
 
-    @Test
-    fun rearrangeArray() {
-//        given
-
-        val nums = intArrayOf(3, 1, -2, -5, 2, -4)
-
-//        when
-        val result: IntArray = LeetCodeSolved().rearrangeArray(nums)
+   @Test
+   fun combinationSum(){
+//       given
+       val candidates = intArrayOf(2,3,6,7)
+       val target = 7
 
 
-    //        then
-        val expectation = intArrayOf(3,-2,1,-5,2,-4)
+//       when
+       val result:List<List<Int>> = LeetCodeSolved().combinationSum(candidates,target)
 
+//       then
+       val expectation = listOf(listOf(2,2,3), listOf(7) )
 
-        assertArrayEquals(expectation,result)
+       assertEquals(expectation,result)
 
-
-    }
-
+   }
 
 }
 

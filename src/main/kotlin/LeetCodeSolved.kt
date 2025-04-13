@@ -1,32 +1,36 @@
 import kotlin.math.sign
 
 class LeetCodeSolved {
-    fun rearrangeArray(nums: IntArray): IntArray {
+    fun combinationSum(candidates: IntArray, i: Int): List<List<Int>> {
 
-        val positive = nums.filter { it.sign == 1 }
-        val negative = nums.filter { it.sign == -1 }
+        val ans = mutableListOf<List<Int>>()
+        backtrack(mutableListOf(), 0,0, ans, i,candidates)
 
-        var left =0
-        var right =0
-        var i=0
+        return ans
+    }
 
+    private fun backtrack(currPath: MutableList<Int>, startIndex: Int,currSum:Int, ans:MutableList<List<Int>>, target: Int,candidates: IntArray ){
 
-        while (left < positive.size && right < negative.size){
+        if (currSum==target){
+            ans.add(ArrayList(currPath))
+            return
+        }
 
-            nums[i]= positive[left]
-            left++
-            i++
-            nums[i] = negative[right]
-            i++
-            right++
+        for(i in startIndex until candidates.size){
+
+            val number= candidates[i]
+
+            if ((number + currSum) <= target){
+                currPath.add(number)
+                backtrack(currPath,  i, currSum+number,ans, target,candidates)
+                currPath.removeAt(currPath.size - 1)
+            }
 
         }
 
 
 
-
-        return nums
-    }
+}
 
 
 }
