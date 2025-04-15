@@ -5,19 +5,25 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
    @Test
-   fun combinationSum(){
+   fun countGoodTriplets(){
 //       given
-       val candidates = intArrayOf(2,3,6,7)
-       val target = 7
-
+     val arr = intArrayOf(1,1,2,2,3)
+       val a= 0
+       val b = 0
+       val c = 1
 
 //       when
-       val result:List<List<Int>> = LeetCodeSolved().combinationSum(candidates,target)
+       val result:Int = LeetCodeSolved().countGoodTriplets(arr,a,b,c)
 
-//       then
-       val expectation = listOf(listOf(2,2,3), listOf(7) )
+       val expectation= 0
+
 
        assertEquals(expectation,result)
+
+
+//       then
+
+
 
    }
 

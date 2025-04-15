@@ -1,36 +1,32 @@
+import java.util.*
+import kotlin.math.abs
 import kotlin.math.sign
 
 class LeetCodeSolved {
-    fun combinationSum(candidates: IntArray, i: Int): List<List<Int>> {
+    fun countGoodTriplets(arr: IntArray, a: Int, b: Int, c: Int): Int {
 
-        val ans = mutableListOf<List<Int>>()
-        backtrack(mutableListOf(), 0,0, ans, i,candidates)
+        var count =0
 
-        return ans
+        for (i in 0 until arr.size-2){
+            for (j in i+1 until arr.size-1){
+                for (k in j+1 until arr.size){
+                    if (checkIfGood(arr[i], arr[j], arr[k],a,b,c)){
+                        count++
+                    }
+
+                }
+
+            }
+        }
+
+        return count
+
     }
 
-    private fun backtrack(currPath: MutableList<Int>, startIndex: Int,currSum:Int, ans:MutableList<List<Int>>, target: Int,candidates: IntArray ){
+    fun checkIfGood(i: Int, j:Int, k:Int, a:Int,b:Int,c: Int) : Boolean{
 
-        if (currSum==target){
-            ans.add(ArrayList(currPath))
-            return
-        }
-
-        for(i in startIndex until candidates.size){
-
-            val number= candidates[i]
-
-            if ((number + currSum) <= target){
-                currPath.add(number)
-                backtrack(currPath,  i, currSum+number,ans, target,candidates)
-                currPath.removeAt(currPath.size - 1)
-            }
-
-        }
-
-
-
-}
+        return (abs( i-j) <= a) && (abs( j-k) <=b) && (abs( i-k) <=c)
+    }
 
 
 }
