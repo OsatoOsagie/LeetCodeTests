@@ -3,30 +3,26 @@ import kotlin.math.abs
 import kotlin.math.sign
 
 class LeetCodeSolved {
-    fun countGoodTriplets(arr: IntArray, a: Int, b: Int, c: Int): Int {
+    fun countPairs(nums: IntArray, k: Int): Int {
 
-        var count =0
+        var count=0
 
-        for (i in 0 until arr.size-2){
-            for (j in i+1 until arr.size-1){
-                for (k in j+1 until arr.size){
-                    if (checkIfGood(arr[i], arr[j], arr[k],a,b,c)){
-                        count++
-                    }
+        for (i in 0 until nums.size-1){
+            for (j in i+1 until nums.size){
+                if (nums[i]==nums[j] && ((i*j) %k ==0)){
+                    count++
 
                 }
-
             }
         }
 
         return count
-
     }
 
-    fun checkIfGood(i: Int, j:Int, k:Int, a:Int,b:Int,c: Int) : Boolean{
-
-        return (abs( i-j) <= a) && (abs( j-k) <=b) && (abs( i-k) <=c)
-    }
+//    nums[0] == nums[6], and 0 * 6 == 0, which is divisible by 2.
+//    - nums[2] == nums[3], and 2 * 3 == 6, which is divisible by 2.
+//    - nums[2] == nums[4], and 2 * 4 == 8, which is divisible by 2.
+//    - nums[3] == nums[4], and 3 * 4 == 12, which is divisible by 2.
 
 
 }

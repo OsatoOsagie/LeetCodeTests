@@ -5,23 +5,22 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
    @Test
-   fun countGoodTriplets(){
+   fun countPairs(){
 //       given
-     val arr = intArrayOf(1,1,2,2,3)
-       val a= 0
-       val b = 0
-       val c = 1
+val nums = intArrayOf(1,2,3,4)
+       val k=1
 
 //       when
-       val result:Int = LeetCodeSolved().countGoodTriplets(arr,a,b,c)
+       val result:Int=LeetCodeSolved().countPairs(nums,k)
 
+
+
+//       then
        val expectation= 0
-
 
        assertEquals(expectation,result)
 
 
-//       then
 
 
 
