@@ -1,28 +1,31 @@
 import java.util.*
 import kotlin.math.abs
+import kotlin.math.pow
 import kotlin.math.sign
+import kotlin.math.sqrt
 
 class LeetCodeSolved {
-    fun countPairs(nums: IntArray, k: Int): Int {
+    fun kClosest(nums: Array<IntArray>, k: Int): Array<IntArray> {
 
-        var count=0
+        val pq = PriorityQueue<Pair<Int, Double>>(compareBy { it.second })
 
-        for (i in 0 until nums.size-1){
-            for (j in i+1 until nums.size){
-                if (nums[i]==nums[j] && ((i*j) %k ==0)){
-                    count++
-
-                }
-            }
+        for (i in 0 until nums.size){
+            val sqrRoot=  sqrt(nums[i][0].toDouble().pow(2.0) + nums[i][1].toDouble().pow(2.0))
+            pq.offer(Pair(i,sqrRoot))
         }
 
-        return count
-    }
+        val ans= mutableListOf<IntArray>()
 
-//    nums[0] == nums[6], and 0 * 6 == 0, which is divisible by 2.
-//    - nums[2] == nums[3], and 2 * 3 == 6, which is divisible by 2.
-//    - nums[2] == nums[4], and 2 * 4 == 8, which is divisible by 2.
-//    - nums[3] == nums[4], and 3 * 4 == 12, which is divisible by 2.
+        for (i in 0 until k){
+            println()
+            ans.add(nums[pq.poll().first])
+        }
+
+        return ans.toTypedArray()
+
+
+
+    }
 
 
 }

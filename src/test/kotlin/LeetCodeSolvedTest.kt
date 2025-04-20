@@ -5,20 +5,20 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
    @Test
-   fun countPairs(){
+   fun kClosest(){
 //       given
-val nums = intArrayOf(1,2,3,4)
-       val k=1
+val nums = arrayOf(intArrayOf(3,3), intArrayOf(5,-1), intArrayOf(-2,4) )
+       val k=2
 
 //       when
-       val result:Int=LeetCodeSolved().countPairs(nums,k)
+       val result:Array<IntArray> =LeetCodeSolved().kClosest(nums,k)
 
 
 
 //       then
-       val expectation= 0
+       val expectation= arrayOf(intArrayOf(3,3), intArrayOf(-2,4))
 
-       assertEquals(expectation,result)
+       assertArrayEquals(expectation,result)
 
 
 
