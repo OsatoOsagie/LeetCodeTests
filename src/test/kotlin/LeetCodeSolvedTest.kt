@@ -1,22 +1,26 @@
 import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
 
 class LeetCodeSolvedTest {
 
     @Test
-    fun getAverages() {
+    fun shortestCompletingWord() {
 //       given
-        val nums = intArrayOf(7, 4, 3, 9, 1, 8, 5, 2, 6)
-        val k = 3
+
+        val licensePlate = "TE73696"
+        val words = arrayOf("ten","two","better","talk","suddenly","stand","protect","collection","about","southern")
 
 //       when
-        val result: IntArray = LeetCodeSolved().getAverages(nums, k)
+        val result:String = LeetCodeSolved().shortestCompletingWord(licensePlate,words)
+
 
 
 //       then
-        val expectation = intArrayOf(-1, -1, -1, 5, 4, 4, -1, -1, -1)
+        val expectation = "ten"
 
-        assertArrayEquals(expectation, result)
+        assertEquals(expectation,result)
+
 
 
     }

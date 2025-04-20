@@ -3,36 +3,36 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 
 class LeetCodeSolved {
-    fun getAverages(nums: IntArray, k: Int): IntArray {
+    fun shortestCompletingWord(licensePlate: String, words: Array<String>): String {
 
-        val n=nums.size
-        val prefix= LongArray(n+1)
-        val ans= IntArray(n) {-1}
+        var maxSoFar=Pair(0,"")
+        val licensePlateNew= licensePlate.filter{it.isLetter()}.lowercase(Locale.getDefault())
 
-        if (k == 0) return nums // If k is 0, the average is the element itself
-        if (2 * k + 1 > n) return ans // Not enough elements for any average
+        val map= licensePlateNew.groupingBy { it }.eachCount()
+        for (word in words){
+            val copiedMap = map.toMutableMap()
+            val count=checkChars(copiedMap,word)
 
-        for (i in 0 until n){
-            prefix[i+1] = prefix[i] + nums[i]
+            if (count > maxSoFar.first || (count== maxSoFar.first && word.length <maxSoFar.second.length)){
+                maxSoFar=Pair(count,word)
+            }
         }
 
-        println( prefix.toList())
+        return maxSoFar.second
+    }
 
+    fun checkChars(map: MutableMap<Char,Int>, word : String) : Int{
 
-        for (i in k until n-k){
+        var count =0
+        for(c in word){
+            if (map.containsKey(c) && map[c]!! > 0){
 
-                val length=2*k+1
-                val sum = prefix[i+k+1] - prefix[i-k]
-                println(sum)
-                ans[i]= (sum/length).toInt()
-
+                map[c] = map.getOrDefault(c,0)-1
+                count++
+            }
         }
 
-        return ans
-
-
-
-
+        return count
     }
 
 
