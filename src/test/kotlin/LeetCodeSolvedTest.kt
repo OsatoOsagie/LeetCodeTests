@@ -1,30 +1,25 @@
 import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Test
-import kotlin.test.assertEquals
 
 class LeetCodeSolvedTest {
 
-   @Test
-   fun kClosest(){
+    @Test
+    fun getAverages() {
 //       given
-val nums = arrayOf(intArrayOf(3,3), intArrayOf(5,-1), intArrayOf(-2,4) )
-       val k=2
+        val nums = intArrayOf(7, 4, 3, 9, 1, 8, 5, 2, 6)
+        val k = 3
 
 //       when
-       val result:Array<IntArray> =LeetCodeSolved().kClosest(nums,k)
-
+        val result: IntArray = LeetCodeSolved().getAverages(nums, k)
 
 
 //       then
-       val expectation= arrayOf(intArrayOf(3,3), intArrayOf(-2,4))
+        val expectation = intArrayOf(-1, -1, -1, 5, 4, 4, -1, -1, -1)
 
-       assertArrayEquals(expectation,result)
-
-
+        assertArrayEquals(expectation, result)
 
 
-
-   }
+    }
 
 }
 

@@ -1,27 +1,35 @@
 import java.util.*
-import kotlin.math.abs
 import kotlin.math.pow
-import kotlin.math.sign
 import kotlin.math.sqrt
 
 class LeetCodeSolved {
-    fun kClosest(nums: Array<IntArray>, k: Int): Array<IntArray> {
+    fun getAverages(nums: IntArray, k: Int): IntArray {
 
-        val pq = PriorityQueue<Pair<Int, Double>>(compareBy { it.second })
+        val n=nums.size
+        val prefix= LongArray(n+1)
+        val ans= IntArray(n) {-1}
 
-        for (i in 0 until nums.size){
-            val sqrRoot=  sqrt(nums[i][0].toDouble().pow(2.0) + nums[i][1].toDouble().pow(2.0))
-            pq.offer(Pair(i,sqrRoot))
+        if (k == 0) return nums // If k is 0, the average is the element itself
+        if (2 * k + 1 > n) return ans // Not enough elements for any average
+
+        for (i in 0 until n){
+            prefix[i+1] = prefix[i] + nums[i]
         }
 
-        val ans= mutableListOf<IntArray>()
+        println( prefix.toList())
 
-        for (i in 0 until k){
-            println()
-            ans.add(nums[pq.poll().first])
+
+        for (i in k until n-k){
+
+                val length=2*k+1
+                val sum = prefix[i+k+1] - prefix[i-k]
+                println(sum)
+                ans[i]= (sum/length).toInt()
+
         }
 
-        return ans.toTypedArray()
+        return ans
+
 
 
 
