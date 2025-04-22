@@ -84,6 +84,8 @@ class GoodToKnow {
         return heap.sorted()
     }
 
+//    val map= licensePlateNew.groupingBy { it }.eachCount()
+
 
 //    char to int
 //    ( s[left] -'0') + (s[right] -'0') %10

@@ -5,21 +5,19 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
     @Test
-    fun shortestCompletingWord() {
+    fun carPooling() {
 //       given
-
-        val licensePlate = "TE73696"
-        val words = arrayOf("ten","two","better","talk","suddenly","stand","protect","collection","about","southern")
+        val trips= arrayOf(intArrayOf(2,1,5), intArrayOf(3,3,7))
+        val capacity =5
 
 //       when
-        val result:String = LeetCodeSolved().shortestCompletingWord(licensePlate,words)
-
-
+        val result:Boolean = LeetCodeSolved().carPooling(trips,capacity)
 
 //       then
-        val expectation = "ten"
+        val expectation = true
 
         assertEquals(expectation,result)
+
 
 
 
