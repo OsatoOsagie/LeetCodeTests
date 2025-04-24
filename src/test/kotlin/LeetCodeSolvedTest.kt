@@ -5,19 +5,20 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
 
-    @Test
-    fun countCompleteSubarrays(){
-//        given
-        val nums= intArrayOf(1,3,1,2,2)
+   @Test
+   fun targetIndices(){
+//       given
+       val nums= intArrayOf(1,2,5,2,3)
+       val target=5
 
-//        when
-        val result:Int =LeetCodeSolved().countCompleteSubarrays(nums)
+//       when
 
-//        then
-        val expectation = 4
+       val result:List<Int> = LeetCodeSolved().targetIndices(nums,target)
 
-        assertEquals(expectation,result)
+//       then
+       val expectation = listOf(4)
 
-    }
+       assertEquals(expectation,result)
+   }
 }
 
