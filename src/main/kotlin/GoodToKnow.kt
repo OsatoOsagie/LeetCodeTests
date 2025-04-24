@@ -87,6 +87,87 @@ class GoodToKnow {
 //    val map= licensePlateNew.groupingBy { it }.eachCount()
 
 
+//    private fun helper(c: Char, shift:Int): Char {
+//
+//
+//        val offset = (c - 'a' + shift).mod(26)
+//        return ('a' + offset)
+//    }
 //    char to int
 //    ( s[left] -'0') + (s[right] -'0') %10
+
+    //difference arrays
+
+    fun carPooling(trips: Array<IntArray>, capacity: Int): Boolean {
+
+//        get the furthest trip
+        val furthest= trips.maxOf { it[2] }
+
+        //compute the number line of passengers
+        val passengersArr= IntArray(furthest+1)
+
+        for(trip in trips){
+            val passengers= trip[0]
+            val from= trip[1]
+            val to= trip[2]
+
+            passengersArr[from] += passengers
+            passengersArr[to] -= passengers
+
+        }
+
+        var currNumOfPassengers=0
+        for (num in passengersArr){
+            currNumOfPassengers +=num
+
+            if (currNumOfPassengers >capacity){
+                return false
+            }
+        }
+
+        return true
+
+
+    }
+
+    fun shiftingLetters(s: String, shifts: Array<IntArray>): String {
+        //get the furthest shifting of chars
+        val furthest= shifts.maxOf { it[1] }
+
+        //line number of characters
+        val line = IntArray(furthest+1)
+
+        for (shift in shifts){
+            val from= shift[0]
+            val to= shift[1]
+            val direction= shift[2]
+
+
+            for (i in from..to){
+                if (direction==0){
+                    line[i] -=1
+                }else{
+                    line[i]+=1
+                }
+
+            }
+
+
+        }
+
+        val  sb =s.toCharArray()
+
+        for (i in 0 until line.size){
+            sb[i]=(helper(s[i],line[i]))
+        }
+        return sb.joinToString("")
+
+    }
+
+    private fun helper(c: Char, shift:Int): Char {
+
+
+        val offset = (c - 'a' + shift).mod(26)
+        return ('a' + offset)
+    }
 }

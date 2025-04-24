@@ -4,23 +4,20 @@ import kotlin.test.assertEquals
 
 class LeetCodeSolvedTest {
 
+
     @Test
-    fun carPooling() {
-//       given
-        val trips= arrayOf(intArrayOf(2,1,5), intArrayOf(3,3,7))
-        val capacity =5
+    fun corpFlightBookings(){
+//        given
+        val bookings = arrayOf(intArrayOf(1,2,10), intArrayOf(2,3,20), intArrayOf(2,5,25))
+        val n =5
 
-//       when
-        val result:Boolean = LeetCodeSolved().carPooling(trips,capacity)
+//        when
+        val result:IntArray = LeetCodeSolved().corpFlightBookings(bookings,n)
 
-//       then
-        val expectation = true
+//        then
+        val expectation = intArrayOf(10,55,45,25,25)
 
-        assertEquals(expectation,result)
-
-
-
-
+        assertArrayEquals(result,expectation)
     }
 
 }

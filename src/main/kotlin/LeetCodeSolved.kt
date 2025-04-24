@@ -4,35 +4,39 @@ import kotlin.math.sqrt
 
 class LeetCodeSolved {
 
-    fun carPooling(trips: Array<IntArray>, capacity: Int): Boolean {
+    fun corpFlightBookings(bookings: Array<IntArray>, n: Int): IntArray {
+        val furthestFlight= bookings.maxOf { it[1] }
+        fun corpFlightBookings(bookings: Array<IntArray>, n: Int): IntArray {
+            val furthestFlight= bookings.maxOf { it[1] }
 
-//        get the furthest trip
-        val furthest= trips.maxOf { it[2] }
+            val line = IntArray(n)
 
-        //compute the number line of passengers
-        val passengersArr= IntArray(furthest+1)
+            for (booking in bookings){
+                val first= booking[0]
+                val last= booking[1]
+                val seat= booking[2]
 
-        for(trip in trips){
-            val passengers= trip[0]
-            val from= trip[1]
-            val to= trip[2]
+                for (i in first..last){
+                    line[i-1]+=seat
+                }
+            }
 
-            passengersArr[from] += passengers
-            passengersArr[to] -= passengers
+            return line
 
         }
+        val line = IntArray(n)
 
-        var currNumOfPassengers=0
-        for (num in passengersArr){
-            currNumOfPassengers +=num
+        for (booking in bookings){
+            val first= booking[0]
+            val last= booking[1]
+            val seat= booking[2]
 
-            if (currNumOfPassengers >capacity){
-                return false
+            for (i in first..last){
+                line[i-1]+=seat
             }
         }
 
-        return true
-
+        return line
 
     }
 
