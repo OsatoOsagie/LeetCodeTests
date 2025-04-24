@@ -6,19 +6,18 @@ class LeetCodeSolvedTest {
 
 
     @Test
-    fun corpFlightBookings(){
+    fun countCompleteSubarrays(){
 //        given
-        val bookings = arrayOf(intArrayOf(1,2,10), intArrayOf(2,3,20), intArrayOf(2,5,25))
-        val n =5
+        val nums= intArrayOf(1,3,1,2,2)
 
 //        when
-        val result:IntArray = LeetCodeSolved().corpFlightBookings(bookings,n)
+        val result:Int =LeetCodeSolved().countCompleteSubarrays(nums)
 
 //        then
-        val expectation = intArrayOf(10,55,45,25,25)
+        val expectation = 4
 
-        assertArrayEquals(result,expectation)
+        assertEquals(expectation,result)
+
     }
-
 }
 
