@@ -6,19 +6,21 @@ class LeetCodeSolvedTest {
 
 
    @Test
-   fun targetIndices(){
+   fun countInterestingSubarrays(){
 //       given
-       val nums= intArrayOf(1,2,5,2,3)
-       val target=5
+       val nums = intArrayOf(3,1,9,6)
+       val modulo =3
+       val k=0
 
 //       when
-
-       val result:List<Int> = LeetCodeSolved().targetIndices(nums,target)
+       val result:Long = LeetCodeSolved().countInterestingSubarrays(nums,modulo,k)
 
 //       then
-       val expectation = listOf(4)
+       val expectation = 2L
 
        assertEquals(expectation,result)
+
+
    }
 }
 

@@ -3,32 +3,29 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 
 class LeetCodeSolved {
-    fun targetIndices(nums: IntArray, target: Int): List<Int> {
+    fun countInterestingSubarrays(nums: IntArray, modulo: Int, k: Int): Long {
 
-         nums.sort()
-        val ans= mutableListOf<Int>()
         var left=0
-        var right= nums.size-1
+        var cnt=0
+        var ans=0
 
-        while (left < right){
-            val mid= left + (right - left) /2
-            val element = nums[mid]
+        for (i in 0 until nums.size){
 
-            if (nums[mid] >=target){
-                right = mid
-            }else{
-                left = mid+1
+            if (nums[i] % modulo==k){
+                cnt++
+            }
+
+            if (cnt%modulo==k){
+                ans++
+            }
+
+            while (cnt%modulo !=k){
+                cnt-=1
+
             }
         }
 
-       for (i in left until nums.size){
-           if (nums[i]==target){
-               ans.add(i)
-           }
-       }
-
-        return ans
-
+        return ans.toLong()
 
     }
 
