@@ -5,22 +5,21 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
 
-   @Test
-   fun countInterestingSubarrays(){
-//       given
-       val nums = intArrayOf(3,1,9,6)
-       val modulo =3
-       val k=0
+    @Test
+    fun maxIceCream(){
+//        given
+      val costs = intArrayOf(1,6,3,1,2,5)
+        val coins= 20
 
-//       when
-       val result:Long = LeetCodeSolved().countInterestingSubarrays(nums,modulo,k)
+//        when
 
-//       then
-       val expectation = 2L
+        val result: Int = LeetCodeSolved.maxIceCream(costs, coins)
 
-       assertEquals(expectation,result)
+//        then
+        val expectation = 6
 
+        assertEquals(expectation,result)
 
-   }
+    }
 }
 

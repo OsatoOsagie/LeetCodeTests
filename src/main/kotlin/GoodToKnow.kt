@@ -167,7 +167,12 @@ class GoodToKnow {
     private fun helper(c: Char, shift:Int): Char {
 
 
-        val offset = (c - 'a' + shift).mod(26)
-        return ('a' + offset)
+        val offset = (c - 'a' + shift).mod(26) //Subtracting 'a' from c calculates the position of the character c in the alphabet, starting from
+        return ('a' + offset) // moves forward in the alphabet by offset steps and gives you the character at that new position.
     }
+
+// String word = "5382";
+//    char ch = word.charAt(0); // '5'
+//    int num = ch - '0';       // '5' - '0' = 5
+//    System.out.println(num);  // prints 5
 }
