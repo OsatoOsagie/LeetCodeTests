@@ -6,19 +6,21 @@ class LeetCodeSolvedTest {
 
 
     @Test
-    fun countSubarrays(){
+    fun findNumbers() {
 //        given
-      val nums = intArrayOf(1,4,2,1)
-        val k=3
+        val nums = intArrayOf(555,901,482,1771)
+
+
 
 //        when
-        val result:Long = LeetCodeSolved().countSubarrays(nums,k)
-
+val result:Int= LeetCodeSolved().findNumbers(nums)
 
 //        then
-        val expectation = 0L
+        val expectation=1
 
         assertEquals(expectation,result)
+
+
 
 
     }

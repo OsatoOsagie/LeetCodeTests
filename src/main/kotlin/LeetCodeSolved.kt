@@ -1,40 +1,33 @@
 import java.util.*
 
 class LeetCodeSolved {
-    fun countSubarrays(nums: IntArray, k: Int): Long {
-        val maxNum = nums.max()
-
-        var left=0
-        var seen= 0
-        var ans=0L
 
 
-        for (i in 0 until nums.size){
-            if (nums[i]==maxNum){
-                seen++
+    fun findNumbers(nums: IntArray): Int {
+
+        var ans=0
+
+        for (n in nums){
+            val count=helper(n)
+
+            if (count%2==0){
+                ans++
             }
-
-            while (seen >= k){
-                ans+= nums.size -i
-
-                if (nums[left] == maxNum){
-                    seen--
-                }
-                left++
-
-
-
-            }
-
-
-
         }
-
-
         return ans
-
     }
 
+    private fun helper(num:Int) :Int{
 
+        var n=num
+        var count=0
+
+        while (n>0){
+            n /=10
+            count++
+
+        }
+        return count
+    }
 
 }
