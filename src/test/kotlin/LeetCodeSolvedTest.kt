@@ -6,19 +6,20 @@ class LeetCodeSolvedTest {
 
 
     @Test
-    fun maxIceCream(){
+    fun countSubarrays(){
 //        given
-      val costs = intArrayOf(1,6,3,1,2,5)
-        val coins= 20
+      val nums = intArrayOf(1,4,2,1)
+        val k=3
 
 //        when
+        val result:Long = LeetCodeSolved().countSubarrays(nums,k)
 
-        val result: Int = LeetCodeSolved.maxIceCream(costs, coins)
 
 //        then
-        val expectation = 6
+        val expectation = 0L
 
         assertEquals(expectation,result)
+
 
     }
 }

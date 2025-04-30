@@ -1,21 +1,40 @@
 import java.util.*
 
 class LeetCodeSolved {
-    companion object {
-        fun maxIceCream(costs: IntArray, coins: Int): Int {
+    fun countSubarrays(nums: IntArray, k: Int): Long {
+        val maxNum = nums.max()
 
-            val pq= PriorityQueue<Int>().apply { costs.forEach { this.offer(it) } }
-            var balance=coins
-            var count=0
+        var left=0
+        var seen= 0
+        var ans=0L
 
-            while (pq.isNotEmpty() && balance >= pq.peek()){
-                balance -= pq.poll()
-                count++
+
+        for (i in 0 until nums.size){
+            if (nums[i]==maxNum){
+                seen++
             }
 
-            return count
+            while (seen >= k){
+                ans+= nums.size -i
+
+                if (nums[left] == maxNum){
+                    seen--
+                }
+                left++
+
+
+
+            }
+
+
+
         }
+
+
+        return ans
+
     }
+
 
 
 }
