@@ -6,23 +6,20 @@ class LeetCodeSolvedTest {
 
 
     @Test
-    fun findNumbers() {
+    fun numEquivDominoPairs(){
 //        given
-        val nums = intArrayOf(555,901,482,1771)
 
-
+val dominoes = arrayOf(intArrayOf(1,2), intArrayOf(1,2), intArrayOf(1,1), intArrayOf(5,6))
 
 //        when
-val result:Int= LeetCodeSolved().findNumbers(nums)
+        val result:Int = LeetCodeSolved().numEquivDominoPairs(dominoes)
 
 //        then
-        val expectation=1
+        val expectation = 1
 
         assertEquals(expectation,result)
-
-
-
-
     }
+
+
 }
 

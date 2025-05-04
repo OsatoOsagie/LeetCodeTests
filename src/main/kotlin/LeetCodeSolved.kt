@@ -1,33 +1,28 @@
 import java.util.*
+import kotlin.collections.Set
 
 class LeetCodeSolved {
+    fun numEquivDominoPairs(dominoes: Array<IntArray>): Int {
 
+        val map = mutableMapOf<List<Int>,Int>()
+        var pairs=0
 
-    fun findNumbers(nums: IntArray): Int {
+        for (dominoe in dominoes){
+            val key=dominoe.sorted()
+            if (map.containsKey(key)){
+                pairs += map[key]!!
+                map[key] = map.getOrDefault(key,0)+1
 
-        var ans=0
-
-        for (n in nums){
-            val count=helper(n)
-
-            if (count%2==0){
-                ans++
+            }else{
+                map[key]= map.getOrDefault(key,0)+1
             }
-        }
-        return ans
-    }
 
-    private fun helper(num:Int) :Int{
-
-        var n=num
-        var count=0
-
-        while (n>0){
-            n /=10
-            count++
 
         }
-        return count
+
+        return pairs
+
     }
+
 
 }
