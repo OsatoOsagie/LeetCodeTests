@@ -2,26 +2,20 @@ import java.util.*
 import kotlin.collections.Set
 
 class LeetCodeSolved {
-    fun numEquivDominoPairs(dominoes: Array<IntArray>): Int {
 
-        val map = mutableMapOf<List<Int>,Int>()
-        var pairs=0
+    fun findComplement(num: Int): Int {
 
-        for (dominoe in dominoes){
-            val key=dominoe.sorted()
-            if (map.containsKey(key)){
-                pairs += map[key]!!
-                map[key] = map.getOrDefault(key,0)+1
+        val numBin= num.toString(2).toCharArray()
 
+        for (i in 0 until  numBin.size){
+            if(numBin[i]=='0'){
+                numBin[i]='1'
             }else{
-                map[key]= map.getOrDefault(key,0)+1
+                numBin[i]='0'
             }
-
-
         }
 
-        return pairs
-
+        return numBin.joinToString("").toInt(2)
     }
 
 

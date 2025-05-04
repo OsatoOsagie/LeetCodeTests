@@ -6,20 +6,19 @@ class LeetCodeSolvedTest {
 
 
     @Test
-    fun numEquivDominoPairs(){
+    fun findComplement(){
 //        given
-
-val dominoes = arrayOf(intArrayOf(1,2), intArrayOf(1,2), intArrayOf(1,1), intArrayOf(5,6))
+        val num =1
 
 //        when
-        val result:Int = LeetCodeSolved().numEquivDominoPairs(dominoes)
+        val result:Int =LeetCodeSolved().findComplement(num)
 
 //        then
-        val expectation = 1
+        val expectation =0
 
         assertEquals(expectation,result)
-    }
 
+    }
 
 }
 
