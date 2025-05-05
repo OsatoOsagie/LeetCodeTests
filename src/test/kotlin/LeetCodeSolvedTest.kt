@@ -6,15 +6,17 @@ class LeetCodeSolvedTest {
 
 
     @Test
-    fun findComplement(){
+    fun minimumSubarrayLength(){
 //        given
-        val num =1
+
+        val nums = intArrayOf(1,2,3)
+        val k=2
 
 //        when
-        val result:Int =LeetCodeSolved().findComplement(num)
+        val result:Int = LeetCodeSolved().minimumSubarrayLength(nums,k)
 
 //        then
-        val expectation =0
+        val expectation = 1
 
         assertEquals(expectation,result)
 

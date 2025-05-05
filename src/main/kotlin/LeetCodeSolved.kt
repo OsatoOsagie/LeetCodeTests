@@ -1,22 +1,38 @@
 import java.util.*
 import kotlin.collections.Set
+import kotlin.math.min
 
 class LeetCodeSolved {
+    fun minimumSubarrayLength(nums: IntArray, k: Int): Int {
+        var left =0
+        var ans= Int.MAX_VALUE
+        var xor=0
 
-    fun findComplement(num: Int): Int {
+        for (i in 0 until nums.size){
+            xor = xor xor nums[i]
 
-        val numBin= num.toString(2).toCharArray()
+            while (xor >=k){
+                ans= min(ans,i-left+1)
+                left++
+                xor= recomputeOr(nums,left,i)
 
-        for (i in 0 until  numBin.size){
-            if(numBin[i]=='0'){
-                numBin[i]='1'
-            }else{
-                numBin[i]='0'
             }
+
+
+
         }
 
-        return numBin.joinToString("").toInt(2)
+        return if (ans == Int.MAX_VALUE) -1 else ans
     }
+
+    fun recomputeOr(nums: IntArray, start: Int, end: Int): Int {
+        var orValue = 0
+        for (i in start..end) {
+            orValue = orValue xor nums[i]
+        }
+        return orValue
+    }
+
 
 
 }
