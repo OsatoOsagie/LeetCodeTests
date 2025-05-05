@@ -6,17 +6,16 @@ class LeetCodeSolvedTest {
 
 
     @Test
-    fun minimumSubarrayLength(){
+    fun largestSumAfterKNegations(){
 //        given
-
-        val nums = intArrayOf(1,2,3)
+        val nums= intArrayOf(2,-3,-1,5,-4)
         val k=2
 
 //        when
-        val result:Int = LeetCodeSolved().minimumSubarrayLength(nums,k)
+        val result:Int = LeetCodeSolved().largestSumAfterKNegations(nums, k)
 
 //        then
-        val expectation = 1
+        val expectation = 13
 
         assertEquals(expectation,result)
 

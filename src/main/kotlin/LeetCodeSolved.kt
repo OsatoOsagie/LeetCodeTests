@@ -3,36 +3,27 @@ import kotlin.collections.Set
 import kotlin.math.min
 
 class LeetCodeSolved {
-    fun minimumSubarrayLength(nums: IntArray, k: Int): Int {
-        var left =0
-        var ans= Int.MAX_VALUE
-        var xor=0
+    fun largestSumAfterKNegations(nums: IntArray, k: Int): Int {
 
-        for (i in 0 until nums.size){
-            xor = xor xor nums[i]
+        var ans = 0
 
-            while (xor >=k){
-                ans= min(ans,i-left+1)
-                left++
-                xor= recomputeOr(nums,left,i)
+        val pq= PriorityQueue<Int>()
 
-            }
-
-
-
+        nums.forEach {
+            pq.offer(it)
         }
 
-        return if (ans == Int.MAX_VALUE) -1 else ans
-    }
+        repeat(k){
+            val value = pq.poll()
+                pq.offer(-value)
 
-    fun recomputeOr(nums: IntArray, start: Int, end: Int): Int {
-        var orValue = 0
-        for (i in start..end) {
-            orValue = orValue xor nums[i]
         }
-        return orValue
-    }
+        for (i in 0 until pq.size){
+            ans += pq.poll()
 
+        }
+        return ans
+    }
 
 
 }
