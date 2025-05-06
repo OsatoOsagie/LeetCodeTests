@@ -6,19 +6,16 @@ class LeetCodeSolvedTest {
 
 
     @Test
-    fun largestSumAfterKNegations(){
+    fun sortEvenOdd(){
 //        given
-        val nums= intArrayOf(2,-3,-1,5,-4)
-        val k=2
-
+        val nums= intArrayOf(2,1)
 //        when
-        val result:Int = LeetCodeSolved().largestSumAfterKNegations(nums, k)
+        val result:IntArray = LeetCodeSolved().sortEvenOdd(nums)
 
 //        then
-        val expectation = 13
+        val expectation = intArrayOf(2,1)
 
-        assertEquals(expectation,result)
-
+        assertArrayEquals(expectation,result)
     }
 
 }
