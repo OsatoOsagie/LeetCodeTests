@@ -6,17 +6,19 @@ class LeetCodeSolvedTest {
 
 
     @Test
-    fun sortEvenOdd(){
+    fun buildArray(){
 //        given
-        val nums= intArrayOf(2,1)
+        val nums = intArrayOf(5,0,1,2,3,4)
+
 //        when
-        val result:IntArray = LeetCodeSolved().sortEvenOdd(nums)
+        val result:IntArray = LeetCodeSolved().buildArray(nums)
 
 //        then
-        val expectation = intArrayOf(2,1)
+        val expectation = intArrayOf(4,5,0,1,2,3)
 
         assertArrayEquals(expectation,result)
     }
+
 
 }
 
