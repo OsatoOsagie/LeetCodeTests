@@ -1,18 +1,21 @@
-import java.util.*
-import kotlin.collections.Set
-import kotlin.math.min
-
 class LeetCodeSolved {
+    fun minProcessingTime(processorTime: List<Int>, tasks: List<Int>): Int {
 
-    fun buildArray(nums: IntArray): IntArray {
-        val ans= IntArray(nums.size)
+        val sortedTasks = tasks.sortedDescending()
+        var ans= Int.MIN_VALUE
 
-        for (i in 0 until nums.size){
-            ans[i]= nums[nums[i]]
+        val processTimeSorted= processorTime.sorted()
+        var taskIndex = 0
+        for (time in processTimeSorted){
+
+            repeat(4){
+                ans= maxOf(ans, (sortedTasks[taskIndex] + time))
+                taskIndex++
+            }
+
         }
 
         return ans
-
     }
 
 

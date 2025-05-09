@@ -6,17 +6,18 @@ class LeetCodeSolvedTest {
 
 
     @Test
-    fun buildArray(){
+    fun minProcessingTime(){
 //        given
-        val nums = intArrayOf(5,0,1,2,3,4)
+        val processorTime = listOf(121,99)
+        val tasks = listOf(287,315,293,260,333,362,69,233)
 
 //        when
-        val result:IntArray = LeetCodeSolved().buildArray(nums)
+        val result:Int = LeetCodeSolved().minProcessingTime(processorTime,tasks)
 
 //        then
-        val expectation = intArrayOf(4,5,0,1,2,3)
+        val expectation= 461
 
-        assertArrayEquals(expectation,result)
+        assertEquals(expectation,result)
     }
 
 
