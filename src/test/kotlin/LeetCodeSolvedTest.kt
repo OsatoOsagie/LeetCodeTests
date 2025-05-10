@@ -6,16 +6,17 @@ class LeetCodeSolvedTest {
 
 
     @Test
-    fun minProcessingTime(){
+    fun minimumRecolors(){
 //        given
-        val processorTime = listOf(121,99)
-        val tasks = listOf(287,315,293,260,333,362,69,233)
+        val blocks= "WBWBBBW"
+        val k= 2
 
 //        when
-        val result:Int = LeetCodeSolved().minProcessingTime(processorTime,tasks)
+
+        val result:Int = LeetCodeSolved().minimumRecolors(blocks,k)
 
 //        then
-        val expectation= 461
+        val expectation = 0
 
         assertEquals(expectation,result)
     }
