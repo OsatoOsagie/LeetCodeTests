@@ -6,19 +6,19 @@ class LeetCodeSolvedTest {
 
 
     @Test
-    fun minimumRecolors(){
-//        given
-        val blocks= "WBWBBBW"
-        val k= 2
+    fun countDigits(){
+//        gven
+        val num =1248
 
 //        when
 
-        val result:Int = LeetCodeSolved().minimumRecolors(blocks,k)
+        val result:Int = LeetCodeSolved().countDigits(num)
 
 //        then
-        val expectation = 0
+        val expectation = 4
 
         assertEquals(expectation,result)
+
     }
 
 

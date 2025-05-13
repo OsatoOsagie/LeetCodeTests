@@ -1,35 +1,27 @@
+import jdk.jfr.Frequency
+
 class LeetCodeSolved {
 
+    fun countDigits(num: Int): Int {
 
-    fun minimumRecolors(blocks: String, k: Int): Int {
+        val listOfNums= mutableListOf<Int>()
+        var n= num
+        var ans=0
 
-        var left=0
-        var ans=Int.MAX_VALUE
-        var curr=0
-        var count=0
+        while (n > 0){
+            val x= n%10
+            n /=10
+            listOfNums.add(x)
+        }
 
-        for (i in 0 until blocks.length){
-            if (blocks[i] == 'W'){
-                count++
 
+        listOfNums.forEach{
+            if (num%it ==0){
+                ans++
             }
-                curr++
-
-
-            while (curr >= k){
-                ans= minOf(count,ans)
-                if (blocks[left]=='W'){
-                    count--
-                }
-                left++
-                curr--
-
-            }
-
         }
 
         return ans
-
 
     }
 
