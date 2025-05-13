@@ -2,27 +2,43 @@ import jdk.jfr.Frequency
 
 class LeetCodeSolved {
 
-    fun countDigits(num: Int): Int {
 
-        val listOfNums= mutableListOf<Int>()
-        var n= num
-        var ans=0
 
-        while (n > 0){
-            val x= n%10
-            n /=10
-            listOfNums.add(x)
+    fun findEvenNumbers(digits: IntArray): IntArray {
+        val validEntries= (100..999).filter { it %2==0 }
+        val mapOfDigits = mutableMapOf<Int,Int>().apply {
+            digits.forEach { this[it] = getOrDefault(it,0) +1 }
         }
+        val ans= mutableListOf<Int>()
 
-
-        listOfNums.forEach{
-            if (num%it ==0){
-                ans++
+        for (entry in validEntries){
+            if(checkEntry(entry,mapOfDigits.toMutableMap())){
+                ans.add(entry)
             }
         }
 
-        return ans
+        return ans.toIntArray()
 
+    }
+
+    private fun checkEntry( num:Int, map: MutableMap<Int,Int>): Boolean{
+
+        var n= num
+
+        while (n >0){
+
+            val key = n % 10
+            if (!map.containsKey(key) || map[key]!! <=0 ){
+                return false
+            }else{
+              if (map[key]!!>0){
+                 map[key]= map.getOrDefault(key,0) -1
+              }
+            }
+
+            n /= 10
+        }
+        return true
     }
 
 

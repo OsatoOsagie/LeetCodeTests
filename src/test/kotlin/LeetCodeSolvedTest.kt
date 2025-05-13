@@ -6,18 +6,19 @@ class LeetCodeSolvedTest {
 
 
     @Test
-    fun countDigits(){
-//        gven
-        val num =1248
+    fun findEvenNumbers(){
+//        given
+        val digits = intArrayOf(3,7,5)
 
 //        when
+       val result:IntArray = LeetCodeSolved().findEvenNumbers(digits)
 
-        val result:Int = LeetCodeSolved().countDigits(num)
 
 //        then
-        val expectation = 4
+        val expectation= intArrayOf()
 
-        assertEquals(expectation,result)
+        assertArrayEquals(expectation,result)
+
 
     }
 
