@@ -5,22 +5,20 @@ class LeetCodeSolvedTest {
 
 
     @Test
-    fun numOfSubarrays() {
-//       given
-        val arr= intArrayOf(11,13,17,23,29,31,7,5,2,3)
-        val k =3
-        val threshold=5
+    fun finalString(){
+//        given
+        val s= "string"
 
 //        when
-        val result:Int = LeetCodeSolved().numOfSubarrays(arr,k,threshold)
+        val result:String= LeetCodeSolved().finalString(s)
 
 //        then
-        val expectation = 6
 
-        assertEquals(expectation,result)
+        val expected= "rtsng"
 
-
+        assertEquals(expected,result)
     }
+
 
 
 }

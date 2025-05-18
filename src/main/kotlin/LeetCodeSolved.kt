@@ -3,24 +3,15 @@ import kotlin.math.abs
 
 class LeetCodeSolved {
 
-    fun numOfSubarrays(arr: IntArray, k: Int, threshold: Int): Int {
+    fun finalString(s: String): String {
 
-        var left=0
-        var ans=0
-        var curr=0
-        var count=0
+        var ans=""
 
-        for (i in 0 until arr.size){
-            curr += arr[i]
-            count++
-
-            while (count>=k){
-                if(curr/k >= threshold){
-                    ans++
-                }
-                curr-=arr[left]
-                left++
-                count--
+        for (c in s){
+            if (c=='i'){
+                ans= reverseString(ans)
+            }else{
+                ans +=c
             }
         }
 
@@ -29,7 +20,27 @@ class LeetCodeSolved {
 
     }
 
+    private fun reverseString(s:String):String{
 
+        val chars= s.toCharArray()
+        var right=chars.size-1
+        var left=0
+
+        while (left < right){
+            val temp= chars[right]
+            chars[right]= chars[left]
+            chars[left]= temp
+
+            left++
+            right--
+
+        }
+
+        return chars.joinToString("")
+
+
+
+    }
 
 
 }

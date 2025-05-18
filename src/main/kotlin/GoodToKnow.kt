@@ -171,6 +171,10 @@ class GoodToKnow {
         return ('a' + offset) // moves forward in the alphabet by offset steps and gives you the character at that new position.
     }
 
+    fun finalString(s: String): String = buildString {
+        for (c in s) if (c != 'i') append(c) else reverse()
+    }
+
 // String word = "5382";
 //    char ch = word.charAt(0); // '5'
 //    int num = ch - '0';       // '5' - '0' = 5
