@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
@@ -6,18 +5,19 @@ class LeetCodeSolvedTest {
 
 
     @Test
-    fun findEvenNumbers(){
-//        given
-        val digits = intArrayOf(3,7,5)
+    fun numOfSubarrays() {
+//       given
+        val arr= intArrayOf(11,13,17,23,29,31,7,5,2,3)
+        val k =3
+        val threshold=5
 
 //        when
-       val result:IntArray = LeetCodeSolved().findEvenNumbers(digits)
-
+        val result:Int = LeetCodeSolved().numOfSubarrays(arr,k,threshold)
 
 //        then
-        val expectation= intArrayOf()
+        val expectation = 6
 
-        assertArrayEquals(expectation,result)
+        assertEquals(expectation,result)
 
 
     }

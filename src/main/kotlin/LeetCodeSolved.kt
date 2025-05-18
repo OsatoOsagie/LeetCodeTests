@@ -1,45 +1,35 @@
 import jdk.jfr.Frequency
+import kotlin.math.abs
 
 class LeetCodeSolved {
 
+    fun numOfSubarrays(arr: IntArray, k: Int, threshold: Int): Int {
 
+        var left=0
+        var ans=0
+        var curr=0
+        var count=0
 
-    fun findEvenNumbers(digits: IntArray): IntArray {
-        val validEntries= (100..999).filter { it %2==0 }
-        val mapOfDigits = mutableMapOf<Int,Int>().apply {
-            digits.forEach { this[it] = getOrDefault(it,0) +1 }
-        }
-        val ans= mutableListOf<Int>()
+        for (i in 0 until arr.size){
+            curr += arr[i]
+            count++
 
-        for (entry in validEntries){
-            if(checkEntry(entry,mapOfDigits.toMutableMap())){
-                ans.add(entry)
+            while (count>=k){
+                if(curr/k >= threshold){
+                    ans++
+                }
+                curr-=arr[left]
+                left++
+                count--
             }
         }
 
-        return ans.toIntArray()
+        return ans
+
 
     }
 
-    private fun checkEntry( num:Int, map: MutableMap<Int,Int>): Boolean{
 
-        var n= num
-
-        while (n >0){
-
-            val key = n % 10
-            if (!map.containsKey(key) || map[key]!! <=0 ){
-                return false
-            }else{
-              if (map[key]!!>0){
-                 map[key]= map.getOrDefault(key,0) -1
-              }
-            }
-
-            n /= 10
-        }
-        return true
-    }
 
 
 }
