@@ -2,32 +2,30 @@ import jdk.jfr.Frequency
 import kotlin.math.abs
 
 class LeetCodeSolved {
-    fun checkDistances(s: String, distance: IntArray): Boolean {
+
+    fun makeSmallestPalindrome(s: String): String {
+
+        val sChar= s.toCharArray()
+        var left=0
+        var right= sChar.size-1
+
+       while (left < right){
+           val c1 = sChar[left]
+           val c2 = sChar[right]
+           if (c1 < c2){
+                   sChar[right]= sChar[left]
+
+               }else{
+                   sChar[left]=sChar[right]
+               }
 
 
-        val distanceMap = mutableMapOf<Char, Int>().apply {
+           left++
+           right--
+       }
+        return String(sChar)
 
-            s.withIndex().forEach() {
-
-                    val ans=(it.index-this.getOrDefault(it.value,0))-1
-                    this[it.value] = ans }
-
-        }
-
-        val sSet= s.toSet()
-
-        println(distanceMap)
-
-        sSet.forEach{
-            if (distanceMap[it]!=distance[it-'a']){
-                return false
-            }
-        }
-
-        return true
     }
-
-
 
 
 }

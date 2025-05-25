@@ -3,20 +3,18 @@ import kotlin.test.assertEquals
 
 class LeetCodeSolvedTest {
 
-
     @Test
-    fun checkDistances(){
+    fun makeSmallestPalindrome(){
 //        given
-        val s= "abaccb"
-        val distance = intArrayOf(1,3,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
-//        when
+        val s= "seven"
 
-        val result: Boolean = LeetCodeSolved().checkDistances(s,distance)
+//        when
+        val result:String= LeetCodeSolved().makeSmallestPalindrome(s)
 
 //        then
-        val expectation = true
+        val expectation= "neven"
 
-        assertEquals(expectation, result)
+        assertEquals(expectation,result)
 
     }
 

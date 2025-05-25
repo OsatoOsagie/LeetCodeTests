@@ -179,4 +179,6 @@ class GoodToKnow {
 //    char ch = word.charAt(0); // '5'
 //    int num = ch - '0';       // '5' - '0' = 5
 //    System.out.println(num);  // prints 5
+
+//    String(sChar) - converts a char array to a string
 }
