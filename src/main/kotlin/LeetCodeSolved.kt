@@ -2,29 +2,35 @@ import jdk.jfr.Frequency
 import kotlin.math.abs
 
 class LeetCodeSolved {
+    fun unequalTriplets(nums: IntArray): Int {
 
-    fun makeSmallestPalindrome(s: String): String {
+        var count=0
 
-        val sChar= s.toCharArray()
-        var left=0
-        var right= sChar.size-1
+        for (i in 0 until nums.size - 2) {
+            var j = i + 1
+            var k = j + 1
+            while (j < nums.size - 1) {
+                while (k < nums.size) {
+                   if (isPairwiseDistict(nums[i],nums[j],nums[k])){
+                      count++
+                   }
+                    k++
+                }
+                j++
+                k = j + 1
+            }
+        }
 
-       while (left < right){
-           val c1 = sChar[left]
-           val c2 = sChar[right]
-           if (c1 < c2){
-                   sChar[right]= sChar[left]
+        return count
 
-               }else{
-                   sChar[left]=sChar[right]
-               }
+    }
 
+    private fun isPairwiseDistict(a:Int, b:Int, c:Int): Boolean{
 
-           left++
-           right--
-       }
-        return String(sChar)
-
+        if (a !=b && a!=c && b!=c){
+            return true
+        }
+        return false
     }
 
 

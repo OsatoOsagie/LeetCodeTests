@@ -4,15 +4,16 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
     @Test
-    fun makeSmallestPalindrome(){
+    fun unequalTriplets(){
+
 //        given
-        val s= "seven"
+        val nums= intArrayOf(4,4,2,4,3)
 
 //        when
-        val result:String= LeetCodeSolved().makeSmallestPalindrome(s)
+        val result: Int = LeetCodeSolved().unequalTriplets(nums)
 
 //        then
-        val expectation= "neven"
+        val expectation= 3
 
         assertEquals(expectation,result)
 
