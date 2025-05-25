@@ -5,18 +5,19 @@ class LeetCodeSolvedTest {
 
 
     @Test
-    fun finalString(){
+    fun checkDistances(){
 //        given
-        val s= "string"
-
+        val s= "abaccb"
+        val distance = intArrayOf(1,3,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
 //        when
-        val result:String= LeetCodeSolved().finalString(s)
+
+        val result: Boolean = LeetCodeSolved().checkDistances(s,distance)
 
 //        then
+        val expectation = true
 
-        val expected= "rtsng"
+        assertEquals(expectation, result)
 
-        assertEquals(expected,result)
     }
 
 

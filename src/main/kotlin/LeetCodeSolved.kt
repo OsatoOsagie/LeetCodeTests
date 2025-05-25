@@ -2,45 +2,32 @@ import jdk.jfr.Frequency
 import kotlin.math.abs
 
 class LeetCodeSolved {
+    fun checkDistances(s: String, distance: IntArray): Boolean {
 
-    fun finalString(s: String): String {
 
-        var ans=""
+        val distanceMap = mutableMapOf<Char, Int>().apply {
 
-        for (c in s){
-            if (c=='i'){
-                ans= reverseString(ans)
-            }else{
-                ans +=c
+            s.withIndex().forEach() {
+
+                    val ans=(it.index-this.getOrDefault(it.value,0))-1
+                    this[it.value] = ans }
+
+        }
+
+        val sSet= s.toSet()
+
+        println(distanceMap)
+
+        sSet.forEach{
+            if (distanceMap[it]!=distance[it-'a']){
+                return false
             }
         }
 
-        return ans
-
-
+        return true
     }
 
-    private fun reverseString(s:String):String{
 
-        val chars= s.toCharArray()
-        var right=chars.size-1
-        var left=0
-
-        while (left < right){
-            val temp= chars[right]
-            chars[right]= chars[left]
-            chars[left]= temp
-
-            left++
-            right--
-
-        }
-
-        return chars.joinToString("")
-
-
-
-    }
 
 
 }
