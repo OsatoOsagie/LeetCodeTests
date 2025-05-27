@@ -4,16 +4,16 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
     @Test
-    fun unequalTriplets(){
-
-//        given
-        val nums= intArrayOf(4,4,2,4,3)
+    fun maxLengthBetweenEqualCharacters(){
+//       given
+        val s="mgntdygtxrvxjnwksqhxuxtrv"
 
 //        when
-        val result: Int = LeetCodeSolved().unequalTriplets(nums)
+        val result:Int = LeetCodeSolved().maxLengthBetweenEqualCharacters(s)
 
 //        then
-        val expectation= 3
+
+        val expectation = 18
 
         assertEquals(expectation,result)
 
