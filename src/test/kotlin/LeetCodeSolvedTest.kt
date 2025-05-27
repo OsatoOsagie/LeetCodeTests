@@ -1,27 +1,28 @@
+import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
 class LeetCodeSolvedTest {
 
     @Test
-    fun checkTwoChessboards(){
-//       given
+    fun twoSum(){
+//        given
+        val nums= intArrayOf(3,2,4)
+        val target = 6
 
-        val coordinate1 = "a1"
-        val coordinate2 = "h3"
 
 //        when
+        val result: IntArray = LeetCodeSolved().twoSum(nums,target)
 
-        val result: Boolean = LeetCodeSolved().checkTwoChessboards(coordinate1,coordinate2)
+    //        then
+        val expectation = intArrayOf(1,2)
 
-//        then
-        val expectation = false
-
-        assertEquals(expectation,result)
-
-
+     assertArrayEquals(expectation,result)
 
     }
+
+
+
 
 
 

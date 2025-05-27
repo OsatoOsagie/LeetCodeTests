@@ -2,19 +2,24 @@ import jdk.jfr.Frequency
 import kotlin.math.abs
 
 class LeetCodeSolved {
-    fun checkTwoChessboards(coordinate1: String, coordinate2: String): Boolean {
+    fun twoSum(nums: IntArray, target: Int): IntArray {
 
+        val ans= IntArray(2)
+        for (i in 0 until nums.size-1){
 
-        return checkColour(coordinate1) == checkColour(coordinate2)
+            var right=i+1
 
-    }
+            while (right < nums.size){
 
-    private fun checkColour(s:String) : String{
-
-        val x= s[0] -'a'
-        val y =s[1] - '0'-1
-
-        return if ((x+y) %2==0) "black" else "white"
+                if (nums[i] + nums[right]==target){
+                    ans[0]=i
+                    ans[1]=right
+                break
+                }
+                right++
+            }
+        }
+        return ans
     }
 
 
