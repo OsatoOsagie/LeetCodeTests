@@ -4,18 +4,22 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
     @Test
-    fun maxLengthBetweenEqualCharacters(){
+    fun checkTwoChessboards(){
 //       given
-        val s="mgntdygtxrvxjnwksqhxuxtrv"
+
+        val coordinate1 = "a1"
+        val coordinate2 = "h3"
 
 //        when
-        val result:Int = LeetCodeSolved().maxLengthBetweenEqualCharacters(s)
+
+        val result: Boolean = LeetCodeSolved().checkTwoChessboards(coordinate1,coordinate2)
 
 //        then
-
-        val expectation = 18
+        val expectation = false
 
         assertEquals(expectation,result)
+
+
 
     }
 
