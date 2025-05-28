@@ -5,18 +5,20 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
     @Test
-    fun frequencySort(){
+    fun moveZeroes(){
 //        given
-        val s = "tree"
+
+        val nums = intArrayOf(0)
 
 //        when
-        val result:String = LeetCodeSolved().frequencySort(s)
+        LeetCodeSolved().moveZeros(nums)
 
 
 //        then
-        val expectation = "eert"
+        val expectation = intArrayOf(0)
 
-        assertEquals(expectation,result)
+        assertArrayEquals(expectation,nums)
+
 
     }
 

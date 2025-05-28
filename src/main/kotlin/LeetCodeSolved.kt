@@ -3,24 +3,25 @@ import java.util.PriorityQueue
 import kotlin.math.abs
 
 class LeetCodeSolved {
+    fun moveZeroes(nums: IntArray):Unit {
 
-    fun frequencySort(s: String): String {
+        val num=IntArray(nums.size)
 
-        val map=s.groupingBy { it }.eachCount()
-        val sb=StringBuilder()
+        val lst= nums.filter { it!=0 }
 
-        val ans= map.entries.sortedWith(compareByDescending{it.value})
-
-        for (i in ans){
-
-            repeat(i.value){
-                sb.append(i.key)
-            }
+        var x=0
+        for (i in 0 until lst.size){
+            num[x] = lst[i]
+            x++
         }
 
-        return sb.toString()
 
-//        return String(s.toCharArray().sortedWith(compareBy { it }).toCharArray())
+        for (i in 0 until nums.size){
+            nums[i] = num[i]
+        }
+
+
+
 
     }
 
