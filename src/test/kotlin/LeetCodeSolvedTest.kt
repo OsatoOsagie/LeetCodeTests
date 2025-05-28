@@ -5,17 +5,18 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
     @Test
-    fun firstUnique(){
+    fun lengthOfLongestSubstring(){
 //        given
-        val s= "leetcode"
+        val s= "au"
 
 //        when
-        val result: Int = LeetCodeSolved().firstUnique(s)
+        val result:Int = LeetCodeSolved().lengthOfLongestSubstring(s)
 
 //        then
-        val expectation = 0
+        val expectation= 2
 
         assertEquals(expectation,result)
+
     }
 
 
