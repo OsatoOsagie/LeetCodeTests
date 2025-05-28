@@ -175,10 +175,26 @@ class GoodToKnow {
         for (c in s) if (c != 'i') append(c) else reverse()
     }
 
+
+//CHARS
 // String word = "5382";
 //    char ch = word.charAt(0); // '5'
 //    int num = ch - '0';       // '5' - '0' = 5
 //    System.out.println(num);  // prints 5
 
 //    String(sChar) - converts a char array to a string
+
+
+//    MAPS
+    //    val kWords= worMap.entries.sortedWith(compareBy({ it.value }, { it.key })).toMutableList()
+
+fun topKFrequent(words: Array<String>, k: Int): List<String> {
+    val freqMap = words.groupingBy { it }.eachCount()
+
+    return freqMap.entries
+        .sortedWith(compareByDescending<Map.Entry<String, Int>> { it.value }
+            .thenBy { it.key })  // break ties with lex order
+        .take(k)
+        .map { it.key }
+}
 }

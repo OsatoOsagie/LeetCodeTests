@@ -1,26 +1,28 @@
 import jdk.jfr.Frequency
+import java.util.PriorityQueue
 import kotlin.math.abs
 
 class LeetCodeSolved {
-    fun merge(nums1: IntArray, m: Int, nums2: IntArray, n: Int): Unit {
 
-        var right=0
-        for (i in nums1.indices){
-            if (nums1[i]==0 && right < n){
-                nums1[i]= nums2[right]
-                right++
+    fun frequencySort(s: String): String {
+
+        val map=s.groupingBy { it }.eachCount()
+        val sb=StringBuilder()
+
+        val ans= map.entries.sortedWith(compareByDescending{it.value})
+
+        for (i in ans){
+
+            repeat(i.value){
+                sb.append(i.key)
             }
         }
-        nums1.sort()
 
+        return sb.toString()
 
+//        return String(s.toCharArray().sortedWith(compareBy { it }).toCharArray())
 
-        return
     }
-
-
-
-
 
 
 }
