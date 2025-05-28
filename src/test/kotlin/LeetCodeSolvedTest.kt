@@ -5,19 +5,20 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
     @Test
-    fun isAnagram(){
+    fun merge(){
 //        given
-        val s= "a"
-        val t= "ab"
+        val nums1= intArrayOf(-1,0,0,3,3,3,0,0,0)
+        val nums2= intArrayOf(1,2,2)
+        val n = 3
+        val m=6
 
 //        when
-        val result:Boolean = LeetCodeSolved().isAnagram(s,t)
+        val result = LeetCodeSolved().merge(nums1,m,nums2,n)
 
 //        then
-        val expectation = false
+        val expectation= intArrayOf(1,2,2,3,5,6)
 
-        assertEquals(expectation,result)
-
+        assertArrayEquals(expectation,nums1)
     }
 
 

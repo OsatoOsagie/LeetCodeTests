@@ -2,30 +2,25 @@ import jdk.jfr.Frequency
 import kotlin.math.abs
 
 class LeetCodeSolved {
-    fun isAnagram(s: String, t: String): Boolean {
+    fun merge(nums1: IntArray, m: Int, nums2: IntArray, n: Int): Unit {
 
-       val map= mutableMapOf<Char, Int>().apply {
-           s.forEach {
-               this[it] = getOrDefault(it,0)+1
-           }
-       }
-
-        for (c in t){
-            if (map.containsKey(c)){
-                val curr= map[c]
-                map[c] = curr!!-1
-
-                if (map[c]==0){
-                    map.remove(c)
-                }
-
-            }else{
-                return false
+        var right=0
+        for (i in nums1.indices){
+            if (nums1[i]==0 && right < n){
+                nums1[i]= nums2[right]
+                right++
             }
         }
+        nums1.sort()
 
-        return map.isEmpty()
+
+
+        return
     }
+
+
+
+
 
 
 }
