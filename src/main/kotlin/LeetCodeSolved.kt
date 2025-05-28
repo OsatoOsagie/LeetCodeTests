@@ -2,32 +2,29 @@ import jdk.jfr.Frequency
 import kotlin.math.abs
 
 class LeetCodeSolved {
-    fun lengthOfLongestSubstring(s: String): Int {
+    fun isAnagram(s: String, t: String): Boolean {
 
-        if (s.length==1){
-            return 1
-        }
+       val map= mutableMapOf<Char, Int>().apply {
+           s.forEach {
+               this[it] = getOrDefault(it,0)+1
+           }
+       }
 
-        var ans= 0
-        val curr= mutableListOf<Char>()
-        var left=0
+        for (c in t){
+            if (map.containsKey(c)){
+                val curr= map[c]
+                map[c] = curr!!-1
 
-        for (i in 0 until s.length){
-            if (!curr.contains(s[i])){
-                curr.add(s[i])
+                if (map[c]==0){
+                    map.remove(c)
+                }
 
             }else{
-                while (curr.contains(s[i])){
-
-                    curr.removeFirst()
-
-                }
-                curr.add(s[i])
+                return false
             }
-            ans = maxOf(curr.size,ans)
-
         }
-        return  ans
+
+        return map.isEmpty()
     }
 
 

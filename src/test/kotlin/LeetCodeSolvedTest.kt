@@ -5,15 +5,16 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
     @Test
-    fun lengthOfLongestSubstring(){
+    fun isAnagram(){
 //        given
-        val s= "au"
+        val s= "a"
+        val t= "ab"
 
 //        when
-        val result:Int = LeetCodeSolved().lengthOfLongestSubstring(s)
+        val result:Boolean = LeetCodeSolved().isAnagram(s,t)
 
 //        then
-        val expectation= 2
+        val expectation = false
 
         assertEquals(expectation,result)
 
