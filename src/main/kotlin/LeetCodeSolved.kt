@@ -2,24 +2,25 @@ import jdk.jfr.Frequency
 import kotlin.math.abs
 
 class LeetCodeSolved {
-    fun twoSum(nums: IntArray, target: Int): IntArray {
 
-        val ans= IntArray(2)
-        for (i in 0 until nums.size-1){
+    fun firstUnique(s: String): Int {
+        var min= Int.MAX_VALUE
 
-            var right=i+1
+       val map= mutableMapOf<Char,Int>().apply {
+           s.forEach {
+               this[it]=this.getOrDefault(it,0)+1
+           }
+       }
 
-            while (right < nums.size){
+        val valid= map.filter { it.value < 2 }
 
-                if (nums[i] + nums[right]==target){
-                    ans[0]=i
-                    ans[1]=right
-                break
-                }
-                right++
-            }
+        for (i in valid){
+           min= minOf( s.indexOfFirst { it==i.key },min)
         }
-        return ans
+
+
+
+        return if(min < Int.MAX_VALUE) min else -1
     }
 
 

@@ -5,20 +5,17 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
     @Test
-    fun twoSum(){
+    fun firstUnique(){
 //        given
-        val nums= intArrayOf(3,2,4)
-        val target = 6
-
+        val s= "leetcode"
 
 //        when
-        val result: IntArray = LeetCodeSolved().twoSum(nums,target)
+        val result: Int = LeetCodeSolved().firstUnique(s)
 
-    //        then
-        val expectation = intArrayOf(1,2)
+//        then
+        val expectation = 0
 
-     assertArrayEquals(expectation,result)
-
+        assertEquals(expectation,result)
     }
 
 
