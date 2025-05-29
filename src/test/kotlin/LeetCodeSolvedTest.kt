@@ -5,17 +5,17 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
     @Test
-    fun reverse(){
+    fun compress(){
 //        given
 
-        val x =1534236469
+        val chars = charArrayOf('a')
 
 //        when
-        val result:Int = LeetCodeSolved().reverse(x)
+        val result:Int = LeetCodeSolved().compress(chars)
 
 
 //        then
-        val expectation = 0
+        val expectation = 1
 
         assertEquals(expectation,result)
 
