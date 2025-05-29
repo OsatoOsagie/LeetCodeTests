@@ -198,3 +198,19 @@ fun topKFrequent(words: Array<String>, k: Int): List<String> {
         .map { it.key }
 }
 }
+
+
+//BINARY
+//val binary = 42.toString(2)  // "101010"
+fun addBinary(a: String, b: String): String {
+    return (a.toInt(2) + b.toInt(2)).toString(2)
+}
+
+//fun addBinary(a: String, b: String): String {
+//    val sum = BigInteger(a, 2) + BigInteger(b, 2)
+//    return sum.toString(2)
+//}
+
+//"1011".toInt(2)    // returns 11 Binary
+//"1A".toInt(16)     // returns 26. Hex
+//"42".toInt(10)     // returns 42 Decimal

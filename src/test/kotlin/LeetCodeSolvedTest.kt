@@ -5,19 +5,19 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
     @Test
-    fun moveZeroes(){
+    fun reverse(){
 //        given
 
-        val nums = intArrayOf(0)
+        val x =1534236469
 
 //        when
-        LeetCodeSolved().moveZeros(nums)
+        val result:Int = LeetCodeSolved().reverse(x)
 
 
 //        then
-        val expectation = intArrayOf(0)
+        val expectation = 0
 
-        assertArrayEquals(expectation,nums)
+        assertEquals(expectation,result)
 
 
     }

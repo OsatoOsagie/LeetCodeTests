@@ -1,28 +1,32 @@
 import jdk.jfr.Frequency
 import java.util.PriorityQueue
 import kotlin.math.abs
+import kotlin.math.absoluteValue
+import kotlin.math.sign
 
 class LeetCodeSolved {
-    fun moveZeroes(nums: IntArray):Unit {
 
-        val num=IntArray(nums.size)
+    fun reverse(x: Int): Int {
 
-        val lst= nums.filter { it!=0 }
+        var n=x
+        var ans=0L
+        val sb=StringBuilder()
+        if(n.sign==-1){
+            sb.append('-')
 
-        var x=0
-        for (i in 0 until lst.size){
-            num[x] = lst[i]
-            x++
+        }
+        while (n!=0){
+
+           ans = (ans* 10)+(n%10)
+               if (ans > Int.MAX_VALUE || ans < Int.MIN_VALUE)  return 0
+
+            n/=10
         }
 
 
-        for (i in 0 until nums.size){
-            nums[i] = num[i]
-        }
 
 
-
-
+        return  ans.toInt()
     }
 
 
