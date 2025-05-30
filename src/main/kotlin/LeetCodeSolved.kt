@@ -5,59 +5,36 @@ import kotlin.math.absoluteValue
 import kotlin.math.sign
 
 class LeetCodeSolved {
-    fun compress(chars: CharArray): Int {
-        val s= StringBuilder()
+    fun isValid(s: String): Boolean {
 
-        val charsFreq= mutableMapOf<Char,Int>().apply {
-            chars.forEach {
-                this[it] = getOrDefault(it,0)+1
+        val closerMap= mutableMapOf<Char,Char>()
+
+        closerMap[')'] = '('
+        closerMap['}'] = '{'
+        closerMap[']'] = '['
+
+
+        val stack= ArrayDeque<Char>()
+
+        for (c in s){
+
+            if (!closerMap.contains(c)){
+                stack.addLast(c)
+            }else{
+                if (stack.isNotEmpty()){
+                    val lst=stack.removeLast()
+                    if (closerMap[c] !=lst){
+                        return false
+                    }
+
+                }else{
+                    return false
+                }
             }
+
         }
 
-
-
-         chars.toSet().forEach {
-             val freq = charsFreq[it]
-             if (freq ==1){
-                 s.append(it)
-             }else if(freq!! in 2..9){
-                 s.append(it)
-                 s.append(freq)
-             }else{
-                 s.append(it)
-                 val digits= spiltFrq(freq)
-
-                 digits.forEach{ f ->
-                     s.append(f)
-                 }
-
-
-             }
-         }
-
-        val charsNew = s.toString()
-
-       for ( i in 0 until  charsNew.length){
-           chars[i]= charsNew[i]
-       }
-
-
-
-
-        return s.length
-
-    }
-
-    private fun spiltFrq(x:Int): List<Int>{
-
-        var n=x
-        val ans= ArrayDeque<Int>()
-        while (n !=0){
-            ans.addFirst(n%10)
-            n/=10
-        }
-
-        return ans
+        return stack.isEmpty()
     }
 
 

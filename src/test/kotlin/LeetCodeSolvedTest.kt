@@ -5,17 +5,17 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
     @Test
-    fun compress(){
+    fun isValid(){
 //        given
 
-        val chars = charArrayOf('a')
+        val s = "]"
 
 //        when
-        val result:Int = LeetCodeSolved().compress(chars)
+        val result:Boolean = LeetCodeSolved().isValid(s)
 
 
 //        then
-        val expectation = 1
+        val expectation = false
 
         assertEquals(expectation,result)
 
