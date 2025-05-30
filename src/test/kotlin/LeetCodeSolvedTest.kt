@@ -5,21 +5,25 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
     @Test
-    fun isValid(){
+    fun next(){
 //        given
-
-        val s = "]"
+        val size= 3
+        val obj= LeetCodeSolved.MovingAverage(size)
 
 //        when
-        val result:Boolean = LeetCodeSolved().isValid(s)
+        obj.next(1)
+        obj.next(10)
+        obj.next(3)
+        val result:Double=obj.next(5)
+
+
 
 
 //        then
-        val expectation = false
+
+        val expectation = 6.0
 
         assertEquals(expectation,result)
-
-
     }
 
 
