@@ -5,26 +5,22 @@ import kotlin.test.assertEquals
 class LeetCodeSolvedTest {
 
     @Test
-    fun next(){
+    fun maxSlidingWindow(){
 //        given
-        val size= 3
-        val obj= LeetCodeSolved.MovingAverage(size)
+        val nums = intArrayOf(1)
+        val k = 1
 
 //        when
-        obj.next(1)
-        obj.next(10)
-        obj.next(3)
-        val result:Double=obj.next(5)
-
-
-
+        val result:IntArray = LeetCodeSolved().maxSlidingWindow(nums, k)
 
 //        then
 
-        val expectation = 6.0
+        val expectation = intArrayOf(1)
 
-        assertEquals(expectation,result)
+        assertArrayEquals(expectation,result)
+
     }
+
 
 
 

@@ -5,26 +5,33 @@ import kotlin.math.absoluteValue
 import kotlin.math.sign
 
 class LeetCodeSolved {
-    class MovingAverage(size: Int) {
+    fun maxSlidingWindow(nums: IntArray, k: Int): IntArray {
+        val deque = ArrayDeque<Int>() // store indices
+        val ans = mutableListOf<Int>()
 
-        private val lst = ArrayDeque<Int>(size)
-        private val n=size
-
-        fun next(`val`:Int): Double{
-            if (lst.size < n){
-                lst.add(`val`)
-            }else{
-                lst.removeFirst()
-                lst.add(`val`)
+        for (i in nums.indices) {
+            // Remove out-of-window indices
+            if (deque.isNotEmpty() && deque.first() <= i - k) {
+                deque.removeFirst()
             }
 
+            // Remove all smaller elements from the end
+            while (deque.isNotEmpty() && nums[deque.last()] < nums[i]) {
+                deque.removeLast()
+            }
 
+            // Add current index
+            deque.addLast(i)
 
-           return lst.sum().toDouble()/lst.size
-
-
+            // Start adding results once we fill the first window
+            if (i >= k - 1) {
+                ans.add(nums[deque.first()]) // Max in current window
+            }
         }
+
+        return ans.toIntArray()
     }
+
 
 
 }

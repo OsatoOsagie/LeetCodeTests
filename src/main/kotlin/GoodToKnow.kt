@@ -180,6 +180,7 @@ class GoodToKnow {
 // String word = "5382";
 //    char ch = word.charAt(0); // '5'
 //    int num = ch - '0';       // '5' - '0' = 5
+//    (digit + '0'.code).toChar()
 //    System.out.println(num);  // prints 5
 
 //    String(sChar) - converts a char array to a string
