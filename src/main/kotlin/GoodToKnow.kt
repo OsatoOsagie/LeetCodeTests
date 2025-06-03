@@ -215,3 +215,7 @@ fun addBinary(a: String, b: String): String {
 //"1011".toInt(2)    // returns 11 Binary
 //"1A".toInt(16)     // returns 26. Hex
 //"42".toInt(10)     // returns 42 Decimal
+
+
+//Array
+//assertTrue(expectation.contentDeepEquals(result), "The nested arrays are not equal.")

@@ -5,33 +5,26 @@ import kotlin.math.absoluteValue
 import kotlin.math.sign
 
 class LeetCodeSolved {
-    fun maxSlidingWindow(nums: IntArray, k: Int): IntArray {
-        val deque = ArrayDeque<Int>() // store indices
-        val ans = mutableListOf<Int>()
+    fun merge(intervals: Array<IntArray>): Array<IntArray> {
 
-        for (i in nums.indices) {
-            // Remove out-of-window indices
-            if (deque.isNotEmpty() && deque.first() <= i - k) {
-                deque.removeFirst()
-            }
+        val sorted= intervals.sortedBy{it[0]}
 
-            // Remove all smaller elements from the end
-            while (deque.isNotEmpty() && nums[deque.last()] < nums[i]) {
-                deque.removeLast()
-            }
+        val ans= mutableListOf<IntArray>()
 
-            // Add current index
-            deque.addLast(i)
+        for (s in sorted){
+            val startTime = s[0]
+            val endTime= s[1]
+            if (ans.isNotEmpty() && startTime <= ans.last()[1]){
 
-            // Start adding results once we fill the first window
-            if (i >= k - 1) {
-                ans.add(nums[deque.first()]) // Max in current window
+                ans.last()[1]= maxOf(endTime, ans.last()[1])
+
+            }else{
+                ans.add(s)
             }
         }
 
-        return ans.toIntArray()
+        return ans.toTypedArray()
     }
-
 
 
 }
